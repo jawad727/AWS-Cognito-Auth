@@ -1,0 +1,9 @@
+{
+	"auth": {
+		"cognitopractice8534a195": {
+			"service": "Cognito",
+			"providerPlugin": "awscloudformation",
+			"dependsOn": []
+		}
+	}
+}
