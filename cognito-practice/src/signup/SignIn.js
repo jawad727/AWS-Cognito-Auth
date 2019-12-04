@@ -1,72 +1,86 @@
 import React, { Component } from 'react';
-import {Auth} from "aws-amplify";
+import { Auth } from 'aws-amplify';
 
 class SignIn extends Component {
     constructor(props) {
         super(props);
-
+  
         this.state = {
-            username: "",
-            password: "",
-            signedIn: false,
-        }
-        this.handleChange = this.handleChange.bind(this)
-        this.handleSubmit = this.handleSubmit.bind(this)
-    }
-
-    handleSubmit(e) {
-        e.preventDefault();
-        const { signedIn, username, password} = this.state;
-
-        if (!signedIn) {
-            Auth.signIn({
-                username: username,
-                password: password
-            })
-            .then(() => console.log("signed in"))
-            .catch((err) => console.log(err))
-
-            Auth.confirmSignIn(username)
-            .then(() => console.log("confirmed sign up"))
-            .catch((err) => console.log(err))
-
-            this.setState({
-                signedIn: true
-            })
-
-        }
-        
-    }
-
-    handleChange(e) {
-        this.setState({
-            [e.target.name]: e.target.value
-        })
-    }
-    
-
-    render () {
-        const { signedIn } = this.state;
-
-        if (signedIn) {
-            return (
-                <h1>You have signed in!</h1>
-            )
-        } else {
-            return (
-                <form onSubmit={this.handleSubmit}>
-                    <label>UserName</label>
-                    <input type="text" name="username" onChange={ this.handleChange } />
-                    <label>Password</label>
-                    <input type="text" name="password" onChange={ this.handleChange } />
-                    <button>Sign In</button>
-                </form>
-              );
-        }
-
-        
+            user: '',
+            password: '',
+            signedIn: false
+        };
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.signIn = this.signIn.bind(this);
+        this.confirmSignIn = this.confirmSignIn.bind(this);
     }
   
+    signIn(e) {
+        e.preventDefault();
+        const { username, password } = this.state;  
+        Auth.signIn({
+            username: username,
+            password: password
+        })
+        .then(() => console.log('successfully signed in'))
+        .catch((err) => console.log(`Error signing in: ${ err }`))
+    }
+  
+    confirmSignIn() {
+        const { username } = this.state;
+        Auth.confirmSignIn(username)
+        .then(() => console.log('successfully confirmed signed in'))
+        .catch((err) => console.log(`Error confirming sign up - ${ err }`))
+    }
+  
+    handleSubmit(e) {
+        e.preventDefault();
+
+        this.signIn();
+        this.confirmSignIn()
+        this.setState({
+            username: '',
+            password: '',
+            signedIn: true
+        });
+        e.target.reset();
+    }
+  
+    handleChange(e) {
+        if (e.target.id === 'username') {
+          this.setState({
+              username: e.target.value
+          });
+        } else if (e.target.id === 'password') {
+          this.setState({
+              password: e.target.value
+          });
+        }
+    }
+  
+    render() {
+      const { signedIn } = this.state;
+      if (signedIn) {
+          return (
+              <div>
+                  <h1>You have signed in!</h1>
+              </div>
+          );
+      } else {
+        return (
+          <div>
+            <form onSubmit={ this.signIn }>
+                <label>Username</label>
+                <input id='username' type='text' onChange={ this.handleChange }/>
+                <label>Password</label>
+                <input id='password' type='password' onChange={ this.handleChange }/>
+                <button>Sign In</button>
+            </form>
+          </div>
+        );
+      }
+    }
 }
 
 export default SignIn

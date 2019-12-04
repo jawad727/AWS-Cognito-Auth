@@ -6,38 +6,34 @@ import aws_exports from './aws-exports'
 import { withAuthenticator } from "aws-amplify-react";
 import SignUp from "./signup/SignUp"
 import SignIn from "./signup/SignIn"
+import { Route, Switch } from "react-router-dom"
 Amplify.configure(aws_exports)
 
 class App extends Component {
   constructor(props) {
-    super(props);
+      super(props);
+      this.state = {
+          signedUp : false
+      }
+      this.handleSignup = this.handleSignup.bind(this);
+  }
 
-    this.state = {
-      userSignedUp: false
-    }
-
-    this.handleToggle = this.handleToggle.bind(this)
+  handleSignup() {
+      this.setState({
+          signedUp: true
+      });
+  }
+  render() {
+      const { signedUp } = this.state;
+      return (
+        <div>
+        {/* <Switch><Route exact path="/" component={Register} exact/></Switch> */}
+        {/* { !signedUp ? <Route exact path="/signup" component={SignUp} handleSignup={ this.handleSignup } /> : <Route exact path="/signin" component={SignIn} /> } */}
+        <Route exact path="/signup" component={SignUp} handleSignup={ this.handleSignup } />
+        <Route exact path="/signin" component={SignIn} />
+        </div>
+        )
+  }
 }
-
-handleToggle() {
-  const {userSignedUp} = this.state
-
-  this.setState({
-    userSignedUp: !userSignedUp
-  })
-}
-
-render() {
-  const { userSignedUp } = this.state
-  
-  return (
-    <div>
-      <button onClick={this.handleToggle} > Toggle </button>
-      {!userSignedUp ? <SignUp /> : <SignIn />}
-    </div>
-  );
-}
-
-}
-
+ 
 export default App;
