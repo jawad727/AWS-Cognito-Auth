@@ -6,7 +6,8 @@ class SignIn extends Component {
         super(props);
   
         this.state = {
-            user: '',
+            user: null,
+            username: '',
             password: '',
             signedIn: false
         };
@@ -23,7 +24,12 @@ class SignIn extends Component {
             username: username,
             password: password
         })
-        .then(() => console.log('successfully signed in'))
+        .then((user) => {
+            console.log(user, user.signInUserSession.idToken.jwtToken);
+            localStorage.setItem('jwt', user.signInUserSession.accessToken.jwtToken);
+            this.setState({user: user})
+            this.props.history.push('/home')
+    })
         .catch((err) => console.log(`Error signing in: ${ err }`))
     }
   
@@ -60,6 +66,9 @@ class SignIn extends Component {
     }
   
     render() {
+        // console.log(this.state.user)
+        Auth.currentSession().then((ses) => console.log(ses)).catch((err) => {console.log(err)} )
+
       const { signedIn } = this.state;
       if (signedIn) {
           return (
