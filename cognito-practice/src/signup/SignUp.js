@@ -41,7 +41,7 @@ class SignUp extends Component {
         Auth.confirmSignUp(username, confirmationCode)
         .then(() => {
             console.log('Successfully confirmed signed up')
-            this.props.handleSignup();
+            this.props.history.push('/signin')
         })
         .catch((err) => console.log(`Error confirming sign up - ${ err }`))
     }
@@ -54,16 +54,9 @@ class SignUp extends Component {
   
         if (verified) {
           this.confirmSignUp();
-          this.setState({
-             confirmationCode: "",
-             username: ""
-          });
         } else {
           this.signUp();
           this.setState({
-            password: '',
-            email: '',
-            phone_number: '',
             verified: true
         });
         }
@@ -102,8 +95,7 @@ class SignUp extends Component {
           return (
               <div>
                   <form onSubmit={ this.handleSubmit }>
-                  <label>Username</label>
-                    <input type="text" name="username" onChange={ this.handleChange } />
+                  
                       <label>Confirmation Code</label>
                       <input id='confirmationCode' type='text' onChange={ this.handleChange }/>
                       <button>Confirm Sign up</button>

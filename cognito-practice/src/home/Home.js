@@ -9,12 +9,13 @@ class Home extends Component {
   constructor(props) {
       super(props);
       this.state = {
-          loading: true
+          loading: true,
+          username: ""
       }
   }
 
   componentWillMount() {
-    Auth.currentSession().then((ses) => this.setState({loading: false})).catch((err) => {console.log(err)} )
+    Auth.currentSession().then((user) => this.setState({loading: false, username: user.accessToken.payload.username})).catch((err) => {console.log(err)} )
   }
 
   accessTokenObj = localStorage.getItem("jwt")
@@ -22,7 +23,7 @@ class Home extends Component {
 
   render() {
 
-    // console.log(this.accessTokenObj)
+    console.log(Auth.currentSession().then((user) => console.log(user.accessToken.payload.username)))
     
     
 
@@ -31,7 +32,7 @@ class Home extends Component {
             <div className="Nav"> 
                 {this.state.loading ? null : <button onClick={() => {Auth.signOut().then(() => {this.props.history.push('/signin')}).catch((err) => {console.log(err)} )}}> Logout </button>}
             </div>
-            WELCOME HOME
+            {`WELCOME HOME ${this.state.username} !!`}
         </div>
         )
   }

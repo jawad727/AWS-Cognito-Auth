@@ -34,7 +34,7 @@ class App extends Component {
         <Route exact path="/signup" component={SignUp} handleSignup={ this.handleSignup } />
         <Route exact path="/signin" component={SignIn} />
         <Route exact path="/home" component={Home} />
-        <Route path="*" component={() => "404 NOT FOUND" } />
+        <Route path="*" component={SignIn} />
         </Switch>
         </div>
         )
