@@ -4,9 +4,9 @@ import './App.css';
 import Amplify from "aws-amplify"
 import aws_exports from './aws-exports'
 import { withAuthenticator } from "aws-amplify-react";
-import SignUp from "./signup/SignUp"
-import SignIn from "./signup/SignIn"
-import Home from "./home/Home"
+import SignUp from "./components/signup/SignUp"
+import SignIn from "./components/signup/SignIn"
+import Home from "./components/home/Home"
 import { Route, Switch } from "react-router-dom"
 Amplify.configure(aws_exports)
 
@@ -28,8 +28,6 @@ class App extends Component {
       const { signedUp } = this.state;
       return (
         <div>
-        {/* <Switch><Route exact path="/" component={Register} exact/></Switch> */}
-        {/* { !signedUp ? <Route exact path="/signup" component={SignUp} handleSignup={ this.handleSignup } /> : <Route exact path="/signin" component={SignIn} /> } */}
         <Switch>
         <Route exact path="/signup" component={SignUp} handleSignup={ this.handleSignup } />
         <Route exact path="/signin" component={SignIn} />
