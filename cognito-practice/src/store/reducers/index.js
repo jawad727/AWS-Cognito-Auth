@@ -1,12 +1,18 @@
-
+import { FETCH_USERS } from "../actions"
 
 const initialState = {
-    friends: []
+    signedIn: false,
+    usersArray: []
 }
 
 const rootReducer = (state = initialState, action) => {
     switch(action.type){
-
+        case FETCH_USERS:
+            return {
+        usersArray: action.payload
+        }
+        default:
+            return state
     }
 }
 

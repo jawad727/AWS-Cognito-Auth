@@ -8,6 +8,8 @@ import SignUp from "./components/signup/SignUp"
 import SignIn from "./components/signup/SignIn"
 import Home from "./components/home/Home"
 import { Route, Switch } from "react-router-dom"
+import {connect} from "react-redux"
+import {fetchUsers} from "./store/actions/index"
 Amplify.configure(aws_exports)
 
 class App extends Component {
@@ -19,6 +21,10 @@ class App extends Component {
       this.handleSignup = this.handleSignup.bind(this);
   }
 
+  componentDidMount() {
+      this.props.fetchUsers();
+  }
+
   handleSignup() {
       this.setState({
           signedUp: true
@@ -26,6 +32,8 @@ class App extends Component {
   }
   render() {
       const { signedUp } = this.state;
+        console.log(this.props.usersArray)
+
       return (
         <div>
         <Switch>
@@ -39,4 +47,8 @@ class App extends Component {
   }
 }
  
-export default App;
+const mapStateToProps = state => ({
+    usersArray: state.usersArray
+  })
+  
+  export default connect(mapStateToProps, {fetchUsers})(App);
