@@ -1,8 +1,9 @@
-import { FETCH_USERS } from "../actions"
+import { FETCH_USERS, POST_USER, FETCH_POSTS, MAKE_POST } from "../actions"
 
 const initialState = {
     signedIn: false,
-    usersArray: []
+    usersArray: [],
+    allPostsArray: []
 }
 
 const rootReducer = (state = initialState, action) => {
@@ -10,6 +11,18 @@ const rootReducer = (state = initialState, action) => {
         case FETCH_USERS:
             return {
         usersArray: action.payload
+        }
+        case POST_USER:
+            return {
+        usersArray: action.payload
+        }
+        case FETCH_POSTS:
+            return {
+        allPostsArray: action.payload
+        }
+        case MAKE_POST:
+            return {
+        allPostsArray: action.payload
         }
         default:
             return state
