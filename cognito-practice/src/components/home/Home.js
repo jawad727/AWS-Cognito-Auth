@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { Route, Switch } from "react-router-dom"
 import {Auth} from "aws-amplify";
-import "./Home.css"
+import "./home.css"
 import { ConsoleLogger } from '@aws-amplify/core';
 // Amplify.configure(aws_exports)
 
