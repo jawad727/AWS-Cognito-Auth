@@ -16,6 +16,10 @@ class SignIn extends Component {
         this.signIn = this.signIn.bind(this);
         this.confirmSignIn = this.confirmSignIn.bind(this);
     }
+
+    componentDidMount() {
+        Auth.currentSession().then((ses) => console.log(ses)).catch((err) => {console.log(err)} )
+    }
   
     signIn(e) {
         e.preventDefault();

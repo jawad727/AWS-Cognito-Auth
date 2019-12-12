@@ -19,6 +19,10 @@ class SignUp extends Component {
         this.signUp = this.signUp.bind(this);
         this.confirmSignUp = this.confirmSignUp.bind(this);
     }
+
+    componentDidMount() {
+      Auth.currentSession().then((ses) => console.log(ses)).catch((err) => {console.log(err)} )
+  }
   
     signUp() {
         const { username, password, email, phone_number } = this.state;  
@@ -37,11 +41,15 @@ class SignUp extends Component {
     }
   
     confirmSignUp() {
-        const { username, confirmationCode } = this.state;
+        const { username, password, confirmationCode } = this.state;
         Auth.confirmSignUp(username, confirmationCode)
         .then(() => {
-            console.log('Successfully confirmed signed up')
-            this.props.history.push('/signin')
+          Auth.signIn({ username: username, password: password })
+          console.log("successfully signed up")
+        })
+        .then(() => {
+          this.props.history.push("./home")
+          console.log("pushed home")
         })
         .catch((err) => console.log(`Error confirming sign up - ${ err }`))
     }
@@ -88,7 +96,8 @@ class SignUp extends Component {
     }
   
     render() {
-        console.log(this.state.username)
+        // console.log(this.state.username)
+        console.log(Auth.currentSession().then((user) => console.log(user.accessToken.payload)))
 
       const { verified } = this.state;
       if (verified) {

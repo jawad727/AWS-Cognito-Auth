@@ -5,6 +5,7 @@ import "./home.css"
 import { ConsoleLogger } from '@aws-amplify/core';
 // Amplify.configure(aws_exports)
 
+
 class Home extends Component {
   constructor(props) {
       super(props);
