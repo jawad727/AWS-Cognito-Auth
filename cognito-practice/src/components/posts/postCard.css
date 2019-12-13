@@ -2,9 +2,11 @@
   background: white;
   width: 350px;
   height: 400px;
-  border: 1px solid red;
+  overflow: hidden;
   margin: 10px;
-  border-radius: 5px;
+  border-radius: 19px;
+  -webkit-box-shadow: 2px 2px 5px grey;
+          box-shadow: 2px 2px 5px grey;
 }
 
 .CardContainer .CardIMG {
@@ -14,5 +16,73 @@
 
 .CardContainer .CardContent {
   margin: 5px;
+}
+
+.backgroundPostContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 80vh;
+}
+
+.backgroundPostContainer .singlePostContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 600px;
+  width: 940px;
+  border: 1px solid red;
+}
+
+.backgroundPostContainer .singlePostContainer .singlePostImage {
+  height: 600px;
+  width: 600px;
+  background: lightgrey;
+}
+
+.backgroundPostContainer .singlePostContainer .singlePostContent {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 342px;
+}
+
+.backgroundPostContainer .singlePostContainer .singlePostContent h3 {
+  text-align: center;
+  width: 100%;
+  border-bottom: 1px solid lightgrey;
+  margin: 0px;
+  padding: 10px 0px;
+}
+
+.backgroundPostContainer .singlePostContainer .singlePostContent div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.backgroundPostContainer .singlePostContainer .singlePostContent div p {
+  margin: 5px;
+}
+
+.backgroundPostContainer .singlePostContainer .singlePostContent div input {
+  height: 30px;
 }
 /*# sourceMappingURL=postCard.css.map */

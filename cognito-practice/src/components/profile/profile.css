@@ -9,11 +9,11 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  border: 1px solid red;
+  border: 1px solid black;
 }
 
 .ProfileContainer .ProfileContentContainer {
-  border: 1px solid blue;
+  border: 1px solid black;
   width: 1120px;
 }
 
@@ -31,7 +31,7 @@
   margin-left: 60px;
   z-index: 2;
   border-radius: 50%;
-  border: 5px solid red;
+  border: 5px solid white;
 }
 
 .ProfileContainer .ProfileContentContainer .ProfileUserInfo {
@@ -58,5 +58,6 @@
   width: 50%;
   border: 1px solid blue;
   text-align: center;
+  padding: 10px;
 }
 /*# sourceMappingURL=profile.css.map */

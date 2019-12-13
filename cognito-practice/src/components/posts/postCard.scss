@@ -2,9 +2,11 @@
     background: white;
     width: 350px;
     height: 400px;
-    border: 1px solid red;
+    // border: 1px solid red;
+    overflow: hidden;
     margin: 10px;
-    border-radius: 5px;
+    border-radius: 19px;
+    box-shadow: 2px 2px 5px grey;
 
     .CardIMG {
         height: 240px;
@@ -16,4 +18,63 @@
         
         margin: 5px;
     }
+}
+
+.backgroundPostContainer {
+   
+display: flex;
+justify-content: center;
+align-items: center;
+height: 80vh;
+
+
+    .singlePostContainer {
+        display: flex;
+
+        height: 600px;
+        width: 940px;
+        border: 1px solid red;
+
+        .singlePostImage {
+            height: 600px;
+            width: 600px;
+            background: lightgrey;
+        }
+
+        .singlePostContent {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                width: 342px;
+                
+
+
+            h3 {
+                text-align: center;
+                width: 100%;
+                border-bottom: 1px solid lightgrey;
+                margin: 0px;
+                padding: 10px 0px;
+            }
+
+            div {
+                display: flex;
+                flex-direction: column;
+
+                p {
+                    margin: 5px;
+                }
+
+                input {
+                    height: 30px;
+                    
+                }
+            }
+
+            
+        }
+
+
+    }
+
 }

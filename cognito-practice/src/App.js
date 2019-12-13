@@ -8,6 +8,7 @@ import SignUp from "./components/signup/SignUp"
 import SignIn from "./components/signup/SignIn"
 import Home from "./components/home/Home"
 import Profile from "./components/profile/Profile"
+import PostPage from "./components/posts/PostPage"
 import { Route, Switch } from "react-router-dom"
 import {connect} from "react-redux"
 
@@ -43,7 +44,7 @@ class App extends Component {
   render() {
       const { signedUp } = this.state;
         console.log(this.props.usersArray)
-        // console.log(this.props.allPostsArray)
+        console.log(this.props.allPostsArray)
         // console.log(this.props.allPostsByUser)
       return (
         <div>
@@ -58,6 +59,12 @@ class App extends Component {
         {this.props.usersArray.map(item => {
           return <Route path={`/${item.DisplayName}`} render={(props) => <Profile {...props}  content={item} />} />
         })}
+
+        {this.props.allPostsArray.map(item => {
+          return <Route path={`/${item.Username}/${item.uid}`} render={(props) => <PostPage {...props}  content={item} />} />
+        })}
+
+        
         {/* <Route path="*" component={SignIn} /> */}
         </Switch>
         </div>

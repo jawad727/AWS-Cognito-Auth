@@ -32,7 +32,7 @@ class Profile extends Component {
                         <p>{`@${this.props.content.Username}`}</p>
                         <p>{this.props.content.Bio}</p>
                         <p>{`Posts: ${this.props.allPostsByUser.length}`}</p>
-                        <p>{`Posts: ${this.props.allPostsByUser.length}`}</p>
+                        {/* <p>{`Posts: ${this.props.allPostsByUser.length}`}</p> */}
                     </div>
                     
                 </div>
