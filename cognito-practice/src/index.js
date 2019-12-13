@@ -10,13 +10,12 @@ import store from "./store"
 import createHistory from 'history/createBrowserHistory';
 
 const AppWithRouter = withRouter(App)
-
-const history = createHistory();   
+  
 
 ReactDOM.render(
     <Provider store={store}>
     <Router forceRefresh={true}>
-        <App />
+        <AppWithRouter />
     </Router>
     </Provider>,
  document.getElementById('root')

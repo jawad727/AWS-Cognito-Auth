@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Auth } from 'aws-amplify';
+import "./signin.css"
 
 class SignIn extends Component {
     constructor(props) {
@@ -82,8 +83,8 @@ class SignIn extends Component {
           );
       } else {
         return (
-          <div>
-            <form onSubmit={ this.signIn }>
+          <div className="SignUp" >
+            <form className="SigninForm" onSubmit={ this.signIn }>
                 <label>Username</label>
                 <input id='username' type='text' onChange={ this.handleChange }/>
                 <label>Password</label>

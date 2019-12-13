@@ -3,6 +3,9 @@ import { Route, Switch } from "react-router-dom"
 import {Auth} from "aws-amplify";
 import "./home.css"
 import { ConsoleLogger } from '@aws-amplify/core';
+import {connect} from "react-redux"
+import {fetchPosts} from "../../store/actions/index"
+import PostCard from "../posts/PostCard.js"
 // Amplify.configure(aws_exports)
 
 
@@ -11,12 +14,20 @@ class Home extends Component {
       super(props);
       this.state = {
           loading: true,
-          username: ""
+          username: "",
+          posts: []
       }
   }
 
-  componentWillMount() {
-    Auth.currentSession().then((user) => this.setState({loading: false, username: user.accessToken.payload.username})).catch((err) => {console.log(err)} )
+  componentDidUpdate() {
+    
+  }
+
+  componentDidMount() {
+    // Auth.currentSession().then((user) => this.setState({loading: false, username: user.accessToken.payload.username})).catch((err) => {console.log(err)} )
+    
+    // this.props.fetchPosts()
+    console.log(this.props.allPostsArray)
   }
 
   accessTokenObj = localStorage.getItem("jwt")
@@ -24,19 +35,33 @@ class Home extends Component {
 
   render() {
 
-    console.log(Auth.currentSession().then((user) => console.log(user.accessToken.payload.username)))
-    
+    console.log(this.props.allPostsArray)
     
 
       return (
-        <div>
+        <div className="HomeContainer" >
             <div className="Nav"> 
-                {this.state.loading ? null : <button onClick={() => {Auth.signOut().then(() => {this.props.history.push('/signin')}).catch((err) => {console.log(err)} )}}> Logout </button>}
+                <h3> ResearchPal </h3> {this.state.loading ? null : <button onClick={() => {Auth.signOut().then(() => {this.props.history.push('/signin')}).catch((err) => {console.log(err)} )}}> Logout </button>}
             </div>
             {`WELCOME HOME ${this.state.username} !!`}
+
+          <div className="AllPostsContainer">
+            
+            {this.props.allPostsArray.map((item) => {
+              return <PostCard content={item} />
+             } )}
+             
+          </div>
+
         </div>
         )
   }
 }
  
-export default Home;
+const mapStateToProps = state => ({
+
+  allPostsArray: state.allPostsArray
+
+})
+
+export default connect(mapStateToProps, {fetchPosts} )(Home);

@@ -1,5 +1,30 @@
-.Nav {
+.HomeContainer {
+  background: rgba(211, 211, 211, 0.479);
+}
+
+.HomeContainer .Nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   height: 100px;
-  background-color: red;
+  background-color: rgba(0, 0, 0, 0.856);
+}
+
+.HomeContainer .Nav h3 {
+  margin: 0px;
+  margin-left: 50px;
+  color: white;
+  font-size: 2.0rem;
+}
+
+.HomeContainer .AllPostsContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 /*# sourceMappingURL=home.css.map */

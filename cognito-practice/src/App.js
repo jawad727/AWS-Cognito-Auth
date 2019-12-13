@@ -26,7 +26,8 @@ class App extends Component {
   componentDidMount() {
       this.props.fetchUsers();
       this.props.fetchPosts();
-      this.props.fetchPostsByUser("myid3");
+      // this.props.fetchPostsByUser("myid3");
+      console.log("APPP")
   }
 
   handleSignup() {
@@ -39,7 +40,7 @@ class App extends Component {
 
   render() {
       const { signedUp } = this.state;
-        // console.log(this.props.usersArray)
+        console.log(this.props.usersArray)
         // console.log(this.props.allPostsArray)
         // console.log(this.props.allPostsByUser)
       return (
@@ -50,6 +51,9 @@ class App extends Component {
         <Route exact path="/signin" component={SignIn} />
         <Route exact path="/home" component={Home} />
         <Route path="*" component={SignIn} />
+        {/* {this.props.usersArray.map(item => {
+          <Route path={`/${item.DisplayName}`} content={item} component={SignIn} />
+        })} */}
         </Switch>
         </div>
         )

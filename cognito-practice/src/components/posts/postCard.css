@@ -1,0 +1,18 @@
+.CardContainer {
+  background: white;
+  width: 350px;
+  height: 400px;
+  border: 1px solid red;
+  margin: 10px;
+  border-radius: 5px;
+}
+
+.CardContainer .CardIMG {
+  height: 240px;
+  background: grey;
+}
+
+.CardContainer .CardContent {
+  margin: 5px;
+}
+/*# sourceMappingURL=postCard.css.map */

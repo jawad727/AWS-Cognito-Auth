@@ -11,26 +11,32 @@ const rootReducer = (state = initialState, action) => {
     switch(action.type){
         case FETCH_USERS:
             return {
+        ...state,
         usersArray: action.payload
         }
         case POST_USER:
             return {
+        ...state,
         usersArray: action.payload
         }
         case FETCH_POSTS:
             return {
+        ...state,
         allPostsArray: action.payload
         }
         case FETCH_POST_BY_USER:
                 return {
+        ...state,
         allPostsByUser: action.payload
         }
         case MAKE_POST:
             return {
+        ...state,
         allPostsArray: action.payload
         }
         case DELETE_POST:
             return {
+        ...state,
         allPostsArray: action.payload
         }
         default:

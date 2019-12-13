@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {Auth} from "aws-amplify";
-
+import "./signin.css"
 
 class SignUp extends Component {
     constructor(props) {
@@ -102,7 +102,7 @@ class SignUp extends Component {
       const { verified } = this.state;
       if (verified) {
           return (
-              <div>
+              <div className="SignUp" >
                   <form onSubmit={ this.handleSubmit }>
                   
                       <label>Confirmation Code</label>
@@ -113,7 +113,7 @@ class SignUp extends Component {
           );
       } else {
         return (
-          <div>
+          <div className="SignUp" >
             <form onSubmit={ this.handleSubmit }>
                 <label>Username</label>
                 <input id='username' type='text' onChange={ this.handleChange }/>

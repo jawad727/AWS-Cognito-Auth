@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,cAAc,CAAC;EACX,UAAU,EAAE,KAAK;EACjB,KAAK,EAAE,KAAK;EACZ,MAAM,EAAE,KAAK;EACb,MAAM,EAAE,aAAa;EACrB,MAAM,EAAE,IAAI;EACZ,aAAa,EAAE,GAAG;CAYrB;;AAlBD,AAQI,cARU,CAQV,QAAQ,CAAC;EACL,MAAM,EAAE,KAAK;EACb,UAAU,EAAE,IAAI;CAEnB;;AAZL,AAcI,cAdU,CAcV,YAAY,CAAC;EAET,MAAM,EAAE,GAAG;CACd",
+    "sources": [
+        "postCard.scss"
+    ],
+    "names": [],
+    "file": "postCard.css"
+}
