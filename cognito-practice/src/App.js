@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import './App.css';
 import Amplify from "aws-amplify"
+import {Auth} from "aws-amplify";
 import aws_exports from './aws-exports'
 import { withAuthenticator } from "aws-amplify-react";
 import SignUp from "./components/signup/SignUp"
@@ -18,7 +19,8 @@ class App extends Component {
   constructor(props) {
       super(props);
       this.state = {
-          signedUp : false
+          signedUp : false,
+          loading: true
       }
       this.handleSignup = this.handleSignup.bind(this);
   }
@@ -27,7 +29,7 @@ class App extends Component {
       this.props.fetchUsers();
       this.props.fetchPosts();
       // this.props.fetchPostsByUser("myid3");
-      console.log("APPP")
+      Auth.currentSession().then((user) => this.setState({loading: false})).catch((err) => {console.log(err)} )
   }
 
   handleSignup() {
@@ -45,7 +47,9 @@ class App extends Component {
         // console.log(this.props.allPostsByUser)
       return (
         <div>
-          
+          <div className="Nav"> 
+                <h3> ResearchPal </h3> {this.state.loading ? null : <button onClick={() => {Auth.signOut().then(() => {this.props.history.push('/signin')}).catch((err) => {console.log(err)} )}}> Logout </button>}
+            </div>
         <Switch>
         <Route exact path="/signup" component={SignUp} handleSignup={ this.handleSignup } />
         <Route exact path="/signin" component={SignIn} />

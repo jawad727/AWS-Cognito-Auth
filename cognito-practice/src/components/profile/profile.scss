@@ -6,7 +6,7 @@
 
     .ProfileContentContainer {
         border: 1px solid blue;
-        width: 1000px;
+        width: 1120px;
 
         .ProfileHeader {
             height: 200px;
@@ -23,6 +23,29 @@
             z-index: 2;
             border-radius: 50%;
             border: 5px solid red;
+        }
+
+        .ProfileUserInfo {
+            margin: 10px;
+        }
+    }
+
+    .SingleProfilePosts {
+        display: flex;
+        flex-wrap: wrap; 
+        width: 1120px;
+    }
+
+    .postOrginizer {
+        display: flex;
+        width: 1120px;
+
+        
+        p {
+            width: 50%;
+            
+            border: 1px solid blue;
+            text-align: center;
         }
     }
 

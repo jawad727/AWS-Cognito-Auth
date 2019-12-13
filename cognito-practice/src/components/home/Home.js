@@ -40,10 +40,8 @@ class Home extends Component {
 
       return (
         <div className="HomeContainer" >
-            <div className="Nav"> 
-                <h3> ResearchPal </h3> {this.state.loading ? null : <button onClick={() => {Auth.signOut().then(() => {this.props.history.push('/signin')}).catch((err) => {console.log(err)} )}}> Logout </button>}
-            </div>
-            {`WELCOME HOME ${this.state.username} !!`}
+           
+            {/* {`WELCOME HOME ${this.state.username} !!`} */}
 
           <div className="AllPostsContainer">
             

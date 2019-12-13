@@ -1,19 +1,7 @@
 .HomeContainer {
     background: rgba(211, 211, 211, 0.479);
 
-    .Nav {
-        display: flex;
-        align-items: center;
-        height: 100px;
-        background-color: rgba(0, 0, 0, 0.856);
-
-        h3 {
-            margin: 0px;
-            margin-left: 50px;
-            color: white;
-            font-size: 2.0rem;
-        }
-    }
+    
 
     .AllPostsContainer {
         display: flex;
