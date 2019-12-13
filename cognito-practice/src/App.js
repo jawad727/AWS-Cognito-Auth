@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Amplify from "aws-amplify"
 import aws_exports from './aws-exports'
@@ -7,6 +6,7 @@ import { withAuthenticator } from "aws-amplify-react";
 import SignUp from "./components/signup/SignUp"
 import SignIn from "./components/signup/SignIn"
 import Home from "./components/home/Home"
+import Profile from "./components/profile/Profile"
 import { Route, Switch } from "react-router-dom"
 import {connect} from "react-redux"
 
@@ -50,10 +50,11 @@ class App extends Component {
         <Route exact path="/signup" component={SignUp} handleSignup={ this.handleSignup } />
         <Route exact path="/signin" component={SignIn} />
         <Route exact path="/home" component={Home} />
-        <Route path="*" component={SignIn} />
-        {/* {this.props.usersArray.map(item => {
-          <Route path={`/${item.DisplayName}`} content={item} component={SignIn} />
-        })} */}
+        
+        {this.props.usersArray.map(item => {
+          return <Route path={`/${item.DisplayName}`} render={(props) => <Profile {...props}  content={item} />} />
+        })}
+        {/* <Route path="*" component={SignIn} /> */}
         </Switch>
         </div>
         )

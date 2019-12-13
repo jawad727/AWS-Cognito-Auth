@@ -1,0 +1,36 @@
+.ProfileContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: 1px solid red;
+}
+
+.ProfileContainer .ProfileContentContainer {
+  border: 1px solid blue;
+  width: 1000px;
+}
+
+.ProfileContainer .ProfileContentContainer .ProfileHeader {
+  height: 200px;
+  background-position: center;
+}
+
+.ProfileContainer .ProfileContentContainer .ProfileAVI {
+  position: absolute;
+  height: 170px;
+  width: 170px;
+  background-position: center;
+  top: 120px;
+  margin-left: 60px;
+  z-index: 2;
+  border-radius: 50%;
+  border: 5px solid red;
+}
+/*# sourceMappingURL=profile.css.map */
