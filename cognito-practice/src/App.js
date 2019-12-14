@@ -31,7 +31,8 @@ class App extends Component {
       this.props.fetchPosts();
       // this.props.fetchPostsByUser("myid3");
       Auth.currentSession().then((user) => this.setState({loading: false})).catch((err) => {console.log(err)} )
-  }
+      console.log("MOUNTED")
+    }
 
   handleSignup() {
       this.setState({
@@ -49,7 +50,7 @@ class App extends Component {
       return (
         <div>
           <div className="Nav"> 
-                <h3> ResearchPal </h3> {this.state.loading ? null : <button onClick={() => {Auth.signOut().then(() => {this.props.history.push('/signin')}).catch((err) => {console.log(err)} )}}> Logout </button>}
+                <h3 onClick={() => this.props.history.push('/home')}> ResearchPal </h3> {this.state.loading ? null : <button onClick={() => {Auth.signOut().then(() => {this.props.history.push('/signin')}).catch((err) => {console.log(err)} )}}> Logout </button>}
             </div>
         <Switch>
         <Route exact path="/signup" component={SignUp} handleSignup={ this.handleSignup } />
@@ -61,7 +62,7 @@ class App extends Component {
         })}
 
         {this.props.allPostsArray.map(item => {
-          return <Route path={`/${item.Username}/${item.uid}`} render={(props) => <PostPage {...props}  content={item} />} />
+          return <Route path={`/${item.uid}`} render={(props) => <PostPage {...props}  content={item} />} />
         })}
 
         

@@ -41,7 +41,7 @@ class Profile extends Component {
                 </div>
                 <div className="SingleProfilePosts">
                     {this.props.allPostsByUser.map((item) => {
-                    return <PostCard content={item} />
+                    return <PostCard content={item} history={this.props.history}/>
                     } )}
                 </div>
             </div>
