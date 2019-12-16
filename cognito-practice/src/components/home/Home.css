@@ -11,6 +11,19 @@
           align-items: center;
 }
 
+.HomeContainer .DiscoverOtherTextDisplay {
+  width: 1075px;
+  margin-top: 10px;
+  font-family: Didact Gothic;
+}
+
+.HomeContainer h3 {
+  font-size: 2rem;
+  font-family: Didact Gothic;
+  margin: 0px;
+  margin-top: 20px;
+}
+
 .HomeContainer .AllPostsContainer {
   width: 1120px;
   display: -webkit-box;
@@ -18,6 +31,27 @@
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+}
+
+.HomeContainer button {
+  width: 1100px;
+  background: #212121;
+  color: white;
+  font-family: Didact Gothic;
+  height: 50px;
+  margin-bottom: 14px;
+  margin-top: 7px;
+  border: 0px solid white;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.HomeContainer .DiscoverCardsContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border-bottom: 1px solid lightgrey;
+  border-top: 1px solid lightgrey;
 }
 
 .HomeContainer .AllPostOrganizer {
@@ -33,7 +67,7 @@
 
 .HomeContainer .AllPostOrganizer div {
   padding: 3px 15px;
-  border: 3px solid black;
+  border: 3px solid #212121;
   background-color: white;
   color: black;
   font-family: Didact Gothic;

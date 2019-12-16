@@ -55,15 +55,17 @@ class App extends Component {
           
           <div className="Nav"> 
             <div className="innerNav">
+            
                 <div>
                   <img className="blueLogo" src={blueLogo}  />
                   <h3 onClick={() => this.props.history.push('/home')}> ArticleHub </h3>
-                </div>
+            </div> 
+            {this.state.loading ? null :
                 <div>
                   <i class="far fa-plus-square fa-2x" title="Make A Post" ></i>
                   <i class="far fa-user fa-2x" title="View Your Profile" onClick={() => this.props.history.push('/home')}></i>
-                  <button> Logout </button>
-                </div>
+                  <button onClick={() => {Auth.signOut().then(() => {this.props.history.push('/signin')}).catch((err) => {console.log(err)} )}}> Logout </button>
+            </div> }
             </div>
           </div>
         <Switch>

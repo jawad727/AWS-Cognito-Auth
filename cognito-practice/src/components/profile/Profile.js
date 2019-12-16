@@ -37,7 +37,7 @@ class Profile extends Component {
                     
                 </div>
                 <div className="postOrginizer">
-                    <p>All Posts</p> <p>Liked Posts</p>
+                    <p>All Posts</p> 
                 </div>
                 <div className="SingleProfilePosts">
                     {this.props.allPostsByUser.map((item) => {

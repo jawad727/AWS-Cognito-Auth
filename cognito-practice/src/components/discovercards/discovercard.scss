@@ -1,0 +1,22 @@
+
+.DiscoverCard {
+    // border: 1px solid red;
+    width: 200px;
+    height: 170px;
+    margin: 10px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background: white;
+    box-shadow: 2px 2px 5px lightgrey;
+
+
+    .DiscoverCardImage {
+        width: 80px;
+        height: 80px;
+        background: lightgrey;
+        border-radius: 100%;
+        margin-top: 20px;
+    }
+}
+

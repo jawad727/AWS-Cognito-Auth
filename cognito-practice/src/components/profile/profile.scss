@@ -3,10 +3,13 @@
     flex-direction: column;
     align-items: center;
     // border: 1px solid black;
+    
 
     .ProfileContentContainer {
-        border: 1px solid black;
+        // border: 1px solid black;
+        box-shadow: 2px 2px 5px grey;
         width: 1120px;
+        background-color: white;
 
         .ProfileHeader {
             height: 200px;
@@ -41,15 +44,21 @@
     .postOrginizer {
         display: flex;
         width: 1120px;
-
+        
         
         p {
-            width: 50%;
-            border: 1px solid blue;
+            width: 100%;
+            // border: 1px solid black;
+            box-shadow: 2px 2px 5px grey;
+            background-color: white;
             text-align: center;
             padding: 10px;
+            font-family: Didact Gothic;
+            font-weight: 600;
+            font-size: 1.1rem;
             
-        }
+        
     }
 
+}
 }

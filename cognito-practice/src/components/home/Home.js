@@ -7,6 +7,8 @@ import {connect} from "react-redux"
 import {fetchPosts} from "../../store/actions/index"
 import PostCard from "../posts/PostCard.js"
 import PostPage from "../posts/PostPage"
+import DiscoverCard from "../discovercards/DiscoverCard"
+
 // Amplify.configure(aws_exports)
 
 
@@ -16,7 +18,8 @@ class Home extends Component {
       this.state = {
           loading: true,
           username: "",
-          posts: []
+          posts: [],
+          postsLoaded: 6
       }
   }
 
@@ -36,24 +39,37 @@ class Home extends Component {
 
   render() {
 
-    console.log(this.props.allPostsArray)
+    console.log(this.props.usersArray)
     
 
       return (
         <div className="HomeContainer" >
-           <Route path={`/asd`} render={<PostPage/>} />
+           
             {/* {`WELCOME HOME ${this.state.username} !!`} */}
+          <div className="DiscoverOtherTextDisplay">
+            <p> Discover Other Users </p>
+          </div>
+
+          <div className="DiscoverCardsContainer" >
+          {this.props.usersArray.map((item) => {
+            return <DiscoverCard content={item} />
+          })}
+          </div>
+          
+
+          <h3> Browse All Articles </h3>
 
           <div className="AllPostOrganizer" >
-            <div> ALL </div><div> POLITICS </div><div> TECHNOLOGY </div><div> SPORTS </div><div> ANIMALS </div><div> ART </div><div> MISC </div>
+            <div> ALL </div><div> POLITICAL </div><div> TECHNOLOGY </div><div> SPORTS </div><div> ANIMALS </div><div> ART </div><div> MISC </div>
           </div>
           <div className="AllPostsContainer">
             
             {this.props.allPostsArray.map((item) => {
               return <PostCard content={item} history={this.props.history}/>
-             } )}
+             } ).slice(0, this.state.postsLoaded) }
              
           </div>
+          {this.state.postsLoaded > this.props.allPostsArray.length ? null : <button onClick={ () => {this.setState({postsLoaded: this.state.postsLoaded + 6 })}}> Load More </button> }
           
         </div>
         )
@@ -61,7 +77,7 @@ class Home extends Component {
 }
  
 const mapStateToProps = state => ({
-
+  usersArray: state.usersArray,
   allPostsArray: state.allPostsArray
 
 })
