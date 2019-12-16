@@ -34,22 +34,55 @@
       /* margin-left: 50px; */
       color: white;
       font-size: 2.0rem;
+      cursor: pointer;
 }
 
 .innerNav {
   display: flex;
   justify-content: space-between;
   width: 1200px;
+  font-family: Didact Gothic;
 }
 
 .innerNav i {
   color: white;
 }
 
+.innerNav div {
+  display: flex;
+  justify-content: baseline;
+  margin-top: 5px;
+}
+
 .innerNav div i {
-  margin-right: 15px;
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+.innerNav div i:hover {
+  color: lightgrey;
 }
 
 .innerNav div button {
-  height: 28px;
+  height: 32px;
+  width: 70px;
+  background: black;
+  border: 3px solid white;
+  color: white;
+  font-family: Didact Gothic;
+  font-weight: 600;
+  border-radius: 3px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.innerNav div button:hover {
+  color: lightgrey;
+  border: 3px solid lightgrey;
+  
+}
+
+.blueLogo {
+  width: 55px;
+  margin-right: 15px;
 }

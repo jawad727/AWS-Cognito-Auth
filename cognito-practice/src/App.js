@@ -11,6 +11,7 @@ import Profile from "./components/profile/Profile"
 import PostPage from "./components/posts/PostPage"
 import { Route, Switch } from "react-router-dom"
 import {connect} from "react-redux"
+import blueLogo from "../src/hiclipart.png"
 
 import {fetchUsers, fetchPosts, fetchPostsByUser} from "./store/actions/index"
 
@@ -51,13 +52,17 @@ class App extends Component {
         // {this.state.loading ? null : <button onClick={() => {Auth.signOut().then(() => {this.props.history.push('/signin')}).catch((err) => {console.log(err)} )}}> Logout </button>}
       return (
         <div>
+          
           <div className="Nav"> 
             <div className="innerNav">
-                <h3 onClick={() => this.props.history.push('/home')}> ResearchPal </h3>
                 <div>
-                <i class="far fa-plus-square fa-2x"></i>
-                <i class="far fa-user fa-2x"></i>
-                <button> Logout </button>
+                  <img className="blueLogo" src={blueLogo}  />
+                  <h3 onClick={() => this.props.history.push('/home')}> ArticleHub </h3>
+                </div>
+                <div>
+                  <i class="far fa-plus-square fa-2x" title="Make A Post" ></i>
+                  <i class="far fa-user fa-2x" title="View Your Profile" onClick={() => this.props.history.push('/home')}></i>
+                  <button> Logout </button>
                 </div>
             </div>
           </div>

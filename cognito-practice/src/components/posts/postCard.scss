@@ -5,18 +5,45 @@
     // border: 1px solid red;
     overflow: hidden;
     margin: 10px;
-    border-radius: 19px;
+    // border-radius: 19px;
     box-shadow: 2px 2px 5px grey;
 
     .CardIMG {
         height: 240px;
-        background: grey;
+        background: lightgrey;
 
     }
 
     .CardContent {
-        
         margin: 5px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 130px;
+        
+
+        p {
+            font-family: Didact Gothic;
+        }
+
+        .CardTitle {
+            font-size: 1.35rem;
+            margin: 0px;
+            font-weight: 1000;
+        }
+
+        .CardDescription {
+            font-weight: 600;
+            margin: 0px;
+            margin-top: 10px;
+        }
+
+        .CardCommentNumber {
+            font-weight: 600;
+            margin: 0px;
+        }
+
+
     }
 }
 
