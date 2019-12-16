@@ -26,7 +26,7 @@ class Profile extends Component {
                 
                 <div className="ProfileContentContainer">
                     <div className="ProfileHeader" style={{ backgroundImage: `url(${this.props.content.Header})` }} />
-                    <img className="ProfileAVI" src={this.props.content.Profpic}/>
+                    <div className="ProfileAVI" style={{ backgroundImage: `url(${this.props.content.Profpic})`}}/>
                     <div className="ProfileUserInfo" >
                         <h2>{this.props.content.DisplayName}</h2>
                         <p>{`@${this.props.content.Username}`}</p>

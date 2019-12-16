@@ -21,6 +21,7 @@
 .ProfileContainer .ProfileContentContainer .ProfileHeader {
   height: 200px;
   background-position: center;
+  background-size: cover;
 }
 
 .ProfileContainer .ProfileContentContainer .ProfileAVI {
@@ -28,6 +29,7 @@
   height: 170px;
   width: 170px;
   background-position: center;
+  background-size: cover;
   top: 120px;
   margin-left: 60px;
   z-index: 2;
