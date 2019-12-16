@@ -15,6 +15,12 @@
   background: white;
   -webkit-box-shadow: 2px 2px 5px lightgrey;
           box-shadow: 2px 2px 5px lightgrey;
+  cursor: pointer;
+}
+
+.DiscoverCard p {
+  font-family: Didact Gothic;
+  font-weight: 600;
 }
 
 .DiscoverCard .DiscoverCardImage {

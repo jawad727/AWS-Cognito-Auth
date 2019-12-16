@@ -13,7 +13,7 @@
 
 .HomeContainer .DiscoverOtherTextDisplay {
   width: 1075px;
-  margin-top: 10px;
+  margin-top: 20px;
   font-family: Didact Gothic;
 }
 
@@ -52,6 +52,7 @@
   display: flex;
   border-bottom: 1px solid lightgrey;
   border-top: 1px solid lightgrey;
+  overflow: hidden;
 }
 
 .HomeContainer .AllPostOrganizer {

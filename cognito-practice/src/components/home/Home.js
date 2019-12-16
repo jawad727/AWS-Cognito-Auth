@@ -11,6 +11,8 @@ import DiscoverCard from "../discovercards/DiscoverCard"
 
 // Amplify.configure(aws_exports)
 
+var categoryArray = [["ALL", "POLITICS", "TECHNOLOGY", "SPORTS", "ANIMALS", "ART", "MISC"], ["POLITICS"], ["TECHNOLOGY"], ["SPORTS"], ["ANIMALS"], ["ART"], ["MISC"]]
+
 
 class Home extends Component {
   constructor(props) {
@@ -19,7 +21,8 @@ class Home extends Component {
           loading: true,
           username: "",
           posts: [],
-          postsLoaded: 6
+          postsLoaded: 6,
+          currentTab: categoryArray[0]
       }
   }
 
@@ -40,6 +43,7 @@ class Home extends Component {
   render() {
 
     console.log(this.props.usersArray)
+    console.log(this.state.currentTab)
     
 
       return (
@@ -60,16 +64,23 @@ class Home extends Component {
           <h3> Browse All Articles </h3>
 
           <div className="AllPostOrganizer" >
-            <div> ALL </div><div> POLITICAL </div><div> TECHNOLOGY </div><div> SPORTS </div><div> ANIMALS </div><div> ART </div><div> MISC </div>
+            {categoryArray.map((item, i) => {
+              
+            return (<div onClick={() => {this.setState({currentTab: categoryArray[i]}) }} > {categoryArray[i][0]} </div>)
+
+          })}
           </div>
           <div className="AllPostsContainer">
             
             {this.props.allPostsArray.map((item) => {
-              return <PostCard content={item} history={this.props.history}/>
-             } ).slice(0, this.state.postsLoaded) }
+              if ( this.state.currentTab.includes(item.PostCategory.toUpperCase())  ) {
+              return <PostCard content={item} history={this.props.history}/> }
+             } )
+            //  .slice(0, this.state.postsLoaded) 
+             }
              
           </div>
-          {this.state.postsLoaded > this.props.allPostsArray.length ? null : <button onClick={ () => {this.setState({postsLoaded: this.state.postsLoaded + 6 })}}> Load More </button> }
+          {/* {this.state.postsLoaded > this.props.allPostsArray.length ? null : <button onClick={ () => {this.setState({postsLoaded: this.state.postsLoaded + 6 })}}> Load More </button> } */}
           
         </div>
         )
