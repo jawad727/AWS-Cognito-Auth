@@ -47,11 +47,20 @@ class App extends Component {
         console.log(this.props.usersArray)
         console.log(this.props.allPostsArray)
         // console.log(this.props.allPostsByUser)
+
+        // {this.state.loading ? null : <button onClick={() => {Auth.signOut().then(() => {this.props.history.push('/signin')}).catch((err) => {console.log(err)} )}}> Logout </button>}
       return (
         <div>
           <div className="Nav"> 
-                <h3 onClick={() => this.props.history.push('/home')}> ResearchPal </h3> {this.state.loading ? null : <button onClick={() => {Auth.signOut().then(() => {this.props.history.push('/signin')}).catch((err) => {console.log(err)} )}}> Logout </button>}
+            <div className="innerNav">
+                <h3 onClick={() => this.props.history.push('/home')}> ResearchPal </h3>
+                <div>
+                <i class="far fa-plus-square fa-2x"></i>
+                <i class="far fa-user fa-2x"></i>
+                <button> Logout </button>
+                </div>
             </div>
+          </div>
         <Switch>
         <Route exact path="/signup" component={SignUp} handleSignup={ this.handleSignup } />
         <Route exact path="/signin" component={SignIn} />
