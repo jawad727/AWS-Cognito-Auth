@@ -11,6 +11,7 @@ import DiscoverCard from "../discovercards/DiscoverCard"
 
 // Amplify.configure(aws_exports)
 
+
 var categoryArray = [["ALL", "POLITICS", "TECHNOLOGY", "SPORTS", "ANIMALS", "ART", "MISC"], ["POLITICS"], ["TECHNOLOGY"], ["SPORTS"], ["ANIMALS"], ["ART"], ["MISC"]]
 
 
@@ -56,7 +57,7 @@ class Home extends Component {
 
           <div className="DiscoverCardsContainer" >
           {this.props.usersArray.map((item) => {
-            return <DiscoverCard content={item} />
+            return <DiscoverCard content={item}/>
           })}
           </div>
           
@@ -66,7 +67,7 @@ class Home extends Component {
           <div className="AllPostOrganizer" >
             {categoryArray.map((item, i) => {
               
-            return (<div onClick={() => {this.setState({currentTab: categoryArray[i]}) }} > {categoryArray[i][0]} </div>)
+            return (<div className={categoryArray[i][0] == this.state.currentTab[0] ? `${"HighlightedTab"}` : null} onClick={() => {this.setState({currentTab: categoryArray[i]}) }}  > {categoryArray[i][0]} </div>)
 
           })}
           </div>

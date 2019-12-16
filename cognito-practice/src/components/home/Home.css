@@ -75,4 +75,9 @@
   margin: 5px;
   font-weight: 600;
 }
+
+.HomeContainer .AllPostOrganizer .HighlightedTab {
+  background-color: #212121;
+  color: white;
+}
 /*# sourceMappingURL=home.css.map */
