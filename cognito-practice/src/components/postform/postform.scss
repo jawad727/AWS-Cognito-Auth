@@ -56,7 +56,10 @@
                 color: black;
                 border: 2px solid black;
                 font-size: 1rem;
+                cursor: pointer;
             }
+
+            
 
             .fileUploadSpan {
                 
@@ -65,9 +68,13 @@
                 background: #212121;
                 font-family: Didact Gothic;
                 color: white;
-
+                cursor: pointer;
             }
-        } 
+        }
+
+        .PostImageContainerHighlight {
+            background: lightgreen;
+        }
 
         .PostContentContainer {
             width: 500px;

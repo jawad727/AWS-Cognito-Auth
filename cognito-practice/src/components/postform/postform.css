@@ -75,6 +75,7 @@
   color: black;
   border: 2px solid black;
   font-size: 1rem;
+  cursor: pointer;
 }
 
 .PostFormPageContainer .PostFormContainer .PostImageContainer .fileUploadSpan {
@@ -83,6 +84,11 @@
   background: #212121;
   font-family: Didact Gothic;
   color: white;
+  cursor: pointer;
+}
+
+.PostFormPageContainer .PostFormContainer .PostImageContainerHighlight {
+  background: lightgreen;
 }
 
 .PostFormPageContainer .PostFormContainer .PostContentContainer {

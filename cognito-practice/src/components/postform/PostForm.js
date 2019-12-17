@@ -4,6 +4,7 @@ import "./postform.css"
 import Amplify, {Storage} from "aws-amplify"
 import PostForm2 from "./PostForm2"
 import {Auth} from "aws-amplify";
+import {postUser} from "../../store/actions/index"
 
 
 class PostForm extends Component {
@@ -11,7 +12,8 @@ class PostForm extends Component {
           username: "",
          fileUrl: "",
          file: "",
-         filename: ""
+         filename: "",
+         imageConfirmed: false
       }
 
 
@@ -71,7 +73,7 @@ class PostForm extends Component {
             <div className="PostFormPageContainer" >
                 <h1> Upload An Article </h1>
                 <div className="PostFormContainer" >
-                    <div className="PostImageContainer">
+                    <div className={`PostImageContainer ${this.state.imageConfirmed ? "PostImageContainerHighlight" : null}`}>
                         <label>
                             <input className="hiddenInput" type="file"  onChange={this.handleChange} />
                             <span className="fileUploadSpan" >Upload Image</span>
@@ -79,7 +81,7 @@ class PostForm extends Component {
 
                         <div className="form1image" style={{backgroundImage: `url(${this.state.fileUrl})`, backgroundSize: "cover"}} />
                         <p> (Make sure dimensions of image are equal or close) </p>
-                        {this.state.fileUrl.length > 5 ? <button className="ConfirmButton" onClick={this.saveFile}> Confirm Image </button> : null}
+                        {this.state.fileUrl.length > 5 ? <button className="ConfirmButton" onClick={() => {this.saveFile(); this.setState({imageConfirmed: true}) } }> Confirm Image </button> : null}
                     </div>
                     <div className="PostContentContainer" >
                         <form>
@@ -91,12 +93,12 @@ class PostForm extends Component {
                             <input className="art" />
                             <p> Select Category</p>
                             <select className="PostCategorySelector">
-                                <option value="volvo">Misc</option>
-                                <option value="saab">Political</option>
-                                <option value="opel">Technology</option>
-                                <option value="audi">Sports</option>
-                                <option value="opel">Animals</option>
-                                <option value="audi">Art</option>
+                                <option value="Misc">Misc</option>
+                                <option value="Political">Political</option>
+                                <option value="Technology">Technology</option>
+                                <option value="Sports">Sports</option>
+                                <option value="Animals">Animals</option>
+                                <option value="Art">Art</option>
                             </select>
                             
                             
@@ -113,8 +115,7 @@ class PostForm extends Component {
 
 const mapStateToProps = state => ({
     
-    
   })
 
 
-export default connect(mapStateToProps, null)(PostForm);
+export default connect(mapStateToProps, {postUser})(PostForm);

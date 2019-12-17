@@ -61,13 +61,13 @@ class App extends Component {
                 <div>
                   <img className="blueLogo" src={blueLogo}  />
                   <h3 onClick={() => this.props.history.push('/home')}> ArticleHub </h3>
-            </div> 
-            {this.state.loading ? null :
+                </div> 
+                {this.state.loading ? null :
                 <div>
-                  <i class="far fa-plus-square fa-2x" title="Make A Post" ></i>
+                  <i class="far fa-plus-square fa-2x" title="Make A Post" onClick={() => {this.props.history.push('/postform')}}></i>
                   <i class="far fa-user fa-2x" title="View Your Profile" onClick={() => this.props.history.push('/home')}></i>
                   <button onClick={() => {Auth.signOut().then(() => {this.props.history.push('/signin')}).catch((err) => {console.log(err)} )}}> Logout </button>
-            </div> }
+                </div> }
             </div>
           </div>
         <Switch>
