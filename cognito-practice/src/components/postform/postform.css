@@ -8,12 +8,20 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.PostFormPageContainer h1 {
+  font-family: Didact Gothic;
+  margin-top: 40px;
 }
 
 .PostFormPageContainer .PostFormContainer {
-  border: 1px solid red;
   background: white;
-  margin-top: 100px;
+  margin-top: 30px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -59,11 +67,73 @@
   overflow: hidden;
 }
 
+.PostFormPageContainer .PostFormContainer .PostImageContainer .ConfirmButton {
+  padding: 10px;
+  background: white;
+  font-family: Didact Gothic;
+  font-weight: 600;
+  color: black;
+  border: 2px solid black;
+  font-size: 1rem;
+}
+
 .PostFormPageContainer .PostFormContainer .PostImageContainer .fileUploadSpan {
   padding: 10px;
   margin: 20px;
   background: #212121;
   font-family: Didact Gothic;
   color: white;
+}
+
+.PostFormPageContainer .PostFormContainer .PostContentContainer {
+  width: 500px;
+}
+
+.PostFormPageContainer .PostFormContainer .PostContentContainer form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.PostFormPageContainer .PostFormContainer .PostContentContainer form P {
+  font-family: Didact Gothic;
+  font-weight: 600;
+}
+
+.PostFormPageContainer .PostFormContainer .PostContentContainer form input {
+  width: 350px;
+  font-size: 1.2rem;
+  font-family: Didact Gothic;
+}
+
+.PostFormPageContainer .PostFormContainer .PostContentContainer form .TitleInput {
+  border: 0px solid black;
+  border-bottom: 1px solid black;
+  font-size: 1.2rem;
+}
+
+.PostFormPageContainer .PostFormContainer .PostContentContainer form .DescriptionInput {
+  height: 150px;
+  font-size: 1.2rem;
+}
+
+.PostFormPageContainer .PostFormContainer .PostContentContainer form .PostCategorySelector {
+  height: 30px;
+  width: 350px;
+  text-align: center;
+  font-family: Didact Gothic;
+  font-size: 1.2rem;
+}
+
+.PostFormPageContainer .PostFormContainer .PostContentContainer form .PostCategorySelector option {
+  text-align: center;
+  font-family: Didact Gothic;
 }
 /*# sourceMappingURL=postform.css.map */

@@ -69,6 +69,7 @@ class PostForm extends Component {
 
         return (
             <div className="PostFormPageContainer" >
+                <h1> Upload An Article </h1>
                 <div className="PostFormContainer" >
                     <div className="PostImageContainer">
                         <label>
@@ -78,11 +79,27 @@ class PostForm extends Component {
 
                         <div className="form1image" style={{backgroundImage: `url(${this.state.fileUrl})`, backgroundSize: "cover"}} />
                         <p> (Make sure dimensions of image are equal or close) </p>
-                        {this.state.fileUrl.length > 5 ? <button onClick={this.saveFile}> Confirm Image </button> : null}
+                        {this.state.fileUrl.length > 5 ? <button className="ConfirmButton" onClick={this.saveFile}> Confirm Image </button> : null}
                     </div>
                     <div className="PostContentContainer" >
                         <form>
-                            <input />
+                            <p> Title </p>
+                            <input className="TitleInput" />
+                            <p> Description </p>
+                            <textarea className="DescriptionInput" type="text" cols="38" rows="5" />
+                            <p> Article URL </p>
+                            <input className="art" />
+                            <p> Select Category</p>
+                            <select className="PostCategorySelector">
+                                <option value="volvo">Misc</option>
+                                <option value="saab">Political</option>
+                                <option value="opel">Technology</option>
+                                <option value="audi">Sports</option>
+                                <option value="opel">Animals</option>
+                                <option value="audi">Art</option>
+                            </select>
+                            
+                            
                         </form>
                     </div>
 

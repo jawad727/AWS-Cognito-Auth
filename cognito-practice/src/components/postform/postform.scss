@@ -2,12 +2,18 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     // height: 600px;
 
+    h1 {
+        font-family: Didact Gothic;
+        margin-top: 40px;
+    }
+
     .PostFormContainer {
-        border: 1px solid red;
+        // border: 1px solid red;
         background: white;
-        margin-top: 100px;
+        margin-top: 30px;
         display: flex;
         box-shadow: 2px 2px 5px grey;
 
@@ -18,8 +24,7 @@
             align-items: center;
             justify-content: center;  
             width: 350px;
-            height: 520px;
-            
+            height: 520px;   
             background: pink;
 
             p {
@@ -42,8 +47,19 @@
                 overflow: hidden;
             }
 
+            .ConfirmButton {
+                padding: 10px;
+                // margin: 20px;
+                background: white;
+                font-family: Didact Gothic;
+                font-weight: 600;
+                color: black;
+                border: 2px solid black;
+                font-size: 1rem;
+            }
+
             .fileUploadSpan {
-                // border: 1px solid red;
+                
                 padding: 10px;
                 margin: 20px;
                 background: #212121;
@@ -52,5 +68,54 @@
 
             }
         } 
+
+        .PostContentContainer {
+            width: 500px;
+
+            form {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                P {
+                    font-family: Didact Gothic;
+                    font-weight: 600;
+                }
+
+                input {
+                    width: 350px;
+                    font-size: 1.2rem;
+                    font-family: Didact Gothic;
+                }
+
+                .TitleInput {
+                    border: 0px solid black;
+                    border-bottom: 1px solid black;
+                    font-size: 1.2rem;
+                }
+
+                .DescriptionInput {
+                    height: 150px;
+                    font-size: 1.2rem;
+                }
+
+                .PostCategorySelector {
+                    height: 30px;
+                    width: 350px;
+                    text-align: center;
+                    font-family: Didact Gothic;
+                    font-size: 1.2rem;
+                    
+
+                    option {
+                        text-align: center;
+                        font-family: Didact Gothic;
+                        
+                    }
+                }
+
+
+            }
+        }
    }
 }
