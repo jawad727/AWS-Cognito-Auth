@@ -4,16 +4,31 @@ import "./postform.css"
 import Amplify, {Storage} from "aws-amplify"
 import PostForm2 from "./PostForm2"
 import {Auth} from "aws-amplify";
-import {postUser} from "../../store/actions/index"
+import {makePost} from "../../store/actions/index"
+
+const makeapost =  { 
+userID: "myuserid",
+ PostName: "Post works from postform!",
+ PostDescription: "This article discusses how tests and how they effect testing in a test environment while testing tests. ",
+ PostCategory: "Animals",
+ PostImage: "https",
+ SiteURL: "https",
+ Username: "mydisplayname"
+}
 
 
 class PostForm extends Component {
       state = {
-          username: "",
+         username: "",
+         client_id: "",
          fileUrl: "",
          file: "",
          filename: "",
-         imageConfirmed: false
+         imageConfirmed: false,
+         postTitle: "",
+         postDescription: "",
+         articleURL: "",
+         PostCategory: ""
       }
 
 
@@ -27,12 +42,16 @@ class PostForm extends Component {
 
     componentDidMount() {
         Auth.currentSession().then((ses) => {
-            this.setState({username: ses.accessToken.payload.username})
+            this.setState({username: ses.accessToken.payload.username, client_id: ses.accessToken.payload.client_id})
         } ).catch((err) => {console.log(err)} )
     }
 
 
-      handleChange = e => {
+    inputChangeHandler = e => {
+        this.setState({ [e.target.name] : e.target.value });
+    }
+
+    handleChange = e => {
           const file = e.target.files[0]
           this.setState({
               fileUrl: URL.createObjectURL(file),
@@ -40,9 +59,9 @@ class PostForm extends Component {
               filename: `${this.state.username}/${file.name}`
           })
           console.log(file)
-      }
+    }
       
-      saveFile = () => {
+    saveFile = () => {
           Storage.put(this.state.filename, this.state.file)
           .then(() => {
 
@@ -61,13 +80,18 @@ class PostForm extends Component {
           .catch(err => {
               console.log("error uploading file", err)
           })
-      }
+    }
     
 
     render() {
-
+            console.log(this.state.client_id)
             console.log(this.state.fileUrl)
             console.log(this.state.username)
+            console.log(this.state.postTitle)
+            console.log(this.state.postDescription)
+            console.log(this.state.articleURL)
+            console.log(this.state.PostCategory)
+
 
         return (
             <div className="PostFormPageContainer" >
@@ -86,13 +110,13 @@ class PostForm extends Component {
                     <div className="PostContentContainer" >
                         <form>
                             <p> Title </p>
-                            <input className="TitleInput" />
+                            <input name="postTitle" className="TitleInput" onChange={this.inputChangeHandler} />
                             <p> Description </p>
-                            <textarea className="DescriptionInput" type="text" cols="38" rows="5" />
+                            <textarea name="postDescription" className="DescriptionInput" onChange={this.inputChangeHandler} type="text" cols="38" rows="5" />
                             <p> Article URL </p>
-                            <input className="art" />
+                            <input name="articleURL" onChange={this.inputChangeHandler} />
                             <p> Select Category</p>
-                            <select className="PostCategorySelector">
+                            <select name="PostCategory" onChange={this.inputChangeHandler} className="PostCategorySelector">
                                 <option value="Misc">Misc</option>
                                 <option value="Political">Political</option>
                                 <option value="Technology">Technology</option>
@@ -104,11 +128,20 @@ class PostForm extends Component {
                             
                         </form>
                     </div>
-
+                
                 </div>
+                <button onClick={() => {this.props.makePost({
+                    userID: this.state.client_id,
+                    PostName: this.state.postTitle,
+                    PostDescription: this.state.postDescription,
+                    PostCategory: this.state.PostCategory,
+                    PostImage: this.state.fileUrl,
+                    SiteURL: this.state.articleURL,
+                    Username: this.state.username
+                })}} > upload </button>
                 {/* <div className="" style={{ width: "100px", height: "100px",  backgroundImage: `url(${this.state.fileUrl})`, backgroundSize: "cover"}} /> */}
               
-            </div>
+            </div> 
         );
     }
 }
@@ -118,4 +151,4 @@ const mapStateToProps = state => ({
   })
 
 
-export default connect(mapStateToProps, {postUser})(PostForm);
+export default connect(mapStateToProps, {makePost})(PostForm);
