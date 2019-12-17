@@ -1,6 +1,6 @@
 {
     "identityPoolName": "cognitopractice8534a195_identitypool_8534a195",
-    "allowUnauthenticatedIdentities": false,
+    "allowUnauthenticatedIdentities": true,
     "resourceNameTruncated": "cognit8534a195",
     "userPoolName": "cognitopractice8534a195_userpool_8534a195",
     "autoVerifiedAttributes": [

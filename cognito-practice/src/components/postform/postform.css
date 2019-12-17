@@ -1,0 +1,69 @@
+.PostFormPageContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.PostFormPageContainer .PostFormContainer {
+  border: 1px solid red;
+  background: white;
+  margin-top: 100px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-shadow: 2px 2px 5px grey;
+          box-shadow: 2px 2px 5px grey;
+}
+
+.PostFormPageContainer .PostFormContainer .PostImageContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 350px;
+  height: 520px;
+  background: pink;
+}
+
+.PostFormPageContainer .PostFormContainer .PostImageContainer p {
+  font-family: Didact Gothic;
+  width: 300px;
+  text-align: center;
+}
+
+.PostFormPageContainer .PostFormContainer .PostImageContainer .form1image {
+  margin-top: 30px;
+  width: 300px;
+  height: 300px;
+  background: lightgrey;
+}
+
+.PostFormPageContainer .PostFormContainer .PostImageContainer .hiddenInput {
+  visibility: hidden;
+  width: 0px;
+  overflow: hidden;
+}
+
+.PostFormPageContainer .PostFormContainer .PostImageContainer .fileUploadSpan {
+  padding: 10px;
+  margin: 20px;
+  background: #212121;
+  font-family: Didact Gothic;
+  color: white;
+}
+/*# sourceMappingURL=postform.css.map */

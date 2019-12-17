@@ -9,11 +9,13 @@ import SignIn from "./components/signup/SignIn"
 import Home from "./components/home/Home"
 import Profile from "./components/profile/Profile"
 import PostPage from "./components/posts/PostPage"
+import PostForm from "./components/postform/PostForm"
 import { Route, Switch } from "react-router-dom"
 import {connect} from "react-redux"
 import blueLogo from "../src/hiclipart.png"
 
 import {fetchUsers, fetchPosts, fetchPostsByUser} from "./store/actions/index"
+import PostForm2 from './components/postform/PostForm2';
 
 Amplify.configure(aws_exports)
 
@@ -72,7 +74,8 @@ class App extends Component {
         <Route exact path="/signup" component={SignUp} handleSignup={ this.handleSignup } />
         <Route exact path="/signin" component={SignIn} />
         <Route exact path="/home" component={Home} />
-        
+        <Route exact path="/postform" component={PostForm} />
+        {/* <Route exact path="/postform2" component={PostForm2} /> */}
         {this.props.usersArray.map(item => {
           return <Route path={`/${item.DisplayName}`} render={(props) => <Profile {...props}  content={item} />} />
         })}
