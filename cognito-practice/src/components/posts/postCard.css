@@ -10,7 +10,7 @@
 
 .CardContainer .CardIMG {
   height: 240px;
-  background: lightgrey;
+  background: grey;
 }
 
 .CardContainer .CardContent {
@@ -68,7 +68,8 @@
   display: flex;
   height: 600px;
   width: 940px;
-  border: 1px solid red;
+  -webkit-box-shadow: 2px 2px 5px grey;
+          box-shadow: 2px 2px 5px grey;
 }
 
 .backgroundPostContainer .singlePostContainer .singlePostImage {
@@ -97,10 +98,19 @@
   border-bottom: 1px solid lightgrey;
   margin: 0px;
   padding: 10px 0px;
+  font-family: Didact Gothic;
+  font-weight: 600;
+  font-size: 1.3rem;
 }
 
 .backgroundPostContainer .singlePostContainer .singlePostContent .commentsArea {
   height: 100%;
+}
+
+.backgroundPostContainer .singlePostContainer .singlePostContent .commentsArea p {
+  font-family: Didact Gothic;
+  font-size: 1.1rem;
+  margin-left: 10px;
 }
 
 .backgroundPostContainer .singlePostContainer .singlePostContent .contentLowerHalf {
@@ -115,11 +125,36 @@
 
 .backgroundPostContainer .singlePostContainer .singlePostContent .contentLowerHalf p {
   margin: 5px;
+  margin-left: 10px;
+  font-family: Didact Gothic;
+  font-size: 1.1rem;
 }
 
-.backgroundPostContainer .singlePostContainer .singlePostContent .contentLowerHalf input {
+.backgroundPostContainer .singlePostContainer .singlePostContent .contentLowerHalf .displaynameText {
+  margin-bottom: 15px;
+}
+
+.backgroundPostContainer .singlePostContainer .singlePostContent .contentLowerHalf .amountOfLikes {
+  font-weight: 600;
+}
+
+.backgroundPostContainer .singlePostContainer .singlePostContent .contentLowerHalf form {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.backgroundPostContainer .singlePostContainer .singlePostContent .contentLowerHalf form input {
   height: 30px;
-  margin-top: 10px;
+  border: 0px solid white;
+  height: 55px;
+  font-size: 1.1rem;
+  padding: 0px;
+  width: 100%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding-left: 5px;
 }
 
 .backgroundPostContainer .singlePostContainer .singlePostContent .contentLowerHalf .likeCommentDiv {
@@ -130,11 +165,12 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  border-top: 1px solid black;
+  border-top: 1px solid grey;
   padding-top: 10px;
 }
 
 .backgroundPostContainer .singlePostContainer .singlePostContent .contentLowerHalf .likeCommentDiv i {
   margin-left: 10px;
+  color: black;
 }
 /*# sourceMappingURL=postCard.css.map */

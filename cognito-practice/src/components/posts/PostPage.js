@@ -1,22 +1,32 @@
 import React, {Component} from 'react';
 import {connect} from "react-redux"
-import { fetchComments } from "../../store/actions/index"
-
+import { fetchComments, postComment } from "../../store/actions/index"
+import {Auth} from "aws-amplify";
 
 class PostPage extends Component {
   state = {
-
+    text: "",
+    postid: this.props.content.uid,
+    username: ""
   }
 
   componentDidMount() {
-    this.props.fetchComments(this.props.content.uid)
+    this.props.fetchComments(this.props.content.uid);
+    Auth.currentSession().then((user) => this.setState({username: user.accessToken.payload.username}) ).catch((err) => {console.log(err)} )
   }
+
+  changeHandler = (e) => {
+    this.setState({ [e.target.name] : e.target.value });
+  }
+
+  
 
   render() {
 
-    
     console.log(this.props.postComments)
     console.log(this.props.content)
+    // console.log(this.state)
+    console.log(this.state)
 
       return (
         <div className="backgroundPostContainer">
@@ -27,7 +37,7 @@ class PostPage extends Component {
                     <h3>{this.props.content.Username}</h3>
                     <div className="commentsArea" >
                         { this.props.postComments.map(item => {
-                            return <p> {`${item.username}:`} {`${item.text}`} </p>
+                            return <p> <strong> {`${item.username}:`} </strong> {`${item.text}`} </p>
                         }) }
                     </div>
                     <div className="contentLowerHalf" >
@@ -35,9 +45,12 @@ class PostPage extends Component {
                             <i class="far fa-heart fa-2x"></i>
                             <i class="far fa-comment fa-2x"></i>
                         </div>
-                        <p>{`${this.props.content.PostLikes} Likes`}</p>
-                        <p>{`${this.props.content.Username}: ${this.props.content.PostDescription}`}</p>
-                        <input placeholder="add a comment" />
+                        <p className="amountOfLikes">{`${this.props.content.PostLikes} Likes`}</p>
+                        <p className="displaynameText" ><strong>{ `${this.props.content.Username}:`}</strong> {`${this.props.content.PostDescription}`}</p>
+                        <form onSubmit={(e) => {e.preventDefault(); this.props.postComment(this.state)} }>
+                            <input name="text" onChange={this.changeHandler} type="text" placeholder="add a comment" rows="2" />
+                            
+                        </form>
                     </div>
                     
                 </div>
@@ -53,7 +66,7 @@ const mapStateToProps = state => ({
 
 })
 
-export default connect(mapStateToProps, {fetchComments} )(PostPage);
+export default connect(mapStateToProps, {fetchComments, postComment} )(PostPage);
 
 // export default PostPage
 
