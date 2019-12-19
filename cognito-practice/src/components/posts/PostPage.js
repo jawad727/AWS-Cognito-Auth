@@ -19,7 +19,14 @@ class PostPage extends Component {
 
                 <div className="singlePostContent">
                     <h3>{this.props.content.Username}</h3>
-                    <div>
+                    <div className="commentsArea" >
+
+                    </div>
+                    <div className="contentLowerHalf" >
+                        <div className="likeCommentDiv" >
+                            <i class="far fa-heart fa-2x"></i>
+                            <i class="far fa-comment fa-2x"></i>
+                        </div>
                         <p>{`${this.props.content.PostLikes} Likes`}</p>
                         <p>{`${this.props.content.Username}: ${this.props.content.PostDescription}`}</p>
                         <input placeholder="add a comment" />

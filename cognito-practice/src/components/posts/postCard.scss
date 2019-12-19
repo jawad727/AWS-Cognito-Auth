@@ -84,9 +84,14 @@
                 padding: 10px 0px;
             }
 
-            div {
+            .commentsArea {
+                height: 100%;
+            }
+
+            .contentLowerHalf {
                 display: flex;
                 flex-direction: column;
+                
 
                 p {
                     margin: 5px;
@@ -94,10 +99,22 @@
 
                 input {
                     height: 30px;
-                    
+                    margin-top: 10px;
                 }
-            }
 
+                .likeCommentDiv {
+                    display: flex;
+                    flex-direction: row;
+                    border-top: 1px solid black;
+                    padding-top: 10px;
+
+                    i {
+                        margin-left: 10px;
+                    }
+
+                }
+
+            }
             
         }
 

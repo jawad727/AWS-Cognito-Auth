@@ -10,6 +10,20 @@
         margin-top: 40px;
     }
 
+    .UploadButton {
+        margin-top: 30px;
+        background: #212121;
+        color: white;
+        font-family: Didact Gothic;
+        border: 1px solid #212121;
+        font-weight: 600;
+        font-size: 1.2rem;
+        width: 100px;
+        height: 40px;
+        box-shadow: 2px 2px 5px grey;
+        cursor: pointer;
+    }
+
     .PostFormContainer {
         // border: 1px solid red;
         background: white;

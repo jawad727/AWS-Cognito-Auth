@@ -44,7 +44,7 @@ class PostForm extends Component {
         Auth.currentSession().then((ses) => {
             this.setState({username: ses.accessToken.payload.username, client_id: ses.accessToken.payload.client_id})
         } ).catch((err) => {console.log(err)} )
-    }
+    } 
 
 
     inputChangeHandler = e => {
@@ -84,13 +84,13 @@ class PostForm extends Component {
     
 
     render() {
-            console.log(this.state.client_id)
-            console.log(this.state.fileUrl)
-            console.log(this.state.username)
-            console.log(this.state.postTitle)
-            console.log(this.state.postDescription)
-            console.log(this.state.articleURL)
-            console.log(this.state.PostCategory)
+            // console.log(this.state.client_id)
+            // console.log(this.state.fileUrl)
+            // console.log(this.state.username)
+            // console.log(this.state.postTitle)
+            // console.log(this.state.postDescription)
+            // console.log(this.state.articleURL)
+            // console.log(this.state.PostCategory)
 
 
         return (
@@ -130,7 +130,11 @@ class PostForm extends Component {
                     </div>
                 
                 </div>
-                <button onClick={() => {this.props.makePost({
+                <button className="UploadButton" onClick={() => {
+                    if (this.state.postTitle.length == 0 || this.state.postDescription.length == 0 || this.state.fileUrl.length == 0 || this.state.articleURL.length == 0) {alert("Fill in every box and coonfirm image before making a post.");} else {
+
+                    
+                    this.props.makePost({
                     userID: this.state.client_id,
                     PostName: this.state.postTitle,
                     PostDescription: this.state.postDescription,
@@ -138,7 +142,7 @@ class PostForm extends Component {
                     PostImage: this.state.fileUrl,
                     SiteURL: this.state.articleURL,
                     Username: this.state.username
-                })}} > upload </button>
+                }) } }} > upload </button>
                 {/* <div className="" style={{ width: "100px", height: "100px",  backgroundImage: `url(${this.state.fileUrl})`, backgroundSize: "cover"}} /> */}
               
             </div> 

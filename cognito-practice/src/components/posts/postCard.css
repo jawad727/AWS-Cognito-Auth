@@ -99,7 +99,11 @@
   padding: 10px 0px;
 }
 
-.backgroundPostContainer .singlePostContainer .singlePostContent div {
+.backgroundPostContainer .singlePostContainer .singlePostContent .commentsArea {
+  height: 100%;
+}
+
+.backgroundPostContainer .singlePostContainer .singlePostContent .contentLowerHalf {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -109,11 +113,28 @@
           flex-direction: column;
 }
 
-.backgroundPostContainer .singlePostContainer .singlePostContent div p {
+.backgroundPostContainer .singlePostContainer .singlePostContent .contentLowerHalf p {
   margin: 5px;
 }
 
-.backgroundPostContainer .singlePostContainer .singlePostContent div input {
+.backgroundPostContainer .singlePostContainer .singlePostContent .contentLowerHalf input {
   height: 30px;
+  margin-top: 10px;
+}
+
+.backgroundPostContainer .singlePostContainer .singlePostContent .contentLowerHalf .likeCommentDiv {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  border-top: 1px solid black;
+  padding-top: 10px;
+}
+
+.backgroundPostContainer .singlePostContainer .singlePostContent .contentLowerHalf .likeCommentDiv i {
+  margin-left: 10px;
 }
 /*# sourceMappingURL=postCard.css.map */

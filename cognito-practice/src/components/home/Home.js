@@ -62,7 +62,7 @@ class Home extends Component {
           </div>
           
 
-          <h3> Browse All Articles </h3>
+          <h3> {`Browse ${this.state.currentTab[0].toLowerCase()} Articles`}</h3>
 
           <div className="AllPostOrganizer" >
             {categoryArray.map((item, i) => {
