@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-
+import {connect} from "react-redux"
+import { fetchComments } from "../../store/actions/index"
 
 
 class PostPage extends Component {
@@ -7,9 +8,14 @@ class PostPage extends Component {
 
   }
 
+  componentDidMount() {
+    this.props.fetchComments(this.props.content.uid)
+  }
+
   render() {
 
-
+    
+    console.log(this.props.postComments)
     console.log(this.props.content)
 
       return (
@@ -20,7 +26,9 @@ class PostPage extends Component {
                 <div className="singlePostContent">
                     <h3>{this.props.content.Username}</h3>
                     <div className="commentsArea" >
-
+                        { this.props.postComments.map(item => {
+                            return <p> {`${item.username}:`} {`${item.text}`} </p>
+                        }) }
                     </div>
                     <div className="contentLowerHalf" >
                         <div className="likeCommentDiv" >
@@ -39,12 +47,14 @@ class PostPage extends Component {
   }
 }
  
-// const mapStateToProps = state => ({
+const mapStateToProps = state => ({
 
-//   allPostsArray: state.allPostsArray
+    postComments: state.postComments
 
-// })
+})
 
-// export default connect(mapStateToProps, null )(PostPage);
+export default connect(mapStateToProps, {fetchComments} )(PostPage);
 
-export default PostPage
+// export default PostPage
+
+// fetchComments
