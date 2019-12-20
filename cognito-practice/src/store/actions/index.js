@@ -8,6 +8,7 @@ export const DELETE_POST = "DELETE_POST"
 export const FETCH_POST_BY_USER = "FETCH_POST_BY_USER"
 export const FETCH_COMMENTS = "FETCH_COMMENTS"
 export const POST_COMMENT = "POST_COMMENT"
+export const UPDATE_POST = "UPDATE_POST"
 
 const baseURL = "https://u242fne979.execute-api.us-east-1.amazonaws.com/dev"
 const baseURL2 = "https://jb6y0o91j7.execute-api.us-east-1.amazonaws.com/dev"
@@ -108,6 +109,19 @@ export const deletePost = (id) => dispatch => {
     .then(res => {
         dispatch({
             type: DELETE_POST,
+            payload: res.data
+        })
+    })
+    .catch(err => {
+        console.log(err)
+    })
+}
+
+export const updatePost = (id) => dispatch => {
+    return axios.put(`${baseURL}/post/${id}`)
+    .then(res => {
+        dispatch({
+            type: UPDATE_POST,
             payload: res.data
         })
     })

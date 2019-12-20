@@ -31,7 +31,10 @@ class Profile extends Component {
                         <h2>{this.props.content.DisplayName}</h2>
                         <p>{`@${this.props.content.Username}`}</p>
                         <p>{this.props.content.Bio}</p>
-                        <p>{`Posts: ${this.props.allPostsByUser.length}`}</p>
+                        <div className="PostJoinedDiv">
+                            <p>{`Posts: ${this.props.allPostsByUser.length}`}</p>
+                            <p>{`Joined ArticleHub On ${this.props.content.date.slice(0, 17)}`}</p>
+                        </div>
                         {/* <p>{`Posts: ${this.props.allPostsByUser.length}`}</p> */}
                     </div>
                     

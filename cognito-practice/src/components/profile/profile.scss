@@ -32,6 +32,18 @@
 
         .ProfileUserInfo {
             margin: 10px;
+
+            .PostJoinedDiv {
+                width: 95%;
+                display: flex;
+                justify-content: space-between;
+                margin-left: 25px;
+
+                p {
+                    margin: 0px;
+                    // margin-right: 25px;
+                }
+            }
         }
     }
 

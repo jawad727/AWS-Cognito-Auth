@@ -41,6 +41,21 @@
   margin: 10px;
 }
 
+.ProfileContainer .ProfileContentContainer .ProfileUserInfo .PostJoinedDiv {
+  width: 95%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-left: 25px;
+}
+
+.ProfileContainer .ProfileContentContainer .ProfileUserInfo .PostJoinedDiv p {
+  margin: 0px;
+}
+
 .ProfileContainer .SingleProfilePosts {
   display: -webkit-box;
   display: -ms-flexbox;

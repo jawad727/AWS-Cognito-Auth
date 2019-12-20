@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {connect} from "react-redux"
 import { fetchComments, postComment } from "../../store/actions/index"
 import {Auth} from "aws-amplify";
+import axios from 'axios'
 
 class PostPage extends Component {
   state = {
@@ -18,6 +19,20 @@ class PostPage extends Component {
   changeHandler = (e) => {
     this.setState({ [e.target.name] : e.target.value });
   }
+
+  baseURL = "https://u242fne979.execute-api.us-east-1.amazonaws.com/dev"
+
+  upvote = (e) => {
+    e.preventDefault();
+    axios.put(`${this.baseURL}/post/${this.props.content.uid}`, {
+      paramName: "PostLikes",
+      paramValue: this.props.content.PostLikes + 1
+    })
+    .then(res => console.log(res))
+    .catch(err => console.log(err))
+
+    
+}
 
   
 
@@ -44,7 +59,7 @@ class PostPage extends Component {
                     </div>
                     <div className="contentLowerHalf" >
                         <div className="likeCommentDiv" >
-                            <i class="far fa-heart fa-2x"></i>
+                            <i class="far fa-heart fa-2x" onClick={this.upvote}></i>
                             <i class="far fa-comment fa-2x"></i>
                         </div>
                         <p className="amountOfLikes">{`${this.props.content.PostLikes} Likes`}</p>

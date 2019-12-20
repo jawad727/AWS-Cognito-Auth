@@ -1,11 +1,12 @@
-import { POST_COMMENT, FETCH_USERS, FETCH_COMMENTS, POST_USER, FETCH_POSTS, MAKE_POST, DELETE_POST, FETCH_POST_BY_USER } from "../actions"
+import { UPDATE_POST, POST_COMMENT, FETCH_USERS, FETCH_COMMENTS, POST_USER, FETCH_POSTS, MAKE_POST, DELETE_POST, FETCH_POST_BY_USER } from "../actions"
 
 const initialState = {
     signedIn: false,
     usersArray: [],
     allPostsArray: [],
     allPostsByUser: [],
-    postComments: []
+    postComments: [],
+    likesArray: []
 }
 
 const rootReducer = (state = initialState, action) => {
@@ -49,6 +50,11 @@ const rootReducer = (state = initialState, action) => {
             return {
         ...state,
         postComments: [...state.postComments, action.payload]
+        }
+        case UPDATE_POST:
+            return {
+        ...state,
+        likesArray: [...state.likesArray, action.payload]
         }
         default:
             return state

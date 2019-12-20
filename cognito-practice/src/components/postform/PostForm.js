@@ -84,8 +84,8 @@ class PostForm extends Component {
     
 
     render() {
-            // console.log(this.state.client_id)
-            // console.log(this.state.fileUrl)
+            console.log(this.state.filename)
+            console.log(this.state.fileUrl)
             // console.log(this.state.username)
             // console.log(this.state.postTitle)
             // console.log(this.state.postDescription)
@@ -136,14 +136,14 @@ class PostForm extends Component {
 
                     
                     this.props.makePost({
-                    userID: this.state.client_id,
+                    userID: this.state.username,
                     PostName: this.state.postTitle,
                     PostDescription: this.state.postDescription,
                     PostCategory: this.state.PostCategory,
-                    PostImage: this.state.fileUrl,
+                    PostImage: `https://researchpalimagestoragedev-dev.s3-us-west-2.amazonaws.com/public/${this.state.filename}`,
                     SiteURL: this.state.articleURL,
                     Username: this.state.username
-                }) } }} > upload </button>
+                }).then(this.props.history.push("/home")) } }} > upload </button>
                 {/* <div className="" style={{ width: "100px", height: "100px",  backgroundImage: `url(${this.state.fileUrl})`, backgroundSize: "cover"}} /> */}
               
             </div> 
