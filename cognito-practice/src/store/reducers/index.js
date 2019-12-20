@@ -18,7 +18,7 @@ const rootReducer = (state = initialState, action) => {
         case POST_USER:
             return {
         ...state,
-        usersArray: action.payload
+        usersArray: [ ...this.state.usersArray, action.payload]
         }
         case FETCH_POSTS:
             return {
@@ -33,7 +33,7 @@ const rootReducer = (state = initialState, action) => {
         case MAKE_POST:
             return {
         ...state,
-        allPostsArray: action.payload
+        allPostsArray: [ ...this.state.allPostsArray, action.payload]
         }
         case DELETE_POST:
             return {
@@ -48,7 +48,7 @@ const rootReducer = (state = initialState, action) => {
         case POST_COMMENT:
             return {
         ...state,
-        postComments: action.payload
+        postComments: [...state.postComments, action.payload]
         }
         default:
             return state

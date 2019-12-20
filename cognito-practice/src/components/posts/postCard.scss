@@ -10,8 +10,9 @@
 
     .CardIMG {
         height: 240px;
-        background: grey;
-
+        background: lightgrey;
+        background-size: cover;
+        background-position: center;
     }
 
     .CardContent {
@@ -24,23 +25,31 @@
 
         p {
             font-family: Didact Gothic;
+            margin: 0px;
+            margin-top: 10px;
         }
 
         .CardTitle {
             font-size: 1.35rem;
             margin: 0px;
             font-weight: 1000;
+            margin-bottom: 10px;
         }
 
         .CardDescription {
             font-weight: 600;
             margin: 0px;
-            margin-top: 10px;
+            // margin-bottom: 30px;
         }
 
-        .CardCommentNumber {
+        .CenteredDate {
+            text-align: center;
+        }
+
+        .CardLikesNumber {
             font-weight: 600;
             margin: 0px;
+            margin-bottom: 10px;
         }
 
 
@@ -52,12 +61,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+    font-family: Didact Gothic;
     height: 80vh;
+
 
 
     .singlePostContainer {
         display: flex;
-
         height: 600px;
         width: 940px;
         box-shadow: 2px 2px 5px grey;
@@ -66,6 +77,8 @@
             height: 600px;
             width: 600px;
             background: lightgrey;
+            background-size: cover;
+            background-position: center;
         }
 
         .singlePostContent {

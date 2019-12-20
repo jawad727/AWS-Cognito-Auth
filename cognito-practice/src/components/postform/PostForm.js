@@ -62,7 +62,7 @@ class PostForm extends Component {
     }
       
     saveFile = () => {
-          Storage.put(this.state.filename, this.state.file)
+          Storage.put(this.state.filename, this.state.file, {expires: Date.now() + 60 , level: 'public', contentType: 'image/png'})
           .then(() => {
 
               console.log("successfully saved file!", `${this.state.filename}`)
@@ -117,6 +117,7 @@ class PostForm extends Component {
                             <input name="articleURL" onChange={this.inputChangeHandler} />
                             <p> Select Category</p>
                             <select name="PostCategory" onChange={this.inputChangeHandler} className="PostCategorySelector">
+                                <option ></option>
                                 <option value="Misc">Misc</option>
                                 <option value="Political">Political</option>
                                 <option value="Technology">Technology</option>

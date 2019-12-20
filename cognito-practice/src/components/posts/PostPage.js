@@ -30,9 +30,11 @@ class PostPage extends Component {
 
       return (
         <div className="backgroundPostContainer">
+            <h1>{this.props.content.PostName}</h1>
            <div className="singlePostContainer" >
-                <div className="singlePostImage" />
-
+                <a target="_blank" href={this.props.content.SiteURL}>
+                    <div className="singlePostImage" style={{ backgroundImage: `url(${this.props.content.PostImage})`}} />
+                </a>
                 <div className="singlePostContent">
                     <h3>{this.props.content.Username}</h3>
                     <div className="commentsArea" >

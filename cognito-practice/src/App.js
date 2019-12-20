@@ -24,7 +24,8 @@ class App extends Component {
       super(props);
       this.state = {
           signedUp : false,
-          loading: true
+          loading: true,
+          username: ""
       }
       this.handleSignup = this.handleSignup.bind(this);
   }
@@ -33,7 +34,7 @@ class App extends Component {
       this.props.fetchUsers();
       this.props.fetchPosts();
       // this.props.fetchPostsByUser("myid3");
-      Auth.currentSession().then((user) => this.setState({loading: false})).catch((err) => {console.log(err)} )
+      Auth.currentSession().then((user) => this.setState({loading: false, username: user.accessToken.payload.username})).catch((err) => {console.log(err)} )
       console.log("MOUNTED")
     }
 
@@ -65,7 +66,7 @@ class App extends Component {
                 {this.state.loading ? null :
                 <div>
                   <i class="far fa-plus-square fa-2x" title="Make A Post" onClick={() => {this.props.history.push('/postform')}}></i>
-                  <i class="far fa-user fa-2x" title="View Your Profile" onClick={() => this.props.history.push('/home')}></i>
+                  <i class="far fa-user fa-2x" title="View Your Profile" onClick={() => this.props.history.push(`/${this.state.username}`)}></i>
                   <button onClick={() => {Auth.signOut().then(() => {this.props.history.push('/signin')}).catch((err) => {console.log(err)} )}}> Logout </button>
                 </div> }
             </div>
@@ -77,10 +78,10 @@ class App extends Component {
         <Route exact path="/postform" component={PostForm} />
         {/* <Route exact path="/postform2" component={PostForm2} /> */}
         {this.props.usersArray.map(item => {
-          return <Route path={`/${item.DisplayName}`} render={(props) => <Profile {...props}  content={item} />} />
+          return <Route path={`/${item.Username}`} render={(props) => <Profile {...props}  content={item} />} />
         })}
 
-        {this.props.allPostsArray.map(item => {
+        {this.props.allPostsArray && this.props.allPostsArray.map(item => {
           return <Route path={`/${item.uid}`} render={(props) => <PostPage {...props}  content={item} />} />
         })}
 

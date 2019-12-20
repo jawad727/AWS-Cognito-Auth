@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import {Auth} from "aws-amplify";
 import "./signin.css"
+import {connect} from "react-redux"
+import {postUser} from "../../store/actions/index"
 
 class SignUp extends Component {
     constructor(props) {
@@ -31,11 +33,12 @@ class SignUp extends Component {
             password: password,
             attributes: {
                 email: email,
-                phone_number: phone_number
+                phone_number: phone_number,
             }
         })
-        .then(() => {
+        .then((res) => {
             console.log('Successfully signed up');
+            console.log(res)
         })
         .catch((err) => console.log(`Error signing up: ${ err }`))
     }
@@ -44,12 +47,19 @@ class SignUp extends Component {
         const { username, password, confirmationCode } = this.state;
         Auth.confirmSignUp(username, confirmationCode)
         .then(() => {
-          Auth.signIn({ username: username, password: password })
-          console.log("successfully signed up")
-        })
-        .then(() => {
-          this.props.history.push("./home")
-          console.log("pushed home")
+          Auth.signIn({ username: username, password: password }).then(res => {
+            this.props.postUser({
+            uuid: this.state.username,
+            Username: this.state.username,
+            Email: this.state.email,
+            PhoneNumber: this.state.phone_number,
+            DisplayName: this.state.username
+            });
+          }).then(() => {
+            this.props.history.push("./home")
+            console.log("user created")
+          })
+          
         })
         .catch((err) => console.log(`Error confirming sign up - ${ err }`))
     }
@@ -97,7 +107,7 @@ class SignUp extends Component {
   
     render() {
         // console.log(this.state.username)
-        console.log(Auth.currentSession().then((user) => console.log(user.accessToken.payload)))
+        // console.log(Auth.currentSession().then((user) => console.log(user.accessToken.payload)))
 
       const { verified } = this.state;
       if (verified) {
@@ -131,4 +141,9 @@ class SignUp extends Component {
     }
 }
 
-export default SignUp
+
+const mapStateToProps = state => ({
+    
+  })
+  
+  export default connect(mapStateToProps, {postUser})(SignUp);

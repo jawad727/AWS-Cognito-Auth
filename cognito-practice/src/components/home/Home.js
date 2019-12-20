@@ -12,7 +12,7 @@ import DiscoverCard from "../discovercards/DiscoverCard"
 // Amplify.configure(aws_exports)
 
 
-var categoryArray = [["ALL", "POLITICS", "TECHNOLOGY", "SPORTS", "ANIMALS", "ART", "MISC"], ["POLITICS"], ["TECHNOLOGY"], ["SPORTS"], ["ANIMALS"], ["ART"], ["MISC"]]
+var categoryArray = [["ALL", "POLITICAL", "TECHNOLOGY", "SPORTS", "ANIMALS", "ART", "MISC"], ["POLITICAL"], ["TECHNOLOGY"], ["SPORTS"], ["ANIMALS"], ["ART"], ["MISC"]]
 
 
 class Home extends Component {
@@ -32,7 +32,7 @@ class Home extends Component {
   }
 
   componentDidMount() {
-    // Auth.currentSession().then((user) => this.setState({loading: false, username: user.accessToken.payload.username})).catch((err) => {console.log(err)} )
+    Auth.currentSession().then((user) => console.log(user.accessToken.payload)).catch((err) => {console.log(err)} )
     
     // this.props.fetchPosts()
     console.log(this.props.allPostsArray)
@@ -58,7 +58,7 @@ class Home extends Component {
           <div className="DiscoverCardsContainer" >
           {this.props.usersArray.map((item) => {
             return <DiscoverCard content={item}/>
-          })}
+          }).slice(0, 5)}
           </div>
           
 
