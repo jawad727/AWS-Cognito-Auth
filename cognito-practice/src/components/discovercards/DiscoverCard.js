@@ -24,7 +24,7 @@ class DiscoverCard extends Component {
     console.log(this.props.usersArray)
 
       return (
-        <div className="DiscoverCard">
+        <div className="DiscoverCard" onClick={() => this.props.history.push(`/${this.props.content.Username}`)}>
            <div className="DiscoverCardImage" style={{ backgroundImage: `url(${this.props.content.Profpic})` }} />
            <div className="DiscoverCardContent" >
             <p>{this.props.content.Username}</p>

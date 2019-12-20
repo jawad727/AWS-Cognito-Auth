@@ -57,7 +57,7 @@ class Home extends Component {
 
           <div className="DiscoverCardsContainer" >
           {this.props.usersArray.map((item) => {
-            return <DiscoverCard content={item}/>
+            return <DiscoverCard content={item} history={this.props.history} />
           }).slice(0, 5)}
           </div>
           

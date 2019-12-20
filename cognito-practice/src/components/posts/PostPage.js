@@ -30,9 +30,17 @@ class PostPage extends Component {
     })
     .then(res => console.log(res))
     .catch(err => console.log(err))
-
-    
 }
+
+  downvote = (e) => {
+    e.preventDefault();
+    axios.put(`${this.baseURL}/post/${this.props.content.uid}`, {
+      paramName: "PostLikes",
+      paramValue: this.props.content.PostLikes - 1
+    })
+    .then(res => console.log(res))
+    .catch(err => console.log(err))
+  }
 
   
 
