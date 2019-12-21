@@ -24,7 +24,9 @@ class Profile extends Component {
 
         return (
             <div className="ProfileContainer" >
-                <EditProfile/>
+                <div className="EditHeaderModuleContainer" onClick={() => {console.log("CLICKed")}}>
+                    <EditProfile/>
+                </div>
                 
                 <div className="ProfileContentContainer">
                     <div className="ProfileHeader" style={{ backgroundImage: `url(${this.props.content.Header})` }}>

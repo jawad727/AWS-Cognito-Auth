@@ -18,7 +18,7 @@ class EditProfile extends Component {
         // console.log(this.props.allPostsByUser)
 
         return (
-          <div className="EditHeaderModuleContainer">
+          
             <div className="EditHeaderModule">
               <div className="EditDivider">
                 <p>Edit Profile</p>
@@ -32,7 +32,7 @@ class EditProfile extends Component {
                 <input />
               </div>
             </div>
-          </div>
+   
         );
     }
 }

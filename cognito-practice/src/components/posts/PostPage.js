@@ -8,7 +8,9 @@ class PostPage extends Component {
   state = {
     text: "",
     postid: this.props.content.uid,
-    username: ""
+    username: "",
+    likesnumber: this.props.content.PostLikes,
+    isLiked: false
   }
 
   componentDidMount() {
@@ -24,6 +26,7 @@ class PostPage extends Component {
 
   upvote = (e) => {
     e.preventDefault();
+    this.setState({likesnumber: this.state.likesnumber + 1, isLiked: true})
     axios.put(`${this.baseURL}/post/${this.props.content.uid}`, {
       paramName: "PostLikes",
       paramValue: this.props.content.PostLikes + 1
@@ -34,6 +37,7 @@ class PostPage extends Component {
 
   downvote = (e) => {
     e.preventDefault();
+    this.setState({likesnumber: this.state.likesnumber - 1, isLiked: false})
     axios.put(`${this.baseURL}/post/${this.props.content.uid}`, {
       paramName: "PostLikes",
       paramValue: this.props.content.PostLikes - 1
@@ -67,10 +71,11 @@ class PostPage extends Component {
                     </div>
                     <div className="contentLowerHalf" >
                         <div className="likeCommentDiv" >
-                            <i class="far fa-heart fa-2x" onClick={this.upvote}></i>
-                            <i class="far fa-comment fa-2x"></i>
+                            { this.state.isLiked ? <i class="fas fa-heart fa-2x" style={{color: "red"}} onClick={this.downvote}></i>
+                            : <i class="far fa-heart fa-2x" onClick={this.upvote}></i> }
+                              <i class="far fa-comment fa-2x" ></i>
                         </div>
-                        <p className="amountOfLikes">{`${this.props.content.PostLikes} Likes`}</p>
+                        <p className="amountOfLikes">{`${this.state.likesnumber} Likes`}</p>
                         <p className="displaynameText" ><strong>{ `${this.props.content.Username}:`}</strong> {`${this.props.content.PostDescription}`}</p>
                         <form onSubmit={(e) => {e.preventDefault(); this.props.postComment(this.state)} }>
                             <input name="text" onChange={this.changeHandler} type="text" placeholder="add a comment" rows="2" />
