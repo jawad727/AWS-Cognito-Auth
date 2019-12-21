@@ -3,6 +3,7 @@ import PostCard from "../posts/PostCard.js"
 import "./profile.css"
 import {fetchPostsByUser} from "../../store/actions/index"
 import {connect} from "react-redux"
+import EditProfile from "./editProfile/EditProfile"
 
 class Profile extends Component {
       state = {
@@ -23,6 +24,7 @@ class Profile extends Component {
 
         return (
             <div className="ProfileContainer" >
+                <EditProfile/>
                 
                 <div className="ProfileContentContainer">
                     <div className="ProfileHeader" style={{ backgroundImage: `url(${this.props.content.Header})` }}>

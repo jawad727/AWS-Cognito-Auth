@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import "./editProfile.css"
+import "./editprofile.css"
 import {connect} from "react-redux"
 
 
@@ -19,8 +19,20 @@ class EditProfile extends Component {
 
         return (
           <div className="EditHeaderModuleContainer">
-          <div className="EditHeaderModule" />
-      </div>
+            <div className="EditHeaderModule">
+              <div className="EditDivider">
+                <p>Edit Profile</p>
+                <p>Edit AVI</p>
+                <p>Edit Header</p>
+              </div>
+              <div className="EditProfileAttributes">
+                <p>Change Displayname</p>
+                <input />
+                <p>Change Bio</p>
+                <input />
+              </div>
+            </div>
+          </div>
         );
     }
 }

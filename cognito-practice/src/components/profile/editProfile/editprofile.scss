@@ -11,10 +11,30 @@
 
     
     .EditHeaderModule {
+        display: flex;
+
         height: 250px;
         width: 600px;
         position: absolute;
         border: 1px solid red;
         background: white;
+
+        .EditDivider {
+            height: 100%;
+            width: 200px;
+            border-right: 1px solid red;
+
+            p {
+                text-align: center;
+                border-bottom: 1px solid red;
+            }
+        }
+
+        .EditProfileAttributes {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
     }
 }
