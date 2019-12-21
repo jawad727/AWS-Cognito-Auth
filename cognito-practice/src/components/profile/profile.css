@@ -11,6 +11,32 @@
           align-items: center;
 }
 
+.ProfileContainer .EditHeaderModuleContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  z-index: 3;
+  background: rgba(0, 0, 0, 0.5);
+  top: 0px;
+}
+
+.ProfileContainer .EditHeaderModuleContainer .EditHeaderModule {
+  height: 250px;
+  width: 600px;
+  position: absolute;
+  border: 1px solid red;
+  background: white;
+}
+
 .ProfileContainer .ProfileContentContainer {
   -webkit-box-shadow: 2px 2px 5px grey;
           box-shadow: 2px 2px 5px grey;
@@ -19,9 +45,25 @@
 }
 
 .ProfileContainer .ProfileContentContainer .ProfileHeader {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
   height: 200px;
   background-position: center;
   background-size: cover;
+}
+
+.ProfileContainer .ProfileContentContainer .ProfileHeader button {
+  height: 30px;
+  margin: 10px;
+  margin-top: 160px;
+  background: white;
+  border: 3px solid black;
+  font-family: Didact Gothic;
+  font-weight: 600;
 }
 
 .ProfileContainer .ProfileContentContainer .ProfileAVI {
@@ -49,7 +91,6 @@
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  margin-left: 25px;
 }
 
 .ProfileContainer .ProfileContentContainer .ProfileUserInfo .PostJoinedDiv p {

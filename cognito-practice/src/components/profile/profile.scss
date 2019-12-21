@@ -4,6 +4,26 @@
     align-items: center;
     // border: 1px solid black;
     
+    .EditHeaderModuleContainer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        height: 100%;
+        width: 100%;
+        z-index: 3;
+        background: rgba(0, 0, 0, 0.5);
+        top: 0px;
+   
+        
+        .EditHeaderModule {
+            height: 250px;
+            width: 600px;
+            position: absolute;
+            border: 1px solid red;
+            background: white;
+        }
+    }
 
     .ProfileContentContainer {
         // border: 1px solid black;
@@ -12,9 +32,25 @@
         background-color: white;
 
         .ProfileHeader {
+            display: flex;
+            justify-content: flex-end;
+            
             height: 200px;
             background-position: center;
             background-size: cover;
+
+            button {
+                height: 30px;
+                margin: 10px;
+                margin-top: 160px;
+                background: white;
+                border: 3px solid black;
+                font-family: Didact Gothic;
+                font-weight: 600;
+                // font-size: 1.1rem;
+
+            }
+
         }
 
         .ProfileAVI {
@@ -37,7 +73,7 @@
                 width: 95%;
                 display: flex;
                 justify-content: space-between;
-                margin-left: 25px;
+                // margin-left: 25px;
 
                 p {
                     margin: 0px;
