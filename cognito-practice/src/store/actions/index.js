@@ -9,6 +9,8 @@ export const FETCH_POST_BY_USER = "FETCH_POST_BY_USER"
 export const FETCH_COMMENTS = "FETCH_COMMENTS"
 export const POST_COMMENT = "POST_COMMENT"
 export const UPDATE_POST = "UPDATE_POST"
+export const FETCH_LIKES = "FETCH_LIKES"
+export const POST_LIKE = "POST_LIKE"
 
 const baseURL = "https://u242fne979.execute-api.us-east-1.amazonaws.com/dev"
 const baseURL2 = "https://jb6y0o91j7.execute-api.us-east-1.amazonaws.com/dev"
@@ -34,6 +36,32 @@ export const fetchComments = (id) => dispatch => {
             payload: res.data
         })
     }).catch(err => {
+        console.log(err)
+    })
+}
+
+export const fetchLikes = (id) => dispatch => {
+   
+    return axios.get(`${baseURL}/liked/${id}`)
+    .then(res => {
+        dispatch({
+            type: FETCH_LIKES,
+            payload: res.data
+        })
+    }).catch(err => {
+        console.log(err)
+    })
+}
+
+export const postLike = (params) => dispatch => {
+    return axios.post(`${baseURL}/like`, params)
+    .then(res => {
+        dispatch({
+            type: POST_LIKE,
+            payload: res.data
+        })
+    })
+    .catch(err => {
         console.log(err)
     })
 }
@@ -117,15 +145,3 @@ export const deletePost = (id) => dispatch => {
     })
 }
 
-export const updatePost = (id) => dispatch => {
-    return axios.put(`${baseURL}/post/${id}`)
-    .then(res => {
-        dispatch({
-            type: UPDATE_POST,
-            payload: res.data
-        })
-    })
-    .catch(err => {
-        console.log(err)
-    })
-}
