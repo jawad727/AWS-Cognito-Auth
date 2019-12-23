@@ -26,18 +26,21 @@ class EditProfile extends Component {
         return (
           
             <div className="EditProfileOuter">
+              <h1> Edit Profile </h1>
               <div className="EditProfileContainer">
                 <div className="HeaderContainer">
-                  <div />
-                  <button> Upload </button>
-                  <button> Confirm </button>
+                  <div className="Header"/>
+                  <div className="HeaderButtons">
+                    <button> Upload </button>
+                    <button> Confirm </button>
+                  </div>
                 </div>
                 <div className="EditContentContainer" >
 
                   <div className="EditProfilePic">
                     <div className="ProfilePic" />
                     <div className="ProfPicButtons">
-                      <button>Update</button>
+                      <button>Upload</button>
                       <button>Confirm</button>
                     </div>
                   </div>
