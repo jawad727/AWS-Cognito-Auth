@@ -25,17 +25,37 @@ class EditProfile extends Component {
 
         return (
           
-            <div className="EditHeaderModule">
-              <div className="EditDivider">
-                <p>Edit Profile</p>
-                <p>Edit AVI</p>
-                <p>Edit Header</p>
-              </div>
-              <div className="EditProfileAttributes">
-                <p>Change Displayname</p>
-                <input />
-                <p>Change Bio</p>
-                <input />
+            <div className="EditProfileOuter">
+              <div className="EditProfileContainer">
+                <div className="HeaderContainer">
+                  <div />
+                  <button> Upload </button>
+                  <button> Confirm </button>
+                </div>
+                <div className="EditContentContainer" >
+
+                  <div className="EditProfilePic">
+                    <div className="ProfilePic" />
+                    <div className="ProfPicButtons">
+                      <button>Update</button>
+                      <button>Confirm</button>
+                    </div>
+                  </div>
+                  <div className="EditContent">
+                    <p>Display Name</p>
+                    <form>
+                      <input className="NameInput" />
+                      <button>Update</button>
+                    </form>
+
+                    <p>Bio</p>
+                    <form>
+                    <textarea className="BioInput" name="BioDescription" type="text" cols="38" rows="10" />
+                      <button>Update</button>
+                    </form>
+                  </div>
+
+                </div>
               </div>
             </div>
    

@@ -1,26 +1,45 @@
-.EditHeaderModule {
+.EditProfileOuter {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  height: 250px;
-  width: 600px;
-  position: absolute;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.EditProfileOuter .EditProfileContainer {
+  width: 750px;
+  height: 750px;
   border: 1px solid red;
-  background: white;
+  margin-top: 50px;
 }
 
-.EditHeaderModule .EditDivider {
-  height: 100%;
-  width: 200px;
-  border-right: 1px solid red;
+.EditProfileOuter .EditProfileContainer .HeaderContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 10px;
+  margin-top: 20px;
 }
 
-.EditHeaderModule .EditDivider p {
-  text-align: center;
-  border-bottom: 1px solid red;
+.EditProfileOuter .EditProfileContainer .HeaderContainer div {
+  height: 150px;
+  width: 600px;
+  background: black;
 }
 
-.EditHeaderModule .EditProfileAttributes {
+.EditProfileOuter .EditProfileContainer .EditContentContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.EditProfileOuter .EditProfileContainer .EditContentContainer .EditProfilePic {
+  height: 400px;
+  border-left: 1px solid blue;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -28,9 +47,43 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  width: 100%;
+  margin: 14px;
+}
+
+.EditProfileOuter .EditProfileContainer .EditContentContainer .EditProfilePic .ProfilePic {
+  width: 300px;
+  height: 300px;
+  background: grey;
+}
+
+.EditProfileOuter .EditProfileContainer .EditContentContainer .EditProfilePic .ProfPicButtons button {
+  height: 50px;
+  width: 100px;
+}
+
+.EditProfileOuter .EditProfileContainer .EditContentContainer .EditContent {
+  margin: 14px;
+  height: 400px;
+  border: 1px solid blue;
+}
+
+.EditProfileOuter .EditProfileContainer .EditContentContainer .EditContent form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.EditProfileOuter .EditProfileContainer .EditContentContainer .EditContent form button {
+  margin-left: 10px;
+  height: 35px;
+}
+
+.EditProfileOuter .EditProfileContainer .EditContentContainer .EditContent form .NameInput {
+  height: 30px;
+  width: 300px;
+}
+
+.EditProfileOuter .EditProfileContainer .EditContentContainer .EditContent form .BioInput {
+  width: 300px;
 }
 /*# sourceMappingURL=editprofile.css.map */
