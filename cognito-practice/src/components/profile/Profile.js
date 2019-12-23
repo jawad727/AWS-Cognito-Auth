@@ -30,11 +30,14 @@ class Profile extends Component {
                 
                 <div className="ProfileContentContainer">
                     <div className="ProfileHeader" style={{ backgroundImage: `url(${this.props.content.Header})` }}>
-                        <i class="fas fa-cog fa-2x"></i>
+                        
                     </div>
                     <div className="ProfileAVI" style={{ backgroundImage: `url(${this.props.content.Profpic})`}}/>
                     <div className="ProfileUserInfo" >
-                        <h2>{this.props.content.DisplayName}</h2>
+                        <div className="ProfNameDiv">
+                            <h2>{this.props.content.DisplayName}</h2>
+                            <button onClick={() => this.props.history.push("/editprofile")}> Edit Profile </button>
+                        </div>
                         <p>{`@${this.props.content.Username}`}</p>
                         <p>{this.props.content.Bio}</p>
                         <div className="PostJoinedDiv">

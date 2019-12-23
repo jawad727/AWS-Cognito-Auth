@@ -33,6 +33,7 @@
 .ProfileContainer .ProfileContentContainer .ProfileHeader i {
   margin: 10px;
   margin-top: 160px;
+  color: grey;
 }
 
 .ProfileContainer .ProfileContentContainer .ProfileAVI {
@@ -50,6 +51,31 @@
 
 .ProfileContainer .ProfileContentContainer .ProfileUserInfo {
   margin: 10px;
+}
+
+.ProfileContainer .ProfileContentContainer .ProfileUserInfo .ProfNameDiv {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.ProfileContainer .ProfileContentContainer .ProfileUserInfo .ProfNameDiv h2 {
+  margin: 0px;
+  margin-top: 10px;
+}
+
+.ProfileContainer .ProfileContentContainer .ProfileUserInfo .ProfNameDiv button {
+  height: 30px;
+  border: 3px solid black;
+  background: white;
+  font-family: Didact Gothic;
+  color: black;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
 }
 
 .ProfileContainer .ProfileContentContainer .ProfileUserInfo .PostJoinedDiv {

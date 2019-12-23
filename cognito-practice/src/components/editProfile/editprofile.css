@@ -18,6 +18,7 @@
   color: black;
   border: 2px solid black;
   font-size: 1rem;
+  cursor: pointer;
 }
 
 .EditProfileOuter h1 {
@@ -124,6 +125,19 @@
 .EditProfileOuter .EditProfileContainer .EditContentContainer .EditContent form .NameInput {
   height: 30px;
   width: 320px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.1rem;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 5px;
+}
+
+.EditProfileOuter .EditProfileContainer .EditContentContainer .EditContent form textarea {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.1rem;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 5px;
 }
 
 .EditProfileOuter .EditProfileContainer .EditContentContainer .EditContent form .BioInput {

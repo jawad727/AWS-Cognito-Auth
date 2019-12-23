@@ -157,7 +157,7 @@ export const deletePost = (id) => dispatch => {
 
 
 export const updateUser = (id, params) => dispatch => {
-    return axios.put(`${baseURL}/singleuser/${id}`, params)
+    return axios.put(`${baseURL}/user/${id}`, params)
     .then(res => {
         dispatch({
             type: UPDATE_USER,
