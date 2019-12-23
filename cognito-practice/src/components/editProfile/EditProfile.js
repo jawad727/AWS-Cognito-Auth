@@ -1,6 +1,8 @@
 import React, {Component} from 'react'
 import "./editprofile.css"
 import {connect} from "react-redux"
+import {fetchSingleUser} from "../../store/actions/index"
+import {Auth} from "aws-amplify";
 
 
 class EditProfile extends Component {
@@ -8,14 +10,18 @@ class EditProfile extends Component {
          
       }
 
-
+      componentDidMount() {
+        Auth.currentSession()
+        .then((user) => this.props.fetchSingleUser(user.accessToken.payload.username)  )
+        .catch((err) => {console.log(err)} )
+        
+      }
 
     
 
     render() {
 
-        // console.log(this.props.content)
-        // console.log(this.props.allPostsByUser)
+        console.log(this.props.singleUser)
 
         return (
           
@@ -38,9 +44,9 @@ class EditProfile extends Component {
 }
 
 const mapStateToProps = state => ({
-
+  singleUser: state.singleUser
     
   })
 
 
-export default connect(mapStateToProps, null)(EditProfile);
+export default connect(mapStateToProps, {fetchSingleUser})(EditProfile);

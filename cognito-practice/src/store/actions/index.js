@@ -8,9 +8,10 @@ export const DELETE_POST = "DELETE_POST"
 export const FETCH_POST_BY_USER = "FETCH_POST_BY_USER"
 export const FETCH_COMMENTS = "FETCH_COMMENTS"
 export const POST_COMMENT = "POST_COMMENT"
-export const UPDATE_POST = "UPDATE_POST"
+export const UPDATE_USER = "UPDATE_USER"
 export const FETCH_LIKES = "FETCH_LIKES"
 export const POST_LIKE = "POST_LIKE"
+export const FETCH_SINGLE_USER = "FETCH_SINGLE_USER"
 
 const baseURL = "https://u242fne979.execute-api.us-east-1.amazonaws.com/dev"
 const baseURL2 = "https://jb6y0o91j7.execute-api.us-east-1.amazonaws.com/dev"
@@ -27,8 +28,19 @@ export const fetchUsers = () => dispatch => {
     })
 }
 
-export const fetchComments = (id) => dispatch => {
-   
+export const fetchSingleUser = (id) => dispatch => {
+    return axios.get(`${baseURL}/singleuser/${id}`)
+    .then(res => {
+        dispatch({
+            type: FETCH_SINGLE_USER,
+            payload: res.data
+        })
+    }).catch(err => {
+        console.log(err)
+    })
+}
+
+export const fetchComments = (id) => dispatch => {  
     return axios.get(`${baseURL2}/comments/${id}`)
     .then(res => {
         dispatch({
@@ -40,8 +52,7 @@ export const fetchComments = (id) => dispatch => {
     })
 }
 
-export const fetchLikes = (id) => dispatch => {
-   
+export const fetchLikes = (id) => dispatch => { 
     return axios.get(`${baseURL}/liked/${id}`)
     .then(res => {
         dispatch({
@@ -79,7 +90,6 @@ export const postComment = (comment) => dispatch => {
         console.log(err)
     })
 }
-
 
 
 export const postUser = (user) => dispatch => {

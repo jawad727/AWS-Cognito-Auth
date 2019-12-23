@@ -3,7 +3,7 @@ import PostCard from "../posts/PostCard.js"
 import "./profile.css"
 import {fetchPostsByUser} from "../../store/actions/index"
 import {connect} from "react-redux"
-import EditProfile from "./editProfile/EditProfile"
+// import EditProfile from "../editProfile/EditProfile"
 
 class Profile extends Component {
       state = {
@@ -24,13 +24,13 @@ class Profile extends Component {
 
         return (
             <div className="ProfileContainer" >
-                <div className="EditHeaderModuleContainer" onClick={() => {console.log("CLICKed")}}>
+                {/* <div className="EditHeaderModuleContainer" onClick={() => {console.log("CLICKed")}}>
                     <EditProfile/>
-                </div>
+                </div> */}
                 
                 <div className="ProfileContentContainer">
                     <div className="ProfileHeader" style={{ backgroundImage: `url(${this.props.content.Header})` }}>
-                        <button> Edit Header </button>
+                        <i class="fas fa-cog fa-2x"></i>
                     </div>
                     <div className="ProfileAVI" style={{ backgroundImage: `url(${this.props.content.Profpic})`}}/>
                     <div className="ProfileUserInfo" >

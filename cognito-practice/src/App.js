@@ -10,6 +10,7 @@ import Home from "./components/home/Home"
 import Profile from "./components/profile/Profile"
 import PostPage from "./components/posts/PostPage"
 import PostForm from "./components/postform/PostForm"
+import EditProfile from "./components/editProfile/EditProfile"
 import { Route, Switch } from "react-router-dom"
 import {connect} from "react-redux"
 import blueLogo from "../src/hiclipart.png"
@@ -76,6 +77,8 @@ class App extends Component {
         <Route exact path="/signin" component={SignIn} />
         <Route exact path="/home" component={Home} />
         <Route exact path="/postform" component={PostForm} />
+        <Route exact path="/editprofile" component={EditProfile} />
+        
         {/* <Route exact path="/postform2" component={PostForm2} /> */}
         {this.props.usersArray.map(item => {
           return <Route path={`/${item.Username}`} render={(props) => <Profile {...props}  content={item} />} />

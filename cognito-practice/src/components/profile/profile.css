@@ -30,14 +30,9 @@
   background-size: cover;
 }
 
-.ProfileContainer .ProfileContentContainer .ProfileHeader button {
-  height: 30px;
+.ProfileContainer .ProfileContentContainer .ProfileHeader i {
   margin: 10px;
   margin-top: 160px;
-  background: white;
-  border: 3px solid black;
-  font-family: Didact Gothic;
-  font-weight: 600;
 }
 
 .ProfileContainer .ProfileContentContainer .ProfileAVI {

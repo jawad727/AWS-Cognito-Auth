@@ -78,7 +78,6 @@ class PostPage extends Component {
 
       return (
         <div className="backgroundPostContainer">
-          <button onClick={() => this.props.postLike(params)}> clickme </button>
             <h1>{this.props.content.PostName}</h1>
            <div className="singlePostContainer" >
                 <a target="_blank" href={this.props.content.SiteURL}>
