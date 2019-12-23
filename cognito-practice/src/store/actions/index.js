@@ -155,3 +155,16 @@ export const deletePost = (id) => dispatch => {
     })
 }
 
+
+export const updateUser = (id, params) => dispatch => {
+    return axios.put(`${baseURL}/singleuser/${id}`, params)
+    .then(res => {
+        dispatch({
+            type: UPDATE_USER,
+            payload: res.data
+        })
+    })
+    .catch(err => {
+        console.log(err)
+    })
+}
