@@ -49,6 +49,8 @@
   height: 150px;
   width: 600px;
   background: lightgrey;
+  background-size: cover;
+  background-position: center;
 }
 
 .EditProfileOuter .EditProfileContainer .HeaderContainer .HeaderButtons {
@@ -59,6 +61,12 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .EditProfileOuter .EditProfileContainer .HeaderContainer .HeaderButtons button {
@@ -66,6 +74,34 @@
   margin-left: 17px;
   height: 35px;
   width: 100px;
+}
+
+.EditProfileOuter .EditProfileContainer .HeaderContainer .HeaderButtons .HiddenInputSpan {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: 2px solid black;
+  height: 35px;
+  width: 95px;
+  margin-bottom: 10px;
+  margin-left: 17px;
+  text-align: center;
+  background: lightgreen;
+  font-family: Didact Gothic;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.EditProfileOuter .EditProfileContainer .HeaderContainer .HeaderButtons .HiddenInputSpan input {
+  display: hidden;
+  width: 0px;
+}
+
+.EditProfileOuter .EditProfileContainer .HeaderContainer .HeaderButtons .HiddenInputSpan span {
+  margin: 0 auto;
 }
 
 .EditProfileOuter .EditProfileContainer .EditContentContainer {
@@ -104,6 +140,33 @@
   height: 40px;
   width: 100px;
   margin: 10px;
+}
+
+.EditProfileOuter .EditProfileContainer .EditContentContainer .EditProfilePic .ProfPicButtons .HiddenInputSpan2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: 2px solid black;
+  height: 35px;
+  width: 95px;
+  margin: 10px;
+  text-align: center;
+  background: lightgreen;
+  font-family: Didact Gothic;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.EditProfileOuter .EditProfileContainer .EditContentContainer .EditProfilePic .ProfPicButtons .HiddenInputSpan2 input {
+  display: hidden;
+  width: 0px;
+}
+
+.EditProfileOuter .EditProfileContainer .EditContentContainer .EditProfilePic .ProfPicButtons .HiddenInputSpan2 span {
+  margin: 0 auto;
 }
 
 .EditProfileOuter .EditProfileContainer .EditContentContainer .EditContent {

@@ -3,6 +3,7 @@ import "./editprofile.css"
 import {connect} from "react-redux"
 import {fetchSingleUser, updateUser} from "../../store/actions/index"
 import {Auth} from "aws-amplify";
+import Amplify, {Storage} from "aws-amplify"
 
 
 class EditProfile extends Component {
@@ -11,8 +12,12 @@ class EditProfile extends Component {
          Bio: "",
          Header: "",
          ProfPic: "",
-         username: ""
+         username: "",
+         fileUrl1: "",
+         file1: "",
+         filename1: ""
       }
+
 
       componentDidMount() {
         Auth.currentSession()
@@ -29,9 +34,36 @@ class EditProfile extends Component {
         .catch((err) => {console.log(err)} )
       }
 
+
+      handleFileChange = e => {
+        const file = e.target.files[0]
+        this.setState({
+            fileUrl1: URL.createObjectURL(file),
+            file1: file,
+            filename1: `${this.state.username}/profile/${file.name}`
+        })
+        console.log(file)
+      }
+
+
       inputChangeHandler = e => {
         this.setState({ [e.target.name] : e.target.value });
-    }
+      }
+
+
+      saveFile = () => {
+        Storage.put(this.state.filename1, this.state.file1, {level: 'public', contentType: 'image/png'})
+        .then(() => {
+          this.props.updateUser(this.state.username, {
+            paramName: "Header", 
+            paramValue: `https://researchpalimagestoragedev-dev.s3-us-west-2.amazonaws.com/public/${this.state.filename1}` 
+          }).then(() => alert("Profile Successfully Updated!"))
+        })
+
+        .catch(err => {
+            console.log("error uploading file", err)
+        })
+      }
     
 
     render() {
@@ -44,18 +76,25 @@ class EditProfile extends Component {
               <h1> Edit Profile </h1>
               <div className="EditProfileContainer">
                 <div className="HeaderContainer">
-                  <div className="Header"/>
+                  <div className="Header" style={{ backgroundImage: `url(${this.state.fileUrl1})` }} />
                   <div className="HeaderButtons">
-                    <button> Upload </button>
-                    <button> Confirm </button>
+                    <label className="HiddenInputSpan">
+                      <input type="file"  onChange={this.handleFileChange} />
+                      <span className="fileUploadSpan" >Upload</span>
+                    </label>
+                    <button onClick={() => this.saveFile()}> Confirm </button>
                   </div>
                 </div>
                 <div className="EditContentContainer" >
 
                   <div className="EditProfilePic">
-                    <div className="ProfilePic" />
+                    <div className="ProfilePic"  />
                     <div className="ProfPicButtons">
-                      <button>Upload</button>
+                      {/* <button >Upload</button> */}
+                      <label className="HiddenInputSpan2">
+                        <input type="file"  onChange={this.handleFileChange} />
+                        <span className="fileUploadSpan" >Upload</span>
+                      </label>
                       <button>Confirm</button>
                     </div>
                   </div>
