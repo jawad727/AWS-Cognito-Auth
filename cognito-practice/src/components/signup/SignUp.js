@@ -124,10 +124,13 @@ class SignUp extends Component {
       } else {
         return (
           <div className="SignUp" >
+            <img className="RegisterGuy" src="https://cdn.onlinewebfonts.com/svg/img_509043.png" />
+            <h3>Hey, welcome to ArticleHub!</h3>
+            <p className="fineprint">Tell us a little about yourself.</p>
             <form onSubmit={ this.handleSubmit }>
                 <label>Username</label>
                 <input id='username' type='text' onChange={ this.handleChange }/>
-                <label>Password</label>
+                <label>Password ( at least 8 characters )</label>
                 <input id='password' type='password' onChange={ this.handleChange }/>
                 <label>Phone Number</label>
                 <input id='phone_number' type='text' onChange={ this.handleChange }/>
@@ -135,6 +138,7 @@ class SignUp extends Component {
                 <input id='email' type='text' onChange={ this.handleChange }/>
                 <button>Sign up</button>
             </form>
+            <p className="ClickHere" onClick={() => this.props.history.push("/signin")}>Already have an account? Click here!</p>
           </div>
         );
       }

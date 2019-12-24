@@ -2,13 +2,43 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   height: 80vh;
+}
+
+.SignUp .ClickHere {
+  cursor: pointer;
+  color: black;
+  text-decoration: underline;
+}
+
+.SignUp .WavingHand {
+  width: 90px;
+  margin-top: 60px;
+  margin-bottom: 10px;
+}
+
+.SignUp .RegisterGuy {
+  width: 130px;
+  height: 140px;
+  margin-top: 30px;
+}
+
+.SignUp h3 {
+  font-family: Didact Gothic;
+  font-size: 1.5rem;
+  margin-bottom: 0px;
+}
+
+.SignUp .fineprint {
+  font-size: .8rem;
+  margin-bottom: 18px;
 }
 
 .SignUp form {
@@ -20,15 +50,38 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  border: 1px solid black;
+  border: 1px solid white;
   padding: 10px;
+  background: white;
+  -webkit-box-shadow: 2px 2px 5px grey;
+          box-shadow: 2px 2px 5px grey;
+}
+
+.SignUp form input {
+  font-size: 1.05rem;
+  border: 1px solid lightgrey;
+  padding: 5px;
+  border-radius: 5px;
 }
 
 .SignUp form label {
+  font-family: Didact Gothic;
   margin: 10px 0px;
 }
 
 .SignUp form button {
   margin-top: 15px;
+  height: 30px;
+  background: lightgreen;
+  border: 0px solid green;
+  font-family: Didact Gothic;
+  cursor: pointer;
+  font-weight: 600;
+  margin-bottom: 15px;
+  border-radius: 5px;
+}
+
+.SignUp form button:hover {
+  background: #7BC290;
 }
 /*# sourceMappingURL=signin.css.map */

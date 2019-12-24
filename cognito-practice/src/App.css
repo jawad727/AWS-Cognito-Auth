@@ -40,6 +40,7 @@
 .innerNav {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   width: 1200px;
   font-family: Didact Gothic;
 }
@@ -67,7 +68,7 @@
   height: 32px;
   width: 70px;
   background: black;
-  border: 3px solid white;
+  border: 2px solid white;
   color: white;
   font-family: Didact Gothic;
   font-weight: 600;
@@ -78,11 +79,15 @@
 
 .innerNav div button:hover {
   color: lightgrey;
-  border: 3px solid lightgrey;
+  border: 2px solid lightgrey;
   
 }
 
 .blueLogo {
   width: 55px;
   margin-right: 15px;
+}
+
+.LoginNavButton {
+  margin-right: 10px;
 }

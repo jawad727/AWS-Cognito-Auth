@@ -84,13 +84,19 @@ class SignIn extends Component {
       } else {
         return (
           <div className="SignUp" >
-            <form className="SigninForm" onSubmit={ this.signIn }>
+
+            <img className="WavingHand" src="https://webstockreview.net/images/clipart-hand-wave-goodbye.png" />
+            <h3>Hey, good to see you again!</h3>
+            <p className="fineprint">Log in to get going.</p>
+            <form className="SignupForm" onSubmit={ this.signIn }>
                 <label>Username</label>
+               
                 <input id='username' type='text' onChange={ this.handleChange }/>
                 <label>Password</label>
                 <input id='password' type='password' onChange={ this.handleChange }/>
                 <button>Sign In</button>
             </form>
+            <p className="ClickHere" onClick={() => this.props.history.push("/signup")}>Dont have an account? Click here!</p>
           </div>
         );
       }

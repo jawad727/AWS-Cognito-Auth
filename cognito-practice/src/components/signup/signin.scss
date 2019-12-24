@@ -1,23 +1,77 @@
 .SignUp {
 
     display: flex;
-    justify-content: center;
+    // justify-content: center;
     align-items: center;
+    flex-direction: column;
     height: 80vh;
+
+    .ClickHere {
+        cursor: pointer;
+        color: black;
+        text-decoration: underline;
+    }
+
+    .WavingHand {
+        width: 90px;
+        margin-top: 60px;
+        margin-bottom: 10px;
+    }
+
+    .RegisterGuy {
+        width: 130px;
+        height: 140px;
+        margin-top: 30px;
+        // margin-bottom: 10px;
+    }
+    
+    h3 {
+        font-family: Didact Gothic;
+        font-size: 1.5rem;;
+        margin-bottom: 0px;
+    }
+
+    .fineprint {
+        font-size: .8rem;
+        margin-bottom: 18px;
+    }
 
     form {
         width: 300px;
         display: flex;
         flex-direction: column;
-        border: 1px solid black;
+        border: 1px solid white;
         padding: 10px;
+        background: white;
+        box-shadow: 2px 2px 5px grey;
+
+        input {
+            font-size: 1.05rem;
+            border: 1px solid lightgrey;
+            padding: 5px;
+            border-radius: 5px;
+        }
 
         label {
+            font-family: Didact Gothic;
             margin: 10px 0px;
         }
 
+
         button {
             margin-top: 15px;
+            height: 30px;
+            background: lightgreen;
+            border: 0px solid green;
+            font-family: Didact Gothic;
+            cursor: pointer;
+            font-weight: 600;
+            margin-bottom: 15px;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background: #7BC290;;
         }
     }
 

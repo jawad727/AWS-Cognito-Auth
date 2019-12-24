@@ -38,6 +38,11 @@ class EditProfile extends Component {
       }
 
 
+      inputChangeHandler = e => {
+        this.setState({ [e.target.name] : e.target.value });
+      }
+
+
       handleFileChange = e => {
         const file = e.target.files[0]
         this.setState({
@@ -56,11 +61,6 @@ class EditProfile extends Component {
             filename2: `${this.state.username}/profile/profilepic/${file.name}`
         })
         console.log(file)
-      }
-
-
-      inputChangeHandler = e => {
-        this.setState({ [e.target.name] : e.target.value });
       }
 
 

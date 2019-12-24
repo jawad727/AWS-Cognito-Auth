@@ -70,12 +70,16 @@
 .ProfileContainer .ProfileContentContainer .ProfileUserInfo .ProfNameDiv button {
   height: 30px;
   border: 3px solid black;
-  background: white;
+  background: lightgreen;
   font-family: Didact Gothic;
   color: black;
   font-weight: 600;
   font-size: 1rem;
   cursor: pointer;
+}
+
+.ProfileContainer .ProfileContentContainer .ProfileUserInfo .ProfNameDiv button:hover {
+  background: #7BC290;
 }
 
 .ProfileContainer .ProfileContentContainer .ProfileUserInfo .PostJoinedDiv {
