@@ -15,7 +15,10 @@ class EditProfile extends Component {
          username: "",
          fileUrl1: "",
          file1: "",
-         filename1: ""
+         filename1: "",
+         fileUrl2: "",
+         file2: "",
+         filename2: ""
       }
 
 
@@ -24,7 +27,7 @@ class EditProfile extends Component {
         .then((user) => {
           this.setState({username: user.accessToken.payload.username})
           this.props.fetchSingleUser(user.accessToken.payload.username)
-     
+
           .then(() => { this.setState({
             DisplayName: this.props.singleUser.DisplayName, 
             Bio: this.props.singleUser.Bio,
@@ -40,7 +43,17 @@ class EditProfile extends Component {
         this.setState({
             fileUrl1: URL.createObjectURL(file),
             file1: file,
-            filename1: `${this.state.username}/profile/${file.name}`
+            filename1: `${this.state.username}/profile/header/${file.name}`
+        })
+        console.log(file)
+      }
+
+      handleFileChange2 = e => {
+        const file = e.target.files[0]
+        this.setState({
+            fileUrl2: URL.createObjectURL(file),
+            file2: file,
+            filename2: `${this.state.username}/profile/profilepic/${file.name}`
         })
         console.log(file)
       }
@@ -57,9 +70,21 @@ class EditProfile extends Component {
           this.props.updateUser(this.state.username, {
             paramName: "Header", 
             paramValue: `https://researchpalimagestoragedev-dev.s3-us-west-2.amazonaws.com/public/${this.state.filename1}` 
-          }).then(() => alert("Profile Successfully Updated!"))
+          }).then(() => alert("Profile Header Successfully Updated!"))
         })
+        .catch(err => {
+            console.log("error uploading file", err)
+        })
+      }
 
+      saveFile2 = () => {
+        Storage.put(this.state.filename2, this.state.file2, {level: 'public', contentType: 'image/png'})
+        .then(() => {
+          this.props.updateUser(this.state.username, {
+            paramName: "Profpic", 
+            paramValue: `https://researchpalimagestoragedev-dev.s3-us-west-2.amazonaws.com/public/${this.state.filename2}` 
+          }).then(() => alert("Profile Picture Successfully Updated!"))
+        })
         .catch(err => {
             console.log("error uploading file", err)
         })
@@ -88,14 +113,14 @@ class EditProfile extends Component {
                 <div className="EditContentContainer" >
 
                   <div className="EditProfilePic">
-                    <div className="ProfilePic"  />
+                    <div className="ProfilePic" style={{ backgroundImage: `url(${this.state.fileUrl2})` }}  />
                     <div className="ProfPicButtons">
                       {/* <button >Upload</button> */}
                       <label className="HiddenInputSpan2">
-                        <input type="file"  onChange={this.handleFileChange} />
+                        <input type="file"  onChange={this.handleFileChange2} />
                         <span className="fileUploadSpan" >Upload</span>
                       </label>
-                      <button>Confirm</button>
+                      <button onClick={() => this.saveFile2()}>Confirm</button>
                     </div>
                   </div>
                   <div className="EditContent">
