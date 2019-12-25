@@ -170,11 +170,17 @@
   font-family: Didact Gothic;
   font-weight: 600;
   font-size: 1.3rem;
+  cursor: pointer;
 }
 
 .backgroundPostContainer .singlePostContainer .singlePostContent .commentsArea {
   overflow-y: scroll;
   height: 100%;
+}
+
+.backgroundPostContainer .singlePostContainer .singlePostContent .commentsArea strong {
+  cursor: pointer;
+  text-decoration: underline;
 }
 
 .backgroundPostContainer .singlePostContainer .singlePostContent .commentsArea p {
@@ -242,5 +248,10 @@
 .backgroundPostContainer .singlePostContainer .singlePostContent .contentLowerHalf .likeCommentDiv i {
   margin-left: 10px;
   color: black;
+}
+
+.backgroundPostContainer .singlePostContainer .singlePostContent .contentLowerHalf .likeCommentDiv .trashicon {
+  margin-left: 210px;
+  cursor: pointer;
 }
 /*# sourceMappingURL=postCard.css.map */

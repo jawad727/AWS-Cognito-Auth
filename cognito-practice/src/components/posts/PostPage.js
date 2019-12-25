@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from "react-redux"
-import { fetchComments, postComment, fetchLikes, postLike } from "../../store/actions/index"
+import { fetchComments, postComment, fetchLikes, postLike, deletePost } from "../../store/actions/index"
 import {Auth} from "aws-amplify";
 import axios from 'axios'
 
@@ -61,14 +61,6 @@ class PostPage extends Component {
     .catch(err => console.log(err))
 }
 
-  // makeRead = (e) => {
-  //   e.preventDefault();
-    
-  //   .then(res => console.log(res))
-  //   .catch(err => console.log(err))
-  // }
-
-  
 
   render() {
 
@@ -85,7 +77,9 @@ class PostPage extends Component {
                     <div className="singlePostImage" style={{ backgroundImage: `url(${this.props.content.PostImage})`}} />
                 </a>
                 <div className="singlePostContent">
-                    <h3>{this.props.content.Username}</h3>
+                    <h3 onClick={() => {this.props.history.push(`/${this.props.content.Username}`)}}>
+                      {this.props.content.Username}
+                    </h3>
       
                     { this.state.commentLoader ? 
 
@@ -95,7 +89,7 @@ class PostPage extends Component {
 
                     <div className="commentsArea" >
                         { this.props.postComments.map(item => {
-                            return <p> <strong> {`${item.username}:`} </strong> {`${item.text}`} </p>
+                            return <p> <strong onClick={() => {this.props.history.push(`/${item.username}`)}}> {`${item.username}:`} </strong> {`${item.text}`} </p>
                         }) }
                     </div> }
 
@@ -104,6 +98,9 @@ class PostPage extends Component {
                             { this.state.isLiked ? <i class="fas fa-eye fa-2x" style={{color: "grey"}}></i>
                             : <i class="far fa-eye fa-2x" onClick={this.upvote}></i> }
                               <i class="far fa-comment fa-2x" ></i>
+                            { this.props.content.Username == this.state.username ?
+                              <i class="fas fa-trash-alt fa-2x trashicon" onClick={() => {this.props.deletePost(this.props.content.uid).then(() => {this.props.history.push("/home")}) }}></i> 
+                            : null}
                         </div>
                         <p className="amountOfLikes">{`${this.state.likesnumber} Reads`}</p>
                         <p className="displaynameText" ><strong>{ `${this.props.content.Username}:`}</strong> {`${this.props.content.PostDescription}`}</p>
@@ -126,4 +123,4 @@ const mapStateToProps = state => ({
     likesArray: state.likesArray
 })
 
-export default connect(mapStateToProps, {fetchComments, postComment, fetchLikes, postLike} )(PostPage);
+export default connect(mapStateToProps, {fetchComments, postComment, fetchLikes, postLike, deletePost} )(PostPage);

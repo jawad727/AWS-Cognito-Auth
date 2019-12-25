@@ -132,11 +132,17 @@
                 font-family: Didact Gothic;
                 font-weight: 600;
                 font-size: 1.3rem;
+                cursor: pointer;
             }
 
             .commentsArea {
                 overflow-y: scroll;
                 height: 100%;
+                
+                strong {
+                    cursor: pointer;
+                    text-decoration: underline;
+                }
 
                 p {
                     font-family: Didact Gothic;
@@ -196,6 +202,11 @@
                         margin-left: 10px;
                         color: black;
                         // animation: rotation 1s infinite linear;
+                    }
+
+                    .trashicon {
+                        margin-left: 210px;
+                        cursor: pointer;
                     }
 
                     // @keyframes rotation {

@@ -32,14 +32,6 @@ class PostForm extends Component {
       }
 
 
-    //   Amplify.configure({
-    //         Storage: {
-    //             AWSS3: {
-    //                 bucket: '' 
-    //             }
-    //         }
-    //   })
-
     componentDidMount() {
         Auth.currentSession().then((ses) => {
             this.setState({username: ses.accessToken.payload.username, client_id: ses.accessToken.payload.client_id})
