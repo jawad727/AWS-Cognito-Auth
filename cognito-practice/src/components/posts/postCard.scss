@@ -1,3 +1,7 @@
+.CardContainer:hover {
+    box-shadow: 4px 4px 5px grey;
+}
+
 .CardContainer {
     background: white;
     width: 350px;
@@ -7,6 +11,7 @@
     margin: 10px;
     // border-radius: 19px;
     box-shadow: 2px 2px 5px grey;
+    cursor: pointer;
     // border-bottom: 7px solid lightgreen;
 
     .CardIMG {
@@ -22,6 +27,8 @@
         flex-direction: column;
         justify-content: space-between;
         height: 130px;
+        cursor: pointer;
+
         
 
         p {
@@ -38,10 +45,15 @@
         }
 
         .CardDescription {
-            font-weight: 600;
+            // font-weight: 600;
             margin: 0px;
-            // margin-bottom: 30px;
+            cursor: pointer;
+
+            strong {
+                text-decoration: underline;
+            }
         }
+
 
         .CenteredDate {
             text-align: center;
@@ -160,8 +172,18 @@
 
                     i {
                         margin-left: 10px;
-                        color: black
+                        color: black;
+                        // animation: rotation 1s infinite linear;
                     }
+
+                    // @keyframes rotation {
+                    //     from {
+                    //       transform: rotate(0deg);
+                    //     }
+                    //     to {
+                    //       transform: rotate(359deg);
+                    //     }
+                    //   }
 
                 }
 

@@ -1,3 +1,8 @@
+.CardContainer:hover {
+  -webkit-box-shadow: 4px 4px 5px grey;
+          box-shadow: 4px 4px 5px grey;
+}
+
 .CardContainer {
   background: white;
   width: 350px;
@@ -6,6 +11,7 @@
   margin: 10px;
   -webkit-box-shadow: 2px 2px 5px grey;
           box-shadow: 2px 2px 5px grey;
+  cursor: pointer;
 }
 
 .CardContainer .CardIMG {
@@ -28,6 +34,7 @@
       -ms-flex-pack: justify;
           justify-content: space-between;
   height: 130px;
+  cursor: pointer;
 }
 
 .CardContainer .CardContent p {
@@ -44,8 +51,12 @@
 }
 
 .CardContainer .CardContent .CardDescription {
-  font-weight: 600;
   margin: 0px;
+  cursor: pointer;
+}
+
+.CardContainer .CardContent .CardDescription strong {
+  text-decoration: underline;
 }
 
 .CardContainer .CardContent .CenteredDate {

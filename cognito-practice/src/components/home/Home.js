@@ -4,7 +4,7 @@ import {Auth} from "aws-amplify";
 import "./home.css"
 import { ConsoleLogger } from '@aws-amplify/core';
 import {connect} from "react-redux"
-import {fetchPosts} from "../../store/actions/index"
+import {fetchPosts, fetchUsers} from "../../store/actions/index"
 import PostCard from "../posts/PostCard.js"
 import PostPage from "../posts/PostPage"
 import DiscoverCard from "../discovercards/DiscoverCard"
@@ -33,7 +33,8 @@ class Home extends Component {
 
   componentDidMount() {
     Auth.currentSession().then((user) => console.log(user.accessToken.payload)).catch((err) => {console.log(err)} )
-    
+    this.props.fetchPosts()
+    setTimeout(() => this.setState({loading: false}), 500);
     // this.props.fetchPosts()
     console.log(this.props.allPostsArray)
   }
@@ -48,7 +49,17 @@ class Home extends Component {
     
 
       return (
+        
+        <>
+        {this.state.loading ? 
+        
+        <div className="spinnerContainer"> 
+          <i class="fas fa-spinner fa-3x"></i> 
+        </div> : 
+
         <div className="HomeContainer" >
+
+        
            
             {/* {`WELCOME HOME ${this.state.username} !!`} */}
           <div className="DiscoverOtherTextDisplay">
@@ -81,10 +92,14 @@ class Home extends Component {
              }
              
           </div>
-          {/* {this.state.postsLoaded > this.props.allPostsArray.length ? null : <button onClick={ () => {this.setState({postsLoaded: this.state.postsLoaded + 6 })}}> Load More </button> } */}
           
+          
+            
         </div>
-        )
+            }
+        </>
+
+    )
   }
 }
  
@@ -94,4 +109,4 @@ const mapStateToProps = state => ({
 
 })
 
-export default connect(mapStateToProps, {fetchPosts} )(Home);
+export default connect(mapStateToProps, {fetchPosts, fetchUsers} )(Home);

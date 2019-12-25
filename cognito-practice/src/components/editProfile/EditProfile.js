@@ -94,6 +94,7 @@ class EditProfile extends Component {
     render() {
 
         console.log(this.state)
+        console.log(this.props.singleUser)
 
         return (
           

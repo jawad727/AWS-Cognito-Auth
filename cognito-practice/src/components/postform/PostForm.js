@@ -86,12 +86,6 @@ class PostForm extends Component {
     render() {
             console.log(this.state.filename)
             console.log(this.state.fileUrl)
-            // console.log(this.state.username)
-            // console.log(this.state.postTitle)
-            // console.log(this.state.postDescription)
-            // console.log(this.state.articleURL)
-            // console.log(this.state.PostCategory)
-
 
         return (
             <div className="PostFormPageContainer" >
@@ -132,7 +126,8 @@ class PostForm extends Component {
                 
                 </div>
                 <button className="UploadButton" onClick={() => {
-                    if (this.state.postTitle.length == 0 || this.state.postDescription.length == 0 || this.state.fileUrl.length == 0 || this.state.articleURL.length == 0) {alert("Fill in every box and coonfirm image before making a post.");} else {
+                    if (this.state.postTitle.length == 0 || this.state.postDescription.length == 0 || this.state.fileUrl.length == 0 || this.state.articleURL.length == 0 || this.state.imageConfirmed == false) 
+                    {alert("Fill in every box and coonfirm image before making a post.");} else {
 
                     
                     this.props.makePost({
@@ -143,8 +138,9 @@ class PostForm extends Component {
                     PostImage: `https://researchpalimagestoragedev-dev.s3-us-west-2.amazonaws.com/public/${this.state.filename}`,
                     SiteURL: this.state.articleURL,
                     Username: this.state.username
-                }).then(this.props.history.push("/home")) } }} > upload </button>
-                {/* <div className="" style={{ width: "100px", height: "100px",  backgroundImage: `url(${this.state.fileUrl})`, backgroundSize: "cover"}} /> */}
+                })
+                .then(this.props.history.push("/home"))
+                 } }} > upload </button>
               
             </div> 
         );

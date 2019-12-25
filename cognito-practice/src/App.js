@@ -26,14 +26,15 @@ class App extends Component {
       this.state = {
           signedUp : false,
           loading: true,
+          homeLoad: true,
           username: ""
       }
       this.handleSignup = this.handleSignup.bind(this);
   }
 
   componentDidMount() {
-      this.props.fetchUsers();
-      this.props.fetchPosts();
+    this.props.fetchUsers();
+    this.props.fetchPosts()
       // this.props.fetchPostsByUser("myid3");
       Auth.currentSession().then((user) => this.setState({loading: false, username: user.accessToken.payload.username})).catch((err) => {console.log(err)} )
       console.log("MOUNTED")
