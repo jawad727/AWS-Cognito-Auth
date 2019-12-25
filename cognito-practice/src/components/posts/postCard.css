@@ -1,6 +1,47 @@
+.spinnerContainerComments {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  height: 70vh;
+}
+
+.spinnerContainerComments i {
+  -webkit-animation: rotation .5s infinite linear;
+          animation: rotation .5s infinite linear;
+}
+
+@-webkit-keyframes rotation {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(359deg);
+            transform: rotate(359deg);
+  }
+}
+
+@keyframes rotation {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(359deg);
+            transform: rotate(359deg);
+  }
+}
+
 .CardContainer:hover {
-  -webkit-box-shadow: 4px 4px 5px grey;
-          box-shadow: 4px 4px 5px grey;
+  -webkit-box-shadow: 3px 3px 5px grey;
+          box-shadow: 3px 3px 5px grey;
 }
 
 .CardContainer {
@@ -132,6 +173,7 @@
 }
 
 .backgroundPostContainer .singlePostContainer .singlePostContent .commentsArea {
+  overflow-y: scroll;
   height: 100%;
 }
 

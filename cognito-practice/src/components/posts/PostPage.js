@@ -16,7 +16,8 @@ class PostPage extends Component {
     username: "",
     likesnumber: this.props.content.PostLikes,
     isLiked: false,
-    loading: true
+    loading: true,
+    commentLoader: false
   }
 
   searcher = (term) => {
@@ -73,7 +74,7 @@ class PostPage extends Component {
 
     console.log(this.props.likesArray)
     console.log(this.props.content.uid)
-    // console.log(this.state)
+    console.log(this.state.text)
     // console.log(this.state)
 
       return (
@@ -85,11 +86,19 @@ class PostPage extends Component {
                 </a>
                 <div className="singlePostContent">
                     <h3>{this.props.content.Username}</h3>
+      
+                    { this.state.commentLoader ? 
+
+                    <div className="spinnerContainerComments">
+                    <i class="fas fa-circle-notch fa-2x"></i>
+                    </div> :
+
                     <div className="commentsArea" >
                         { this.props.postComments.map(item => {
                             return <p> <strong> {`${item.username}:`} </strong> {`${item.text}`} </p>
                         }) }
-                    </div>
+                    </div> }
+
                     <div className="contentLowerHalf" >
                         <div className="likeCommentDiv" >
                             { this.state.isLiked ? <i class="fas fa-eye fa-2x" style={{color: "grey"}}></i>
@@ -98,7 +107,7 @@ class PostPage extends Component {
                         </div>
                         <p className="amountOfLikes">{`${this.state.likesnumber} Reads`}</p>
                         <p className="displaynameText" ><strong>{ `${this.props.content.Username}:`}</strong> {`${this.props.content.PostDescription}`}</p>
-                        <form onSubmit={(e) => {e.preventDefault(); this.props.postComment(this.state)} }>
+                        <form onSubmit={(e) => {e.preventDefault(); this.setState({commentLoader: true}); this.props.postComment(this.state).then(() => this.setState({text: "", commentLoader: false}) )}}>
                             <input name="text" onChange={this.changeHandler} type="text" placeholder="add a comment" rows="2" />
                             
                         </form>
@@ -118,7 +127,3 @@ const mapStateToProps = state => ({
 })
 
 export default connect(mapStateToProps, {fetchComments, postComment, fetchLikes, postLike} )(PostPage);
-
-// export default PostPage
-
-// fetchComments

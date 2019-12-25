@@ -3,15 +3,18 @@ import PostCard from "../posts/PostCard.js"
 import "./profile.css"
 import {fetchPostsByUser} from "../../store/actions/index"
 import {connect} from "react-redux"
-// import EditProfile from "../editProfile/EditProfile"
+
+var categoryArray = [["ALL", "POLITICAL", "TECHNOLOGY", "SPORTS", "ANIMALS", "ART", "MISC"], ["POLITICAL"], ["TECHNOLOGY"], ["SPORTS"], ["ANIMALS"], ["ART"], ["MISC"]]
 
 class Profile extends Component {
       state = {
-         
+         loading: true,
+         currentTab: categoryArray[0]
       }
 
       componentDidMount() {
         this.props.fetchPostsByUser(this.props.content.uuid)
+        setTimeout(() => this.setState({loading: false}), 500);
       }
       
 
@@ -23,10 +26,15 @@ class Profile extends Component {
         console.log(this.props.allPostsByUser)
 
         return (
+            <>
+
+            {this.state.loading ? 
+        
+            <div className="spinnerContainer"> 
+                <i class="fas fa-spinner fa-3x"></i> 
+            </div> :
+
             <div className="ProfileContainer" >
-                {/* <div className="EditHeaderModuleContainer" onClick={() => {console.log("CLICKed")}}>
-                    <EditProfile/>
-                </div> */}
                 
                 <div className="ProfileContentContainer">
                     <div className="ProfileHeader" style={{ backgroundImage: `url(${this.props.content.Header})` }}>
@@ -44,20 +52,30 @@ class Profile extends Component {
                             <p>{`Posts: ${this.props.allPostsByUser.length}`}</p>
                             <p>{`Joined ArticleHub On ${this.props.content.date.slice(0, 17)}`}</p>
                         </div>
-                        {/* <p>{`Posts: ${this.props.allPostsByUser.length}`}</p> */}
+                        
                     </div>
                     
                 </div>
                 <div className="postOrginizer">
-                    <p>All Posts</p> 
+                    <p>{this.state.currentTab[0]} Posts</p> 
                 </div>
+
+                <div className="AllPostOrganizer" >
+                    {categoryArray.map((item, i) => {
+                    
+                    return (<div className={categoryArray[i][0] == this.state.currentTab[0] ? `${"HighlightedTab"}` : null} onClick={() => {this.setState({currentTab: categoryArray[i]}) }}  > {categoryArray[i][0]} </div>)
+
+                })}
+                </div>
+
                 <div className="SingleProfilePosts">
                     {this.props.allPostsByUser.map((item) => {
-                        
-                        return <PostCard content={item} history={this.props.history}/> 
+                        if ( this.state.currentTab.includes(item.PostCategory.toUpperCase())  ) {
+                        return <PostCard content={item} history={this.props.history}/> }
                     } )}
                 </div>
-            </div>
+            </div> }
+            </>
         );
     }
 }
