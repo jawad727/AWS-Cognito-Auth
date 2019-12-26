@@ -50,7 +50,7 @@ class Profile extends Component {
                         <p>{this.props.content.Bio}</p>
                         <div className="PostJoinedDiv">
                             <p>{`Posts: ${this.props.allPostsByUser.length}`}</p>
-                            <p>{`Joined ArticleHub On ${this.props.content.date.slice(0, 17)}`}</p>
+                            <p className="joinedOn">{`Joined ArticleHub On ${this.props.content.date.slice(0, 17)}`}</p>
                         </div>
                         
                     </div>
