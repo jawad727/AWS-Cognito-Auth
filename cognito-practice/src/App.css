@@ -91,3 +91,36 @@
 .LoginNavButton {
   margin-right: 10px;
 }
+
+@media (max-width: 450px) {
+
+  /* .Nav {
+    height: 90px;
+  } */
+
+  .Nav .innerNav div .fa-plus-square {
+    display: none;
+  }
+
+  .Nav .innerNav {
+    justify-content: baseline;
+  }
+
+  .ArticleHubLogo .blueLogo {
+    width: 30px;
+    height: 20px;
+    margin-right: 5px;
+    margin-top: 5px;
+  }
+
+  .ArticleHubLogo h3 {
+    font-size: 1.5rem;
+  }
+
+  .innerNav .ArticleHubLogo {
+    margin-top: 10px;
+  }
+
+
+}
+

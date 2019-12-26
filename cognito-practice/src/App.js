@@ -61,7 +61,7 @@ class App extends Component {
           <div className="Nav"> 
             <div className="innerNav">
             
-                <div>
+                <div className="ArticleHubLogo">
                   <img className="blueLogo" src={blueLogo}  />
                   <h3 onClick={() => this.props.history.push('/home')}> ArticleHub </h3>
                 </div> 

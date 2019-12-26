@@ -73,6 +73,8 @@
   font-family: Didact Gothic;
   margin: 0px;
   margin-top: 20px;
+  text-align: center;
+  padding: 0 5px;
 }
 
 .HomeContainer .AllPostsContainer {
@@ -101,9 +103,12 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
   border-bottom: 1px solid lightgrey;
   border-top: 1px solid lightgrey;
-  overflow: hidden;
 }
 
 .HomeContainer .AllPostOrganizer {
@@ -131,5 +136,42 @@
 .HomeContainer .AllPostOrganizer .HighlightedTab {
   background-color: #212121;
   color: white;
+}
+
+@media (max-width: 1300px) {
+  .innerNav {
+    width: 90%;
+  }
+}
+
+@media (max-width: 1200px) {
+  .DiscoverCardsContainer {
+    width: 100%;
+    overflow-x: scroll;
+  }
+  .HomeContainer .DiscoverOtherTextDisplay {
+    width: 90%;
+  }
+  .HomeContainer .AllPostsContainer {
+    width: 100%;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+}
+
+@media (max-width: 750px) {
+  .AllPostOrganizer {
+    width: 98%;
+    overflow-x: scroll;
+    border-top: 1px solid lightgrey;
+    border-bottom: 1px solid lightgrey;
+  }
+}
+
+@media (max-width: 739px) {
+  .HomeContainer .AllPostsContainer .CardContainer {
+    width: 90%;
+  }
 }
 /*# sourceMappingURL=home.css.map */

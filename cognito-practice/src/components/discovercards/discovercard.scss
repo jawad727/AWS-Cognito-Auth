@@ -17,6 +17,7 @@
     flex-direction: column;
     background: white;
     box-shadow: 2px 2px 5px lightgrey;
+    box-sizing: border-box;
     cursor: pointer;
 
     p {
@@ -30,9 +31,11 @@
         height: 80px;
         background-size: cover;
         border-radius: 100%;
-        margin-top: 20px;
         background-position: center;
         background-size: cover;
+        margin-top: 20px;
+        margin-right: 60px;
+        margin-left: 60px;
     }
 }
 
