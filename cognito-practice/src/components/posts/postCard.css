@@ -210,6 +210,14 @@
   margin-bottom: 15px;
 }
 
+.backgroundPostContainer .singlePostContainer .singlePostContent .contentLowerHalf .displaynameText .strongName {
+  cursor: pointer;
+}
+
+.backgroundPostContainer .singlePostContainer .singlePostContent .contentLowerHalf .displaynameText .strongName:hover {
+  text-decoration: underline;
+}
+
 .backgroundPostContainer .singlePostContainer .singlePostContent .contentLowerHalf .amountOfLikes {
   font-weight: 600;
 }

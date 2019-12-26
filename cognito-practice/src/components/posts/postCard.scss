@@ -168,6 +168,14 @@
 
                 .displaynameText {
                     margin-bottom: 15px;
+
+                    .strongName {
+                        cursor: pointer;
+                    }
+
+                    .strongName:hover {
+                        text-decoration: underline;
+                    }
                 }
 
                 .amountOfLikes {

@@ -67,7 +67,7 @@ class PostForm extends Component {
                     fileUrl: data
                 })
             })
-            //   this.setState({fileUrl: "", file: "", filename: ""})
+
           })
           .catch(err => {
               console.log("error uploading file", err)
@@ -80,7 +80,9 @@ class PostForm extends Component {
             console.log(this.state.fileUrl)
 
         return (
-            <div className="PostFormPageContainer" >
+            <>
+            <p className="mobileView">Sorry, you cannot share an article on a mobile device. Come back on pc or mac to create a post.</p>
+            <div className="PostFormPageContainer pcView" >
                 <h1> Upload An Article </h1>
                 <div className="PostFormContainer" >
                     <div className={`PostImageContainer ${this.state.imageConfirmed ? "PostImageContainerHighlight" : null}`}>
@@ -136,6 +138,7 @@ class PostForm extends Component {
                  } }} > upload </button>
               
             </div> 
+            </>
         );
     }
 }

@@ -119,7 +119,7 @@ class PostPage extends Component {
                             : null}
                         </div>
                         <p className="amountOfLikes">{`${this.state.likesnumber} Reads`}</p>
-                        <p className="displaynameText" ><strong>{ `${this.props.content.Username}:`}</strong> {`${this.props.content.PostDescription}`}</p>
+                        <p className="displaynameText" ><strong className="strongName" onClick={() => {this.props.history.push(`/${this.props.content.Username}`)}}>{ `${this.props.content.Username}:`}</strong> {`${this.props.content.PostDescription}`}</p>
                         <form onSubmit={(e) => {e.preventDefault(); this.setState({commentLoader: true}); this.props.postComment({ 
                             postid: this.state.postid, 
                             text: this.state.text, 

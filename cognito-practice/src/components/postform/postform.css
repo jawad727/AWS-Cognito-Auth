@@ -1,3 +1,17 @@
+.mobileView {
+  display: none;
+  font-size: 1.2rem;
+  text-align: center;
+  margin-top: 50px;
+  font-weight: 600;
+}
+
+@media (max-width: 900px) {
+  .mobileView {
+    display: block;
+  }
+}
+
 .PostFormPageContainer {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -12,6 +26,12 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+}
+
+@media (max-width: 900px) {
+  .PostFormPageContainer {
+    display: none;
+  }
 }
 
 .PostFormPageContainer h1 {

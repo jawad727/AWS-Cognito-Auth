@@ -1,9 +1,25 @@
+.mobileView {
+    display: none;
+    font-size: 1.2rem;
+    text-align: center;
+    margin-top: 50px;
+    font-weight: 600;
+
+    @media (max-width: 900px) {
+        display: block;
+    }
+}
+
 .PostFormPageContainer {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     // height: 600px;
+
+    @media (max-width: 900px) {
+        display: none;
+    }
 
     h1 {
         font-family: Didact Gothic;
