@@ -8,6 +8,7 @@ import {fetchPosts, fetchUsers} from "../../store/actions/index"
 import PostCard from "../posts/PostCard.js"
 import PostPage from "../posts/PostPage"
 import DiscoverCard from "../discovercards/DiscoverCard"
+import {TweenMax} from "gsap"
 
 // Amplify.configure(aws_exports)
 
@@ -23,20 +24,22 @@ class Home extends Component {
           username: "",
           posts: [],
           postsLoaded: 6,
-          currentTab: categoryArray[0]
+          currentTab: categoryArray[0],
+          showDiscoverCards: true
       }
-  }
-
-  componentDidUpdate() {
-    
   }
 
   componentDidMount() {
     Auth.currentSession().then((user) => console.log(user.accessToken.payload)).catch((err) => {console.log(err)} )
     this.props.fetchPosts()
     setTimeout(() => this.setState({loading: false}), 500);
-    // this.props.fetchPosts()
+
     console.log(this.props.allPostsArray)
+  }
+
+  closeOpenDiscoverCards(height) {
+    TweenMax.to(".DiscoverCardsContainer", .8, { height: height });
+    this.setState({showDiscoverCards: !this.state.showDiscoverCards})
   }
 
   accessTokenObj = localStorage.getItem("jwt")
@@ -64,13 +67,18 @@ class Home extends Component {
             {/* {`WELCOME HOME ${this.state.username} !!`} */}
           <div className="DiscoverOtherTextDisplay">
             <p> Discover Other Users </p>
+            { this.state.showDiscoverCards ?
+            <i class="fas fa-sort-down" onClick={() => {this.closeOpenDiscoverCards("0px")} }></i> :
+            <i class="fas fa-sort-up" onClick={() => this.closeOpenDiscoverCards("192px")} style={{marginTop: "15px"}}></i> }
           </div>
 
-          <div className="DiscoverCardsContainer" >
-          {this.props.usersArray.map((item) => {
-            return <DiscoverCard content={item} history={this.props.history} />
-          }).slice(0, 5)}
-          </div>
+ 
+            <div className="DiscoverCardsContainer" >
+            {this.props.usersArray.map((item) => {
+              return <DiscoverCard content={item} history={this.props.history} />
+            }).slice(0, 5)}
+            </div>
+       
           
 
           <h3> {`Browse ${this.state.currentTab[0].toLowerCase()} Articles`}</h3>

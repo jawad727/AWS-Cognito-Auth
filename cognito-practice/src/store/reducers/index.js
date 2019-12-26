@@ -50,7 +50,7 @@ const rootReducer = (state = initialState, action) => {
         case DELETE_POST:
             return {
         ...state,
-        allPostsArray: action.payload
+        allPostsArray: [action.payload]
         }
         case FETCH_COMMENTS:
             return {

@@ -20,6 +20,8 @@ class PostPage extends Component {
     commentLoader: false
   }
 
+  baseURL = "https://u242fne979.execute-api.us-east-1.amazonaws.com/dev"
+
   searcher = (term) => {
     var f = false;
     this.props.likesArray.forEach(item => {
@@ -42,12 +44,10 @@ class PostPage extends Component {
   }
 
 
-
   changeHandler = (e) => {
     this.setState({ [e.target.name] : e.target.value });
   }
 
-  baseURL = "https://u242fne979.execute-api.us-east-1.amazonaws.com/dev"
 
   upvote = (e) => {
     e.preventDefault();
@@ -59,7 +59,24 @@ class PostPage extends Component {
     })
     .then(res => console.log(res))
     .catch(err => console.log(err))
-}
+  }
+
+  alarmFunction = () => {
+
+  if (window.confirm("Are you sure you want to delete this post? Changes cannot be reverted.")) {
+              this.props.deletePost(this.props.content.uid)
+            .then(() => {
+              this.props.history.push("/home")
+              console.log("post deleted");
+            })
+            .catch(function(error) {
+              console.log(error);
+            })
+  } else {
+    console.log("canceled")
+  }
+  
+  }
 
 
   render() {
@@ -67,7 +84,6 @@ class PostPage extends Component {
     console.log(this.props.likesArray)
     console.log(this.props.content.uid)
     console.log(this.state.text)
-    // console.log(this.state)
 
       return (
         <div className="backgroundPostContainer">
@@ -99,12 +115,16 @@ class PostPage extends Component {
                             : <i class="far fa-eye fa-2x" onClick={this.upvote}></i> }
                               <i class="far fa-comment fa-2x" ></i>
                             { this.props.content.Username == this.state.username ?
-                              <i class="fas fa-trash-alt fa-2x trashicon" onClick={() => {this.props.deletePost(this.props.content.uid).then(() => {this.props.history.push("/home")}) }}></i> 
+                              <i class="fas fa-trash-alt fa-2x trashicon" onClick={() => { this.alarmFunction() }}></i> 
                             : null}
                         </div>
                         <p className="amountOfLikes">{`${this.state.likesnumber} Reads`}</p>
                         <p className="displaynameText" ><strong>{ `${this.props.content.Username}:`}</strong> {`${this.props.content.PostDescription}`}</p>
-                        <form onSubmit={(e) => {e.preventDefault(); this.setState({commentLoader: true}); this.props.postComment(this.state).then(() => this.setState({text: "", commentLoader: false}) )}}>
+                        <form onSubmit={(e) => {e.preventDefault(); this.setState({commentLoader: true}); this.props.postComment({ 
+                            postid: this.state.postid, 
+                            text: this.state.text, 
+                            username: this.state.username })
+                          .then(() => this.setState({commentLoader: false, text: ""})) ; }}>
                             <input name="text" onChange={this.changeHandler} type="text" placeholder="add a comment" rows="2" />
                             
                         </form>

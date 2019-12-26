@@ -20,15 +20,21 @@
 }
 
 .HomeContainer {
-    // background: rgba(211, 211, 211, 0.479);
     display: flex;
     flex-direction: column;
     align-items: center;
 
-    .DiscoverOtherTextDisplay {  
+    .DiscoverOtherTextDisplay { 
+        display: flex; 
+        align-items: center;
         width: 1075px;
         margin-top: 20px;
         font-family: Didact Gothic;
+
+        i {
+            margin-left: 10px;
+            // margin-bottom: 2px;
+        }
     }
 
     h3 {
@@ -64,6 +70,10 @@
         border-top: 1px solid lightgrey;
         overflow: hidden;
     }
+        
+    
+    
+    
 
     .AllPostOrganizer {
         margin-top: 20px;
