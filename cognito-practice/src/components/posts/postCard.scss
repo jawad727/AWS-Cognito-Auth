@@ -48,9 +48,7 @@
         flex-direction: column;
         justify-content: space-between;
         height: 130px;
-        cursor: pointer;
-
-        
+        cursor: pointer;  
 
         p {
             font-family: Didact Gothic;
@@ -97,15 +95,16 @@
     align-items: center;
     flex-direction: column;
     font-family: Didact Gothic;
-    height: 80vh;
-
-
+    // height: auto;
+    margin-bottom: 20px;
 
     .singlePostContainer {
         display: flex;
         height: 600px;
         width: 940px;
         box-shadow: 2px 2px 5px grey;
+
+
 
         .singlePostImage {
             height: 600px;
@@ -121,6 +120,8 @@
                 justify-content: space-between;
                 width: 342px;
                 background: white;
+                // margin-bottom: 20px;
+                
 
 
             h3 {
@@ -138,6 +139,7 @@
             .commentsArea {
                 overflow-y: scroll;
                 height: 100%;
+                // margin-top: 10px;
                 
                 strong {
                     cursor: pointer;
@@ -209,15 +211,6 @@
                         cursor: pointer;
                     }
 
-                    // @keyframes rotation {
-                    //     from {
-                    //       transform: rotate(0deg);
-                    //     }
-                    //     to {
-                    //       transform: rotate(359deg);
-                    //     }
-                    //   }
-
                 }
 
             }
@@ -227,4 +220,83 @@
 
     }
 
+    @media (max-width: 1000px) {
+        height: auto;
+
+        
+         h1 {
+             text-align: center;
+         }
+
+        .singlePostContainer {
+            flex-direction: column;
+            width: 600px;
+            box-shadow: 0px 0px 0px white;
+            // margin-bottom: 20px;
+            // height: auto;
+
+            a {
+                box-shadow: 3px 3px 5px grey;
+            }
+
+            .singlePostContent {
+                width: 100%;
+                box-shadow: 3px 3px 5px grey;
+                margin-bottom: 20px;
+                background: white;
+
+                .commentsArea {
+                max-height: 100px;
+            }
+
+            h3 {
+                display: none;
+            }
+
+            .contentLowerHalf {
+
+                .likeCommentDiv {
+
+                    .trashicon {
+                       display: none;
+                    }
+                }
+            }
+        }
+    }
+  }
+
+  @media (max-width: 625px) {
+    .singlePostContainer {
+        flex-direction: column;
+        width: 95%;
+
+        a {
+            box-shadow: 3px 3px 5px grey;
+        }
+
+        .singlePostContent {
+            box-shadow: 3px 3px 5px grey;
+        
+        }
+        
+
+        .singlePostImage {
+            $width: 100%;
+            width: $width;
+            max-height: 500px;
+
+            @media (max-width: 500px) {
+                max-height: 400px;
+            }
+
+            @media (max-width: 400px) {
+                max-height: 300px;
+            }
+        }
+    }
+  }
+
+
 }
+

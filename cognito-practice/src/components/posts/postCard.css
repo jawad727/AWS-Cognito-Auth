@@ -125,7 +125,7 @@
       -ms-flex-direction: column;
           flex-direction: column;
   font-family: Didact Gothic;
-  height: 80vh;
+  margin-bottom: 20px;
 }
 
 .backgroundPostContainer .singlePostContainer {
@@ -253,5 +253,77 @@
 .backgroundPostContainer .singlePostContainer .singlePostContent .contentLowerHalf .likeCommentDiv .trashicon {
   margin-left: 210px;
   cursor: pointer;
+}
+
+@media (max-width: 1000px) {
+  .backgroundPostContainer {
+    height: auto;
+  }
+  .backgroundPostContainer h1 {
+    text-align: center;
+  }
+  .backgroundPostContainer .singlePostContainer {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    width: 600px;
+    -webkit-box-shadow: 0px 0px 0px white;
+            box-shadow: 0px 0px 0px white;
+  }
+  .backgroundPostContainer .singlePostContainer a {
+    -webkit-box-shadow: 3px 3px 5px grey;
+            box-shadow: 3px 3px 5px grey;
+  }
+  .backgroundPostContainer .singlePostContainer .singlePostContent {
+    width: 100%;
+    -webkit-box-shadow: 3px 3px 5px grey;
+            box-shadow: 3px 3px 5px grey;
+    margin-bottom: 20px;
+    background: white;
+  }
+  .backgroundPostContainer .singlePostContainer .singlePostContent .commentsArea {
+    max-height: 100px;
+  }
+  .backgroundPostContainer .singlePostContainer .singlePostContent h3 {
+    display: none;
+  }
+  .backgroundPostContainer .singlePostContainer .singlePostContent .contentLowerHalf .likeCommentDiv .trashicon {
+    display: none;
+  }
+}
+
+@media (max-width: 625px) {
+  .backgroundPostContainer .singlePostContainer {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    width: 95%;
+  }
+  .backgroundPostContainer .singlePostContainer a {
+    -webkit-box-shadow: 3px 3px 5px grey;
+            box-shadow: 3px 3px 5px grey;
+  }
+  .backgroundPostContainer .singlePostContainer .singlePostContent {
+    -webkit-box-shadow: 3px 3px 5px grey;
+            box-shadow: 3px 3px 5px grey;
+  }
+  .backgroundPostContainer .singlePostContainer .singlePostImage {
+    width: 100%;
+    max-height: 500px;
+  }
+}
+
+@media (max-width: 625px) and (max-width: 500px) {
+  .backgroundPostContainer .singlePostContainer .singlePostImage {
+    max-height: 400px;
+  }
+}
+
+@media (max-width: 625px) and (max-width: 400px) {
+  .backgroundPostContainer .singlePostContainer .singlePostImage {
+    max-height: 300px;
+  }
 }
 /*# sourceMappingURL=postCard.css.map */
