@@ -34,6 +34,20 @@
           box-shadow: 2px 2px 5px grey;
 }
 
+@media (max-width: 820px) {
+  .EditProfileOuter .EditProfileContainer {
+    width: 420px;
+  }
+}
+
+@media (max-width: 500px) {
+  .EditProfileOuter .EditProfileContainer {
+    width: 300px;
+    height: 450px;
+    margin-bottom: 20px;
+  }
+}
+
 .EditProfileOuter .EditProfileContainer .HeaderContainer {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -43,6 +57,12 @@
           justify-content: center;
   margin: 10px;
   margin-top: 20px;
+}
+
+@media (max-width: 820px) {
+  .EditProfileOuter .EditProfileContainer .HeaderContainer {
+    display: none;
+  }
 }
 
 .EditProfileOuter .EditProfileContainer .HeaderContainer .Header {
@@ -121,6 +141,12 @@
   margin: 14px;
 }
 
+@media (max-width: 820px) {
+  .EditProfileOuter .EditProfileContainer .EditContentContainer .EditProfilePic {
+    display: none;
+  }
+}
+
 .EditProfileOuter .EditProfileContainer .EditContentContainer .EditProfilePic .ProfilePic {
   width: 300px;
   height: 300px;
@@ -182,9 +208,30 @@
   display: flex;
 }
 
+@media (max-width: 500px) {
+  .EditProfileOuter .EditProfileContainer .EditContentContainer .EditContent form {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    width: 250px;
+    margin: 10px;
+  }
+}
+
 .EditProfileOuter .EditProfileContainer .EditContentContainer .EditContent form button {
   margin-left: 10px;
   height: 35px;
+}
+
+@media (max-width: 500px) {
+  .EditProfileOuter .EditProfileContainer .EditContentContainer .EditContent form button {
+    width: 100px;
+    margin-top: 10px;
+  }
 }
 
 .EditProfileOuter .EditProfileContainer .EditContentContainer .EditContent form .NameInput {

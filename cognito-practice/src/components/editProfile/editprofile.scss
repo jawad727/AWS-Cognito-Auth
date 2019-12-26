@@ -25,6 +25,16 @@
         padding: 20px;
         background: white;
         box-shadow: 2px 2px 5px grey;
+
+        @media (max-width: 820px) {
+            width: 420px;
+        }
+
+        @media (max-width: 500px) {
+            width: 300px;
+            height: 450px;
+            margin-bottom: 20px;
+        }
       
 
         .HeaderContainer {
@@ -32,6 +42,10 @@
             justify-content: center;
             margin: 10px;
             margin-top: 20px;
+
+            @media (max-width: 820px) {
+                display: none;
+            }
 
             .Header {
                 height: 150px;
@@ -72,6 +86,8 @@
                     input {
                         display: hidden;
                         width: 0px;
+
+                        
                     }
             
                     span {
@@ -89,8 +105,11 @@
             .EditProfilePic {
                 display: flex;
                 flex-direction: column;
-                
                 margin: 14px;
+
+                @media (max-width: 820px) {
+                    display: none;
+                }
 
                 .ProfilePic {
                     width: 300px;
@@ -147,9 +166,21 @@
                 form {
                     display: flex;
 
+                    @media (max-width: 500px) {
+                        flex-direction: column;
+                        align-items: center;
+                       width: 250px;
+                       margin: 10px;
+                    }
+
                     button {
                         margin-left: 10px;
                         height: 35px;
+
+                        @media (max-width: 500px) {
+                            width: 100px;
+                            margin-top: 10px;
+                        }
                     }
 
                     .NameInput {
@@ -159,6 +190,8 @@
                         font-size: 1.1rem;
                         box-sizing: border-box;
                         padding: 5px;
+
+
                     }
 
                     textarea {
