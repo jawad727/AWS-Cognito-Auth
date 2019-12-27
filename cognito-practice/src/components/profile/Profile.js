@@ -3,18 +3,24 @@ import PostCard from "../posts/PostCard.js"
 import "./profile.css"
 import {fetchPostsByUser} from "../../store/actions/index"
 import {connect} from "react-redux"
+import {Auth} from "aws-amplify";
 
 var categoryArray = [["ALL", "POLITICAL", "TECHNOLOGY", "SPORTS", "ANIMALS", "ART", "MISC"], ["POLITICAL"], ["TECHNOLOGY"], ["SPORTS"], ["ANIMALS"], ["ART"], ["MISC"]]
 
 class Profile extends Component {
       state = {
          loading: true,
-         currentTab: categoryArray[0]
+         currentTab: categoryArray[0],
+
       }
 
       componentDidMount() {
         this.props.fetchPostsByUser(this.props.content.uuid)
         setTimeout(() => this.setState({loading: false}), 500);
+
+        Auth.currentSession().then((ses) => {
+            this.setState({username: ses.accessToken.payload.username})
+        } ).catch((err) => {console.log(err)} )
       }
       
 
@@ -22,8 +28,8 @@ class Profile extends Component {
 
     render() {
 
-        console.log(this.props.content)
-        console.log(this.props.allPostsByUser)
+        console.log(this.props.content.Username)
+        console.log(this.state.username)
 
         return (
             <>
@@ -44,7 +50,9 @@ class Profile extends Component {
                     <div className="ProfileUserInfo" >
                         <div className="ProfNameDiv">
                             <h2>{this.props.content.DisplayName}</h2>
+                            { this.props.content.Username == this.state.username ?
                             <button onClick={() => this.props.history.push("/editprofile")}> Edit Profile </button>
+                            : null }
                         </div>
                         <p>{`@${this.props.content.Username}`}</p>
                         <p>{this.props.content.Bio}</p>
