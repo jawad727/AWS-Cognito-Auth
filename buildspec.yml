@@ -1,0 +1,17 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - cinst nodejs.install
+  pre_build:
+    commands:
+      - npm install
+  build:
+    commands:
+      - npm build
+artifacts:
+  files:
+    - "**/*"
+  discard-paths: no
+  base-directory: dist
