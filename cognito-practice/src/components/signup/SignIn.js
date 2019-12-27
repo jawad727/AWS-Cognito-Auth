@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Auth } from 'aws-amplify';
 import "./signin.css"
+import {connect} from "react-redux"
+
 
 class SignIn extends Component {
     constructor(props) {
@@ -30,7 +32,7 @@ class SignIn extends Component {
             password: password
         })
         .then((user) => {
-            console.log(user, user.signInUserSession.idToken.jwtToken);
+            // console.log(user, user.signInUserSession.idToken.jwtToken);
             localStorage.setItem('jwt', user.signInUserSession.accessToken.jwtToken);
             this.setState({user: user})
             this.props.history.push('/home')
@@ -103,4 +105,8 @@ class SignIn extends Component {
     }
 }
 
-export default SignIn
+const mapStateToProps = state => ({
+
+  })
+  
+export default connect(mapStateToProps, {} )(SignIn);

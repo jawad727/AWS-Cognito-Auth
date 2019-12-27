@@ -11,6 +11,7 @@ import Profile from "./components/profile/Profile"
 import PostPage from "./components/posts/PostPage"
 import PostForm from "./components/postform/PostForm"
 import EditProfile from "./components/editProfile/EditProfile"
+import Authenticate from "./components/requireAuth/Authenticate"
 import { Route, Switch } from "react-router-dom"
 import {connect} from "react-redux"
 import blueLogo from "../src/hiclipart.png"
@@ -24,7 +25,7 @@ class App extends Component {
   constructor(props) {
       super(props);
       this.state = {
-          signedUp : false,
+        signedUp : false,
           loading: true,
           homeLoad: true,
           username: ""
@@ -37,7 +38,7 @@ class App extends Component {
     this.props.fetchPosts()
       // this.props.fetchPostsByUser("myid3");
       Auth.currentSession().then((user) => this.setState({loading: false, username: user.accessToken.payload.username})).catch((err) => {console.log(err)} )
-      console.log("MOUNTED")
+      // console.log("MOUNTED")
     }
 
   handleSignup() {
@@ -50,8 +51,8 @@ class App extends Component {
 
   render() {
       const { signedUp } = this.state;
-        console.log(this.props.usersArray)
-        console.log(this.props.allPostsArray)
+        // console.log(this.props.usersArray)
+        // console.log(this.props.allPostsArray)
         // console.log(this.props.allPostsByUser)
 
         // {this.state.loading ? null : <button onClick={() => {Auth.signOut().then(() => {this.props.history.push('/signin')}).catch((err) => {console.log(err)} )}}> Logout </button>}
@@ -81,8 +82,8 @@ class App extends Component {
         <Route exact path="/signup" component={SignUp} handleSignup={ this.handleSignup } />
         <Route exact path="/signin" component={SignIn} />
         <Route exact path="/home" component={Home} />
-        <Route exact path="/postform" component={PostForm} />
-        <Route exact path="/editprofile" component={EditProfile} />
+        <Route exact path="/postform" component={Authenticate(PostForm)} usersignedin={true} />
+        <Route exact path="/editprofile" component={Authenticate(EditProfile) } />
         
         {/* <Route exact path="/postform2" component={PostForm2} /> */}
         {this.props.usersArray.map(item => {

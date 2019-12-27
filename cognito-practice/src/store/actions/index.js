@@ -1,4 +1,5 @@
 import axios from 'axios'
+import {Auth} from "aws-amplify";
 
 export const FETCH_USERS = "FETCH_USERS"
 export const POST_USER = "POST_USER"
@@ -167,4 +168,18 @@ export const updateUser = (id, params) => dispatch => {
     .catch(err => {
         console.log(err)
     })
-}
+} 
+
+
+// export const userSignIn = () => dispatch => {
+//     return axios.put(`${baseURL}/user/${id}`, params)
+//     .then(user => {
+//         dispatch({
+//             type: UPDATE_USER,
+//             payload: res.data
+//         })
+//     })
+//     .catch(err => {
+//         console.log(err)
+//     })
+// }

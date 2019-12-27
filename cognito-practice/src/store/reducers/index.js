@@ -69,6 +69,7 @@ const rootReducer = (state = initialState, action) => {
         }
         case UPDATE_USER:
             return {
+        ...state,
         singleUser: [...state.singleUser, action.payload]
             }
         default:

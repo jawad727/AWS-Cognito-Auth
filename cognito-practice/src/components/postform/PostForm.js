@@ -28,7 +28,8 @@ class PostForm extends Component {
          postTitle: "",
          postDescription: "",
          articleURL: "",
-         PostCategory: ""
+         PostCategory: "",
+         loading: true
       }
 
 
@@ -36,6 +37,7 @@ class PostForm extends Component {
         Auth.currentSession().then((ses) => {
             this.setState({username: ses.accessToken.payload.username, client_id: ses.accessToken.payload.client_id})
         } ).catch((err) => {console.log(err)} )
+        setTimeout(() => this.setState({loading: false}), 400);
     } 
 
 
@@ -80,6 +82,14 @@ class PostForm extends Component {
             console.log(this.state.fileUrl)
 
         return (
+            <>
+
+        {/* {this.state.loading ? 
+        
+        <div className="spinnerContainer"> 
+          <i class="fas fa-spinner fa-3x"></i> 
+        </div> :  */}
+
             <>
             <p className="mobileView">Sorry, you cannot share an article on a mobile device. Come back on pc or mac to create a post.</p>
             <div className="PostFormPageContainer pcView" >
@@ -137,7 +147,10 @@ class PostForm extends Component {
                 // .then(this.props.history.push("/home"))
                  } }} > upload </button>
               
-            </div> 
+            </div>
+            </> 
+
+            
             </>
         );
     }

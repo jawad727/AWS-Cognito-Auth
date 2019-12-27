@@ -10,8 +10,6 @@ import PostPage from "../posts/PostPage"
 import DiscoverCard from "../discovercards/DiscoverCard"
 import {TweenMax} from "gsap"
 
-// Amplify.configure(aws_exports)
-
 
 var categoryArray = [["ALL", "POLITICAL", "TECHNOLOGY", "SPORTS", "ANIMALS", "ART", "MISC"], ["POLITICAL"], ["TECHNOLOGY"], ["SPORTS"], ["ANIMALS"], ["ART"], ["MISC"]]
 
@@ -47,8 +45,9 @@ class Home extends Component {
 
   render() {
 
-    console.log(this.props.usersArray)
-    console.log(this.state.currentTab)
+    // console.log(this.props.usersArray)
+    // console.log(this.state.currentTab)
+    console.log("is it true?", this.props.signedIn)
     
 
       return (
@@ -113,7 +112,8 @@ class Home extends Component {
  
 const mapStateToProps = state => ({
   usersArray: state.usersArray,
-  allPostsArray: state.allPostsArray
+  allPostsArray: state.allPostsArray,
+  signedIn: state.signedIn
 
 })
 
