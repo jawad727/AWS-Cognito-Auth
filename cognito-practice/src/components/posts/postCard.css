@@ -9,7 +9,13 @@
       -ms-flex-align: center;
           align-items: center;
   width: 100%;
-  height: 70vh;
+  max-height: 100px;
+}
+
+@media (max-width: 1000px) {
+  .spinnerContainerComments {
+    margin: 20px 0px;
+  }
 }
 
 .spinnerContainerComments i {
@@ -232,6 +238,7 @@
 .backgroundPostContainer .singlePostContainer .singlePostContent .contentLowerHalf form input {
   height: 30px;
   border: 0px solid white;
+  border-top: 1px solid lightgrey;
   height: 55px;
   font-size: 1.1rem;
   padding: 0px;
