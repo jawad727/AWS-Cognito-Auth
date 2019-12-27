@@ -25,7 +25,7 @@ class PostPage extends Component {
   searcher = (term) => {
     var f = false;
     this.props.likesArray.forEach(item => {
-      if (item["id"] == term) {
+      if (item["postid"] == term) {
         f = true
       }
     })
@@ -38,6 +38,8 @@ class PostPage extends Component {
       this.setState({username: user.accessToken.payload.username}) 
       this.props.fetchLikes(user.accessToken.payload.username).then(() => {
         this.setState({isLiked: this.searcher(this.props.content.uid), loading: false })
+        console.log(this.props.likesArray)
+        console.log(this.props.content.uid)
       })
   }) 
     .catch((err) => {console.log(err)} )
@@ -52,7 +54,16 @@ class PostPage extends Component {
   upvote = (e) => {
     e.preventDefault();
     this.setState({likesnumber: this.state.likesnumber + 1, isLiked: true});
-    this.props.postLike({id: this.props.content.uid, userid: this.state.username});
+    this.props.postLike({postid: this.props.content.uid, userid: this.state.username});
+    axios.put(`${this.baseURL}/post/${this.props.content.uid}`, {
+      paramName: "PostLikes",
+      paramValue: this.props.content.PostLikes + 1
+    })
+    .then(res => console.log(res))
+    .catch(err => console.log(err))
+  }
+
+  viewed = (e) => {
     axios.put(`${this.baseURL}/post/${this.props.content.uid}`, {
       paramName: "PostLikes",
       paramValue: this.props.content.PostLikes + 1
@@ -74,23 +85,39 @@ class PostPage extends Component {
             })
   } else {
     console.log("canceled")
-  }
-  
+  } }
+
+  postCommentHandler = (e) => {
+    e.preventDefault(); 
+    this.setState({commentLoader: true}); 
+    this.props.postComment({ 
+      postid: this.state.postid, 
+      text: this.state.text, 
+      username: this.state.username })
+    .then(() => this.setState({commentLoader: false, text: ""}))
+    this.setState({text: ""})
   }
 
 
   render() {
 
-    console.log(this.props.likesArray)
     console.log(this.props.content.uid)
-    console.log(this.state.text)
+    // console.log(this.props.content.uid)
+    // console.log(this.state.text)
 
       return (
+        <>
+        {   this.state.loading ? 
+        
+        <div className="spinnerContainer"> 
+        <i class="fas fa-spinner fa-3x"></i> 
+        </div> :
+
         <div className="backgroundPostContainer">
-            <h1>{this.props.content.PostName}</h1>
+            <h1>{this.props.content.PostName} {this.state.isLiked ? " [SEEN]" : null}</h1>
            <div className="singlePostContainer" >
                 <a target="_blank" href={this.props.content.SiteURL}>
-                    <div className="singlePostImage" style={{ backgroundImage: `url(${this.props.content.PostImage})`}} />
+                    <div onClick={(e) => {this.viewed(e); this.setState({likesnumber: this.state.likesnumber + 1}) }} className="singlePostImage" style={{ backgroundImage: `url(${this.props.content.PostImage})`}} />
                 </a>
                 <div className="singlePostContent">
                     <h3 onClick={() => {this.props.history.push(`/${this.props.content.Username}`)}}>
@@ -118,13 +145,9 @@ class PostPage extends Component {
                               <i class="fas fa-trash-alt fa-2x trashicon" onClick={() => { this.alarmFunction() }}></i> 
                             : null}
                         </div>
-                        <p className="amountOfLikes">{`${this.state.likesnumber} Reads`}</p>
+                        <p className="amountOfLikes">{`${this.state.likesnumber} views`}</p>
                         <p className="displaynameText" ><strong className="strongName" onClick={() => {this.props.history.push(`/${this.props.content.Username}`)}}>{ `${this.props.content.Username}:`}</strong> {`${this.props.content.PostDescription}`}</p>
-                        <form onSubmit={(e) => {e.preventDefault(); this.setState({commentLoader: true}); this.props.postComment({ 
-                            postid: this.state.postid, 
-                            text: this.state.text, 
-                            username: this.state.username })
-                          .then(() => this.setState({commentLoader: false, text: ""})) ; }}>
+                        <form onSubmit={(e) => {this.postCommentHandler(e)}}>
                             <input name="text" onChange={this.changeHandler} type="text" placeholder="add a comment" rows="2" />
                             
                         </form>
@@ -133,6 +156,8 @@ class PostPage extends Component {
                 </div>
            </div>
         </div>
+          }
+        </>
         )
   }
 }

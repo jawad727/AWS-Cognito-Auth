@@ -67,6 +67,7 @@
 .HomeContainer .DiscoverOtherTextDisplay i {
   margin-left: 10px;
   padding-right: 30px;
+  cursor: pointer;
 }
 
 .HomeContainer h3 {
