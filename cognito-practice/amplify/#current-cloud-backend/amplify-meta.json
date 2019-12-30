@@ -1,0 +1,53 @@
+{
+	"providers": {
+		"awscloudformation": {
+			"AuthRoleName": "amplify-cognito-practice-dev-181241-authRole",
+			"UnauthRoleArn": "arn:aws:iam::167600161072:role/amplify-cognito-practice-dev-181241-unauthRole",
+			"AuthRoleArn": "arn:aws:iam::167600161072:role/amplify-cognito-practice-dev-181241-authRole",
+			"Region": "us-west-2",
+			"DeploymentBucketName": "amplify-cognito-practice-dev-181241-deployment",
+			"UnauthRoleName": "amplify-cognito-practice-dev-181241-unauthRole",
+			"StackName": "amplify-cognito-practice-dev-181241",
+			"StackId": "arn:aws:cloudformation:us-west-2:167600161072:stack/amplify-cognito-practice-dev-181241/62dc6f10-1572-11ea-94bd-0a1e344a92a6",
+			"AmplifyAppId": "d1osrvr73jdnxd"
+		}
+	},
+	"auth": {
+		"cognitopractice8534a195": {
+			"service": "Cognito",
+			"providerPlugin": "awscloudformation",
+			"dependsOn": [],
+			"providerMetadata": {
+				"s3TemplateURL": "https://s3.amazonaws.com/amplify-cognito-practice-dev-181241-deployment/amplify-cfn-templates/auth/cognitopractice8534a195-cloudformation-template.yml",
+				"logicalId": "authcognitopractice8534a195"
+			},
+			"lastPushTimeStamp": "2019-12-16T22:43:57.721Z",
+			"output": {
+				"AppClientSecret": "puvrmps6n9n667n3mt3lqejl07lr3jlrbncp7e3af1dg6s0asjj",
+				"UserPoolId": "us-west-2_ocJgRI1GR",
+				"AppClientIDWeb": "4rqg3rtkd5jah3bnbheaus70m4",
+				"AppClientID": "5qnjmcrj2msdnugsq2git7obck",
+				"IdentityPoolId": "us-west-2:7772eab8-dbaa-4aaa-9611-61fc8d2e54e2",
+				"IdentityPoolName": "cognitopractice8534a195_identitypool_8534a195__dev",
+				"UserPoolName": "cognitopractice8534a195_userpool_8534a195"
+			},
+			"lastPushDirHash": "2gCX5MSvSCz1GoKAnM5zoOJGH4s="
+		}
+	},
+	"storage": {
+		"researchpalamplifystorage": {
+			"service": "S3",
+			"providerPlugin": "awscloudformation",
+			"providerMetadata": {
+				"s3TemplateURL": "https://s3.amazonaws.com/amplify-cognito-practice-dev-181241-deployment/amplify-cfn-templates/storage/s3-cloudformation-template.json",
+				"logicalId": "storageresearchpalamplifystorage"
+			},
+			"lastPushTimeStamp": "2019-12-16T22:43:57.721Z",
+			"output": {
+				"BucketName": "researchpalimagestoragedev-dev",
+				"Region": "us-west-2"
+			},
+			"lastPushDirHash": "yoSM+1Kf4bMFe6dt8coWY7a5mBk="
+		}
+	}
+}

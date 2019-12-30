@@ -1,0 +1,15 @@
+{
+	"auth": {
+		"cognitopractice8534a195": {
+			"service": "Cognito",
+			"providerPlugin": "awscloudformation",
+			"dependsOn": []
+		}
+	},
+	"storage": {
+		"researchpalamplifystorage": {
+			"service": "S3",
+			"providerPlugin": "awscloudformation"
+		}
+	}
+}
