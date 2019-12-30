@@ -46,7 +46,7 @@ class EditProfile extends Component {
       handleFileChange = e => {
         const file = e.target.files[0]
         this.setState({
-            fileUrl1: URL.createObjectURL(file),
+            fileUrl1: window.URL.createObjectURL(file),
             file1: file,
             filename1: `${this.state.username}/profile/header/${file.name}`
         })
@@ -56,7 +56,7 @@ class EditProfile extends Component {
       handleFileChange2 = e => {
         const file = e.target.files[0]
         this.setState({
-            fileUrl2: URL.createObjectURL(file),
+            fileUrl2: window.URL.createObjectURL(file),
             file2: file,
             filename2: `${this.state.username}/profile/profilepic/${file.name}`
         })
@@ -114,7 +114,7 @@ class EditProfile extends Component {
                 <div className="EditContentContainer" >
 
                   <div className="EditProfilePic">
-                    <div className="ProfilePic" style={{ backgroundImage: `url(${this.state.fileUrl2})` }}  />
+                    <div className="ProfilePic" style={{ backgroundImage: `url(${this.state.fileUrl2})`, backgroundSize: "cover", backgroundPosition: "center" }}  />
                     <div className="ProfPicButtons">
                       {/* <button >Upload</button> */}
                       <label className="HiddenInputSpan2">

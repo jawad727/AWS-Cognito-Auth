@@ -48,7 +48,7 @@ class PostForm extends Component {
     handleChange = e => {
           const file = e.target.files[0]
           this.setState({
-              fileUrl: URL.createObjectURL(file),
+              fileUrl: window.URL.createObjectURL(file),
               file: file,
               filename: `${this.state.username}/${file.name}`
           })
@@ -78,8 +78,8 @@ class PostForm extends Component {
     
 
     render() {
-            console.log(this.state.filename)
-            console.log(this.state.fileUrl)
+            console.log(this.state.file)
+            // console.log(this.state.fileUrl)
 
         return (
             <>
