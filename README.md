@@ -1,102 +1,68 @@
-# Cognito-Practice
-Front end sign up and authentication process with AWS Cognito
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
---------
-Data Model ResearchPal
+## Available Scripts
 
-User: {
-    uid: str,
-    Username: str,
-    Email: str,
-    PhoneNumber: num,
-    Profpic: str,
-    DisplayName: str,
-    Bio: str,
-}
+In the project directory, you can run:
 
-Posts: {
-    myId: foreign key from user.uid,
-    postId: foreign key from post.id,
-}
+### `yarn start`
 
-Liked: {
-    myId: foreign key from user.id,
-    postId: foreign key from post.id,
-}
+Runs the app in the development mode.<br />
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
+The page will reload if you make edits.<br />
+You will also see any lint errors in the console.
 
-Post: {
-    id: num,
-    PostName: str,
-    PostDescription: str,
-    PostCategory: str,
-    PostLikes: defaultTo(0),
-    PostImage/S3Bucket: str,
-    SiteURL: str,
-    Username: str,
-    Comments: array,
-}
+### `yarn test`
 
-Comment: {
-    id: num,
-    postID: str,
-    comment: str
-}
+Launches the test runner in the interactive watch mode.<br />
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
----- USER FOR SECOND TEMPLATE ---
+### `yarn build`
 
-const user = {
-    uid: reqBody.uid,
-    createdAt: new Date().toISOString(),
-    Username: reqBody.Username,
-    Email: reqBody.Email,
-    PhoneNumber: reqBody.PhoneNumber,
-    Profpic: reqBody.Profpic,
-    DisplayName: reqBody.DisplayName,
-    Bio: reqBody.Bio
-  }
+Builds the app for production to the `build` folder.<br />
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
--------
+The build is minified and the filenames include the hashes.<br />
+Your app is ready to be deployed!
 
-get all posts where postUID matches my path and uid matches my 
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
--------
+### `yarn eject`
 
-Endpoints:
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-POST - /post -> User makes a post to this endpoint
-POST - /post/{postID} -> User makes a comment on a post after specifying postID
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-GET - /posts -> Get all posts from this endpoint
-GET - /posts/{postID} -> Get post by its ID
-GET - /user/{id} -> Get a users posts from their ID
+Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-PUT - /post/{postID} -> Allows others to update a users post by incrementing the likes
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
+## Learn More
 
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
+To learn React, check out the [React documentation](https://reactjs.org/).
 
+### Code Splitting
 
+This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
 
-function getExample() {
-    // preprocessing
-    return promiseA(…).then(makeAhandler(…));
-}
-function makeAhandler(…)
-    return function(resultA) {
-        // some processing
-        return promiseB(…).then(makeBhandler(resultA, …));
-    };
-}
-function makeBhandler(resultA, …) {
-    return function(resultB) {
-        // more processing
-        return // anything that uses the variables in scope
-    };
-}
+### Analyzing the Bundle Size
 
+This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
 
+### Making a Progressive Web App
 
-return db.scan(params)
-  .promise()
-  .then(res => {functionName})
+This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+
+### Advanced Configuration
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+
+### Deployment
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+
+### `yarn build` fails to minify
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
