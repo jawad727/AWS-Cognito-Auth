@@ -28,8 +28,12 @@ class SignUp extends Component {
   
     signUp() {
         const { username, password, email, phone_number } = this.state;  
+
+        if (password.length < 8 || username.length < 5 ) {
+          alert("ERROR: Make sure the password is at least 8 characters and the username is at least 5.")
+        } else { 
         Auth.signUp({
-            username: username,
+            username: username.toLowerCase(),
             password: password,
             attributes: {
                 email: email,
@@ -37,25 +41,28 @@ class SignUp extends Component {
             }
         })
         .then((res) => {
-            console.log('Successfully signed up');
-            console.log(res)
-        })
-        .catch((err) => console.log(`Error signing up: ${ err }`))
-    }
-  
-    confirmSignUp() {
-        const { username, password, confirmationCode } = this.state;
-        Auth.confirmSignUp(username, confirmationCode)
-        .then(() => {
-          Auth.signIn({ username: username, password: password }).then(res => {
-            this.props.postUser({
-            uuid: this.state.username,
-            Username: this.state.username,
+          this.props.postUser({
+            uuid: this.state.username.toLowerCase(),
+            Username: this.state.username.toLowerCase(),
             Email: this.state.email,
             PhoneNumber: this.state.phone_number,
             DisplayName: this.state.username
             });
-          }).then(() => {
+            this.setState({
+              verified: true
+            });
+            console.log('Successfully signed up 1');
+        })
+        .catch((err) => console.log(`Error signing up: ${ err }`))
+      }
+    }
+  
+    confirmSignUp() {
+        const { username, password, confirmationCode } = this.state;
+        Auth.confirmSignUp(username.toLowerCase(), confirmationCode)
+        .then(() => {
+          Auth.signIn({ username: username.toLowerCase(), password: password })
+          .then(() => {
             this.props.history.push("./home")
             console.log("user created")
           })
@@ -73,10 +80,7 @@ class SignUp extends Component {
         if (verified) {
           this.confirmSignUp();
         } else {
-          this.signUp();
-          this.setState({
-            verified: true
-        });
+          this.signUp()
         }
         e.target.reset();
     }

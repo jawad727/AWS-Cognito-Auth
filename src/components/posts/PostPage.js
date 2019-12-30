@@ -42,7 +42,10 @@ class PostPage extends Component {
         console.log(this.props.content.uid)
       })
   }) 
-    .catch((err) => {console.log(err)} )
+    .catch((err) => {
+      console.log(err);
+      this.setState({isLiked: false, loading: false })
+    } )
   }
 
 

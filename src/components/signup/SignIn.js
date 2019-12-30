@@ -37,7 +37,7 @@ class SignIn extends Component {
             this.setState({user: user})
             this.props.history.push('/home')
     })
-        .catch((err) => console.log(`Error signing in: ${ err }`))
+        .catch((err) => alert("Invalid credentials, please try again."))
     }
   
     confirmSignIn() {
@@ -48,6 +48,8 @@ class SignIn extends Component {
     }
   
     handleSubmit(e) {
+
+
         e.preventDefault();
 
         this.signIn();
@@ -58,6 +60,8 @@ class SignIn extends Component {
             signedIn: true
         });
         e.target.reset();
+
+
     }
   
     handleChange(e) {
