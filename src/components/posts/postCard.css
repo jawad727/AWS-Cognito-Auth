@@ -134,6 +134,19 @@
   margin-bottom: 20px;
 }
 
+.backgroundPostContainer .goBackButton {
+  padding: 3px 15px;
+  border: 3px solid #212121;
+  background-color: lightgreen;
+  color: black;
+  font-family: Didact Gothic;
+  margin: 5px;
+  font-weight: 600;
+  font-size: 1.3rem;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
 .backgroundPostContainer .singlePostContainer {
   display: -webkit-box;
   display: -ms-flexbox;

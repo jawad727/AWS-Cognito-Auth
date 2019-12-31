@@ -128,7 +128,7 @@ class SignUp extends Component {
       } else {
         return (
           <div className="SignUp" >
-            <img className="RegisterGuy" src="https://cdn.onlinewebfonts.com/svg/img_509043.png" />
+            <img className="RegisterIcon" src="https://webstockreview.net/images/document-clipart-registration-form-1.png" />
             <h3>Hey, welcome to ArticleHub!</h3>
             <p className="fineprint">Tell us a little about yourself.</p>
             <form onSubmit={ this.handleSubmit }>

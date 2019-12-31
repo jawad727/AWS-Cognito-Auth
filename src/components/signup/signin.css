@@ -9,7 +9,6 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  height: 80vh;
 }
 
 .SignUp .ClickHere {
@@ -24,10 +23,10 @@
   margin-bottom: 10px;
 }
 
-.SignUp .RegisterGuy {
-  width: 130px;
-  height: 140px;
+.SignUp .RegisterIcon {
+  width: 190px;
   margin-top: 30px;
+  margin-bottom: 0px;
 }
 
 .SignUp h3 {

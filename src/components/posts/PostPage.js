@@ -117,7 +117,7 @@ class PostPage extends Component {
         </div> :
 
         <div className="backgroundPostContainer">
-            <h1>{this.props.content.PostName} {this.state.isLiked ? " [SEEN]" : null}</h1>
+            <h1> {this.state.isLiked ? " [SEEN]" : null} {this.props.content.PostName} </h1>
            <div className="singlePostContainer" >
                 <a target="_blank" href={this.props.content.SiteURL}>
                     <div onClick={(e) => {this.viewed(e); this.setState({likesnumber: this.state.likesnumber + 1}) }} className="singlePostImage" style={{ backgroundImage: `url(${this.props.content.PostImage})`}} />
@@ -151,13 +151,16 @@ class PostPage extends Component {
                         <p className="amountOfLikes">{`${this.state.likesnumber} views`}</p>
                         <p className="displaynameText" ><strong className="strongName" onClick={() => {this.props.history.push(`/${this.props.content.Username}`)}}>{ `${this.props.content.Username}:`}</strong> {`${this.props.content.PostDescription}`}</p>
                         <form onSubmit={(e) => {this.postCommentHandler(e)}}>
-                            <input name="text" onChange={this.changeHandler} type="text" placeholder="add a comment" rows="2" />
+                            <input onClick={() => {this.state.username.length == 0 ? alert("Log in before making a comment.") : console.log("") }} name="text" onChange={(e) => {this.state.username.length == 0 ? e.target.value = "" : this.changeHandler() }} type="text" placeholder="add a comment" rows="2" />
                             
                         </form>
                     </div>
                     
+                    
                 </div>
+                
            </div>
+           <button className="goBackButton" onClick={() => this.props.history.goBack()}>Go Back</button>
         </div>
           }
         </>
