@@ -78,7 +78,7 @@ class PostForm extends Component {
     
 
     render() {
-            console.log(this.state.file)
+            console.log(this.state.fileUrl.length)
             // console.log(this.state.fileUrl)
 
         return (
@@ -93,13 +93,14 @@ class PostForm extends Component {
             <>
             <p className="mobileView">Sorry, you cannot share an article on a mobile device. Come back on pc or mac to create a post.</p>
             <div className="PostFormPageContainer pcView" >
-                <h1> Upload An Article </h1>
+                 <h1> Upload An Article </h1>
                 <div className="PostFormContainer" >
                     <div className={`PostImageContainer ${this.state.imageConfirmed ? "PostImageContainerHighlight" : null}`}>
+                    {this.state.fileUrl.length > 0 ? null :
                         <label>
                             <input className="hiddenInput" type="file"  onChange={this.handleChange} />
                             <span className="fileUploadSpan" >Upload Image</span>
-                        </label>
+                    </label> }
 
                         <div className="form1image" style={{backgroundImage: `url(${this.state.fileUrl})`, backgroundSize: "cover"}} />
                         <p> (Make sure dimensions of image are equal or close) </p>
