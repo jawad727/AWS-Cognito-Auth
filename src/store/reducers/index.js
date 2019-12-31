@@ -7,7 +7,8 @@ const initialState = {
     allPostsByUser: [],
     postComments: [],
     likesArray: [],
-    singleUser: []
+    singleUser: [],
+    userFetched: false
 }
 
 const rootReducer = (state = initialState, action) => {
@@ -35,7 +36,8 @@ const rootReducer = (state = initialState, action) => {
         case FETCH_SINGLE_USER:
                 return {
         ...state,
-        singleUser: action.payload
+        singleUser: action.payload,
+        userFetched: true
         }
         case MAKE_POST:
             return {

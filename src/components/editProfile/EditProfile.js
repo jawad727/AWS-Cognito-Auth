@@ -93,22 +93,29 @@ class EditProfile extends Component {
 
     render() {
 
-        console.log(this.state)
-        console.log(this.props.singleUser)
+        console.log(this.props.userFetched)
+        // console.log(this.props.singleUser)
 
         return (
-          
+          <>
+          { !this.props.userFetched ? 
+              <div className="spinnerContainer"> 
+              <i class="fas fa-spinner fa-3x"></i> 
+            </div>
+          :
             <div className="EditProfileOuter">
               <h1> Edit Profile </h1>
               <div className="EditProfileContainer">
                 <div className="HeaderContainer">
                   <div className="Header" style={{ backgroundImage: `url(${this.state.fileUrl1})` }} />
                   <div className="HeaderButtons">
+                    {this.state.fileUrl1.length > 0 ? null :
                     <label className="HiddenInputSpan">
                       <input type="file"  onChange={this.handleFileChange} />
                       <span className="fileUploadSpan" >Upload</span>
-                    </label>
-                    <button onClick={() => this.saveFile()}> Confirm </button>
+                    </label> }
+                    {this.state.fileUrl1.length == 0 ? null :
+                    <button onClick={() => this.saveFile()} > Confirm </button> }
                   </div>
                 </div>
                 <div className="EditContentContainer" >
@@ -116,12 +123,13 @@ class EditProfile extends Component {
                   <div className="EditProfilePic">
                     <div className="ProfilePic" style={{ backgroundImage: `url(${this.state.fileUrl2})`, backgroundSize: "cover", backgroundPosition: "center" }}  />
                     <div className="ProfPicButtons">
-                      {/* <button >Upload</button> */}
+                      {this.state.fileUrl2.length > 0 ? null :
                       <label className="HiddenInputSpan2">
                         <input type="file"  onChange={this.handleFileChange2} />
                         <span className="fileUploadSpan" >Upload</span>
-                      </label>
-                      <button onClick={() => this.saveFile2()}>Confirm</button>
+                      </label> }
+                      {this.state.fileUrl2.length == 0 ? null :
+                      <button onClick={() => this.saveFile2()}>Confirm</button> }
                     </div>
                   </div>
                   <div className="EditContent">
@@ -141,14 +149,15 @@ class EditProfile extends Component {
                 </div>
               </div>
             </div>
-   
+            }
+          </>
         );
     }
 }
 
 const mapStateToProps = state => ({
-  singleUser: state.singleUser
-    
+  singleUser: state.singleUser,
+  userFetched: state.userFetched
   })
 
 
