@@ -136,18 +136,19 @@ class EditProfile extends Component {
                     <p>Display Name</p>
                     <form>
                       <input onChange={this.inputChangeHandler} value={this.state.DisplayName} className="NameInput" name="DisplayName"/>
-                      <button onClick={(e) => {e.preventDefault(); this.props.updateUser(this.state.username, {paramName: "DisplayName", paramValue: this.state.DisplayName })}} >Update</button>
+                      <button onClick={(e) => {e.preventDefault(); this.props.updateUser(this.state.username, {paramName: "DisplayName", paramValue: this.state.DisplayName }).then(() => alert("Display Name Successfully Updated!")) }} >Update</button>
                     </form>
 
                     <p>Bio</p>
                     <form>
                     <textarea onChange={this.inputChangeHandler} value={this.state.Bio} className="BioInput" name="Bio" type="text" cols="38" rows="9" />
-                      <button onClick={(e) => {e.preventDefault(); this.props.updateUser(this.state.username, {paramName: "Bio", paramValue: this.state.Bio })}}>Update</button>
+                      <button onClick={(e) => {e.preventDefault(); this.props.updateUser(this.state.username, {paramName: "Bio", paramValue: this.state.Bio }).then(() => alert("Bio Successfully Updated!")) }}>Update</button>
                     </form>
                   </div>
 
                 </div>
               </div>
+               <button className="goBackButton" onClick={() => this.props.history.goBack()}>Go Back</button>
             </div>
             }
           </>
