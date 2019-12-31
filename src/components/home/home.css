@@ -101,6 +101,18 @@
   cursor: pointer;
 }
 
+@media (max-width: 1150px) {
+  .HomeContainer button {
+    width: 95%;
+  }
+}
+
+@media (max-width: 740px) {
+  .HomeContainer button {
+    width: 91%;
+  }
+}
+
 .HomeContainer .DiscoverCardsContainer {
   display: -webkit-box;
   display: -ms-flexbox;

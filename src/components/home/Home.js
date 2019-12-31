@@ -13,7 +13,6 @@ import {TweenMax} from "gsap"
 
 var categoryArray = [["ALL", "POLITICAL", "TECHNOLOGY", "SPORTS", "ANIMALS", "ART", "MISC"], ["POLITICAL"], ["TECHNOLOGY"], ["SPORTS"], ["ANIMALS"], ["ART"], ["MISC"]]
 
-
 class Home extends Component {
   constructor(props) {
       super(props);
@@ -35,6 +34,8 @@ class Home extends Component {
     console.log(this.props.allPostsArray)
   }
 
+
+
   closeOpenDiscoverCards(height) {
     TweenMax.to(".DiscoverCardsContainer", .8, { height: height });
     this.setState({showDiscoverCards: !this.state.showDiscoverCards})
@@ -42,13 +43,14 @@ class Home extends Component {
 
   accessTokenObj = localStorage.getItem("jwt")
 
+  filterArray() { return this.props.allPostsArray.filter(item => {
+    return this.state.currentTab.includes(item.PostCategory.toUpperCase())
+  }) }
+
 
   render() {
 
-    // console.log(this.props.usersArray)
-    // console.log(this.state.currentTab)
-    console.log("is it true?", this.props.signedIn)
-    
+    console.log(this.state.posts)
 
       return (
         
@@ -91,13 +93,13 @@ class Home extends Component {
           </div>
           <div className="AllPostsContainer">
             
-            {this.props.allPostsArray.map((item) => {
-              if ( this.state.currentTab.includes(item.PostCategory.toUpperCase())  ) {
-              return <PostCard content={item} history={this.props.history}/> }
-             } )
-            //  .slice(0, this.state.postsLoaded) 
+            {this.filterArray().map((item) => {
+              
+              return <PostCard content={item} history={this.props.history}/> 
+             } ).slice(0, this.state.postsLoaded)
              }
              
+             { this.filterArray().length < this.state.postsLoaded ? null : <button onClick={() => {this.setState({postsLoaded: this.state.postsLoaded + 6})}}> Load More </button>}
           </div>
           
           
