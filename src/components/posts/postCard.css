@@ -87,7 +87,7 @@
 .CardContainer .CardContent p {
   font-family: Didact Gothic;
   margin: 0px;
-  margin-top: 10px;
+  margin-top: 5px;
 }
 
 .CardContainer .CardContent .CardTitle {
@@ -250,8 +250,7 @@
 
 .backgroundPostContainer .singlePostContainer .singlePostContent .contentLowerHalf form input {
   height: 30px;
-  border: 0px solid white;
-  border-top: 1px solid lightgrey;
+  border: 1px solid lightgrey;
   height: 55px;
   font-size: 1.1rem;
   padding: 0px;

@@ -86,7 +86,7 @@
 
 @media (max-width: 1175px) {
   .ProfileContainer .ProfileContentContainer {
-    width: 95%;
+    width: 100%;
   }
 }
 
@@ -219,7 +219,7 @@
 
 @media (max-width: 1175px) {
   .ProfileContainer .SingleProfilePosts {
-    width: 95%;
+    width: 99%;
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
@@ -228,7 +228,7 @@
 
 @media (max-width: 795px) {
   .ProfileContainer .SingleProfilePosts .CardContainer {
-    width: 95%;
+    width: 99%;
   }
 }
 
@@ -241,7 +241,7 @@
 
 @media (max-width: 1175px) {
   .ProfileContainer .postOrginizer {
-    width: 95%;
+    width: 97%;
   }
 }
 

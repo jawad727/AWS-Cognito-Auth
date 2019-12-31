@@ -22,9 +22,6 @@ class Profile extends Component {
             this.setState({username: ses.accessToken.payload.username})
         } ).catch((err) => {console.log(err)} )
       }
-      
-
-    
 
     render() {
 

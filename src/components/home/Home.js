@@ -63,9 +63,6 @@ class Home extends Component {
 
         <div className="HomeContainer" >
 
-        
-           
-            {/* {`WELCOME HOME ${this.state.username} !!`} */}
           <div className="DiscoverOtherTextDisplay">
             <p> Discover Other Users </p>
             { this.state.showDiscoverCards ?
