@@ -182,6 +182,10 @@
                 cursor: pointer;
             }
 
+            h3:hover {
+                text-decoration: underline;
+            }
+
             .commentsArea {
                 overflow-y: scroll;
                 height: 100%;

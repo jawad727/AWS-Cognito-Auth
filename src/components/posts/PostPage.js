@@ -98,7 +98,7 @@ class PostPage extends Component {
       text: this.state.text, 
       username: this.state.username })
     .then(() => this.setState({commentLoader: false, text: ""}))
-    this.setState({text: ""})
+    
   }
 
 
@@ -106,7 +106,7 @@ class PostPage extends Component {
 
     console.log(this.props.content.uid)
     // console.log(this.props.content.uid)
-    // console.log(this.state.text)
+    console.log(this.state.text)
 
       return (
         <>
@@ -153,7 +153,7 @@ class PostPage extends Component {
                         <p className="amountOfLikes">{`${this.state.likesnumber} views`}</p>
                         <p className="displaynameText" ><strong className="strongName" onClick={() => {this.props.history.push(`/${this.props.content.Username}`)}}>{ `${this.props.content.Username}:`}</strong> {`${this.props.content.PostDescription}`}</p>
                         <form onSubmit={(e) => {this.postCommentHandler(e)}}>
-                            <input onClick={() => {this.state.username.length == 0 ? alert("Log in before making a comment.") : console.log("") }} name="text" onChange={(e) => {this.state.username.length == 0 ? e.target.value = "" : this.changeHandler() }} type="text" placeholder="add a comment" rows="2" />
+                            <input onClick={() => {this.state.username.length == 0 ? alert("Log in before making a comment.") : console.log("") }} onChange={(e) => {this.state.username.length == 0 ? e.target.value = "" : this.changeHandler(e) }} type="text" placeholder="add a comment" rows="2" name="text" value={this.state.text} />
                             
                         </form>
                     </div>

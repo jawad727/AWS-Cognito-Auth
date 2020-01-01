@@ -228,6 +228,10 @@
   cursor: pointer;
 }
 
+.backgroundPostContainer .singlePostContainer .singlePostContent h3:hover {
+  text-decoration: underline;
+}
+
 .backgroundPostContainer .singlePostContainer .singlePostContent .commentsArea {
   overflow-y: scroll;
   height: 100%;
