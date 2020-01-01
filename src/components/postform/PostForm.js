@@ -2,7 +2,6 @@ import React, {Component} from 'react'
 import {connect} from "react-redux"
 import "./postform.css"
 import Amplify, {Storage} from "aws-amplify"
-import PostForm2 from "./PostForm2"
 import {Auth} from "aws-amplify";
 import {makePost} from "../../store/actions/index"
 

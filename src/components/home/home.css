@@ -148,6 +148,10 @@
   cursor: pointer;
 }
 
+.HomeContainer .AllPostOrganizer div:hover {
+  opacity: 0.8;
+}
+
 .HomeContainer .AllPostOrganizer .HighlightedTab {
   background-color: #212121;
   color: white;

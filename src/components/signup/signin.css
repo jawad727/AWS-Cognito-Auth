@@ -11,6 +11,30 @@
           flex-direction: column;
 }
 
+.SignUp .confirmationText {
+  width: 322px;
+  text-align: center;
+  margin: 20px;
+  margin-top: 50px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.SignUp .confirmationButton {
+  padding: 8px;
+  font-family: 'Montserrat', sans-serif;
+  background: lightgreen;
+  border: 1px solid black;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-top: 20px;
+  cursor: pointer;
+  margin-top: 30px;
+}
+
+.SignUp .confirmationButton:hover {
+  background: #7BC290;
+}
+
 .SignUp .ClickHere {
   cursor: pointer;
   color: black;

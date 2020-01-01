@@ -18,7 +18,7 @@ import {connect} from "react-redux"
 import blueLogo from "../src/hiclipart.png"
 
 import {fetchUsers, fetchPosts, fetchPostsByUser} from "./store/actions/index"
-import PostForm2 from './components/postform/PostForm2';
+
 
 Amplify.configure(aws_exports)
 

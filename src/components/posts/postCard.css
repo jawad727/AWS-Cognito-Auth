@@ -58,6 +58,7 @@
   margin: 10px;
   -webkit-box-shadow: 2px 2px 5px grey;
           box-shadow: 2px 2px 5px grey;
+  border-radius: 3px;
   cursor: pointer;
 }
 
@@ -157,12 +158,47 @@
           box-shadow: 2px 2px 5px grey;
 }
 
-.backgroundPostContainer .singlePostContainer .singlePostImage {
+.backgroundPostContainer .singlePostContainer a {
+  text-decoration: none;
+}
+
+.backgroundPostContainer .singlePostContainer a .singlePostImage {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: black;
   height: 600px;
   width: 600px;
   background: lightgrey;
   background-size: cover;
   background-position: center;
+}
+
+.backgroundPostContainer .singlePostContainer a .singlePostImage .ClickView {
+  display: none;
+  margin: 0px;
+  font-family: 'Montserrat', sans-serif;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.5rem;
+  text-decoration: none;
+  color: white;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+.backgroundPostContainer .singlePostContainer .singlePostImage:hover {
+  opacity: .95;
+}
+
+.backgroundPostContainer .singlePostContainer .singlePostImage:hover .ClickView {
+  display: block;
+  position: relative;
 }
 
 .backgroundPostContainer .singlePostContainer .singlePostContent {

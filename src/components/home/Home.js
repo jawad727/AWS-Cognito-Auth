@@ -30,27 +30,31 @@ class Home extends Component {
     Auth.currentSession().then((user) => console.log(user.accessToken.payload)).catch((err) => {console.log(err)} )
     this.props.fetchPosts()
     setTimeout(() => this.setState({loading: false}), 500);
-
-    console.log(this.props.allPostsArray)
   }
-
-
 
   closeOpenDiscoverCards(height) {
     TweenMax.to(".DiscoverCardsContainer", .8, { height: height });
     this.setState({showDiscoverCards: !this.state.showDiscoverCards})
   }
 
-  accessTokenObj = localStorage.getItem("jwt")
-
   filterArray() { return this.props.allPostsArray.filter(item => {
     return this.state.currentTab.includes(item.PostCategory.toUpperCase())
   }) }
 
+  accessTokenObj = localStorage.getItem("jwt")
+
+  capitalizer() {
+    var singleCatagory = this.state.currentTab[0].toLowerCase().split("")
+    var firstLetter = this.state.currentTab[0][0]
+    singleCatagory.shift()
+    singleCatagory.unshift(firstLetter)
+
+    return(singleCatagory.join(""))
+  }
 
   render() {
 
-    console.log(this.state.posts)
+    console.log(this.capitalizer())
 
       return (
         
@@ -79,7 +83,7 @@ class Home extends Component {
        
           
 
-          <h3> {`Browse ${this.state.currentTab[0].toLowerCase()} Articles`}</h3>
+          <h3> {`Browse ${this.capitalizer()} Articles`}</h3>
 
           <div className="AllPostOrganizer" >
             {categoryArray.map((item, i) => {

@@ -120,7 +120,9 @@ class PostPage extends Component {
             <h1> {this.state.isLiked ? " [SEEN]" : null} {this.props.content.PostName} </h1>
            <div className="singlePostContainer" >
                 <a target="_blank" href={this.props.content.SiteURL}>
-                    <div onClick={(e) => {this.viewed(e); this.setState({likesnumber: this.state.likesnumber + 1}) }} className="singlePostImage" style={{ backgroundImage: `url(${this.props.content.PostImage})`}} />
+                    <div onClick={(e) => {this.viewed(e); this.setState({likesnumber: this.state.likesnumber + 1}) }} className="singlePostImage" style={{ backgroundImage: `url(${this.props.content.PostImage})`}}>
+                      <p className="ClickView">Click To View</p>
+                    </div>
                 </a>
                 <div className="singlePostContent">
                     <h3 onClick={() => {this.props.history.push(`/${this.props.content.Username}`)}}>

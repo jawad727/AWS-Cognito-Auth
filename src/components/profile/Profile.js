@@ -23,6 +23,14 @@ class Profile extends Component {
         } ).catch((err) => {console.log(err)} )
       }
 
+      capitalizer() {
+        var singleCatagory = this.state.currentTab[0].toLowerCase().split("")
+        var firstLetter = this.state.currentTab[0][0]
+        singleCatagory.shift()
+        singleCatagory.unshift(firstLetter)
+        return(singleCatagory.join(""))
+      }
+
     render() {
 
         console.log(this.props.content.Username)
@@ -62,7 +70,7 @@ class Profile extends Component {
                     
                 </div>
                 <div className="postOrginizer">
-                    <p>{this.state.currentTab[0]} Posts</p> 
+                    <p> {this.capitalizer()} Posts </p> 
                 </div>
 
                 <div className="AllPostOrganizer" >

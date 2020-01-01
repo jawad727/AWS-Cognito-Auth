@@ -110,19 +110,23 @@ class SignUp extends Component {
     }
   
     render() {
-        // console.log(this.state.username)
-        // console.log(Auth.currentSession().then((user) => console.log(user.accessToken.payload)))
 
       const { verified } = this.state;
       if (verified) {
           return (
               <div className="SignUp" >
+
+                  <p className="confirmationText">A confirmation code has been sent to your email address</p>
                   <form onSubmit={ this.handleSubmit }>
+                   
                   
                       <label>Confirmation Code</label>
                       <input id='confirmationCode' type='text' onChange={ this.handleChange }/>
                       <button>Confirm Sign up</button>
                   </form>
+                  <button className="confirmationButton" >
+                    Remind Me Later
+                  </button>
               </div>
           );
       } else {
