@@ -80,21 +80,21 @@
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  height: 130px;
+  height: 145px;
   cursor: pointer;
 }
 
 .CardContainer .CardContent p {
-  font-family: Didact Gothic;
+  font-family: 'Montserrat', sans-serif;
   margin: 0px;
-  margin-top: 5px;
+  margin-top: 10px;
 }
 
 .CardContainer .CardContent .CardTitle {
-  font-size: 1.35rem;
+  font-size: 1.3rem;
   margin: 0px;
   font-weight: 1000;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 
 .CardContainer .CardContent .CardDescription {
@@ -113,7 +113,7 @@
 .CardContainer .CardContent .CardLikesNumber {
   font-weight: 600;
   margin: 0px;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 
 .backgroundPostContainer {
@@ -130,7 +130,7 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  font-family: Didact Gothic;
+  font-family: 'Montserrat', sans-serif;
   margin-bottom: 20px;
 }
 
@@ -139,7 +139,7 @@
   border: 3px solid #212121;
   background-color: lightgreen;
   color: black;
-  font-family: Didact Gothic;
+  font-family: 'Montserrat', sans-serif;
   margin: 5px;
   font-weight: 600;
   font-size: 1.3rem;
@@ -186,7 +186,7 @@
   border-bottom: 1px solid lightgrey;
   margin: 0px;
   padding: 10px 0px;
-  font-family: Didact Gothic;
+  font-family: 'Montserrat', sans-serif;
   font-weight: 600;
   font-size: 1.3rem;
   cursor: pointer;
@@ -203,7 +203,7 @@
 }
 
 .backgroundPostContainer .singlePostContainer .singlePostContent .commentsArea p {
-  font-family: Didact Gothic;
+  font-family: 'Montserrat', sans-serif;
   font-size: 1.1rem;
   margin-left: 10px;
 }
@@ -221,7 +221,7 @@
 .backgroundPostContainer .singlePostContainer .singlePostContent .contentLowerHalf p {
   margin: 5px;
   margin-left: 10px;
-  font-family: Didact Gothic;
+  font-family: 'Montserrat', sans-serif;
   font-size: 1.1rem;
 }
 

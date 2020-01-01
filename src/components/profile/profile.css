@@ -66,7 +66,7 @@
   border: 3px solid #212121;
   background-color: lightgreen;
   color: black;
-  font-family: Didact Gothic;
+  font-family: 'Montserrat', sans-serif;
   margin: 5px;
   font-weight: 600;
   cursor: pointer;
@@ -144,7 +144,7 @@
   height: 30px;
   border: 3px solid black;
   background: lightgreen;
-  font-family: Didact Gothic;
+  font-family: 'Montserrat', sans-serif;
   color: black;
   font-weight: 600;
   font-size: 1rem;
@@ -156,7 +156,7 @@
 }
 
 .ProfileContainer .ProfileContentContainer .ProfileUserInfo p {
-  font-family: Didact Gothic;
+  font-family: 'Montserrat', sans-serif;
   font-weight: 600;
   font-size: 1.1rem;
 }
@@ -184,7 +184,7 @@
 }
 
 .ProfileContainer .ProfileContentContainer .ProfileUserInfo .PostJoinedDiv p {
-  font-family: Didact Gothic;
+  font-family: 'Montserrat', sans-serif;
   margin: 0px;
   margin-bottom: 15px;
 }
@@ -252,7 +252,7 @@
   background-color: white;
   text-align: center;
   padding: 10px;
-  font-family: Didact Gothic;
+  font-family: 'Montserrat', sans-serif;
   font-weight: 600;
   font-size: 1.1rem;
   margin: 0px;

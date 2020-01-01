@@ -7,6 +7,7 @@ import { withAuthenticator } from "aws-amplify-react";
 import SignUp from "./components/signup/SignUp"
 import SignIn from "./components/signup/SignIn"
 import Home from "./components/home/Home"
+import LandingPage from "./components/landingpage/LandingPage"
 import Profile from "./components/profile/Profile"
 import PostPage from "./components/posts/PostPage"
 import PostForm from "./components/postform/PostForm"
@@ -36,9 +37,9 @@ class App extends Component {
   componentDidMount() {
     this.props.fetchUsers();
     this.props.fetchPosts()
-      // this.props.fetchPostsByUser("myid3");
-      Auth.currentSession().then((user) => this.setState({loading: false, username: user.accessToken.payload.username})).catch((err) => {console.log(err)} )
-      // console.log("MOUNTED")
+    Auth.currentSession()
+    .then((user) => this.setState({loading: false, username: user.accessToken.payload.username}))
+    .catch((err) => {console.log(err)} )
     }
 
   handleSignup() {
@@ -51,11 +52,7 @@ class App extends Component {
 
   render() {
       const { signedUp } = this.state;
-        // console.log(this.props.usersArray)
-        // console.log(this.props.allPostsArray)
-        // console.log(this.props.allPostsByUser)
-
-        // {this.state.loading ? null : <button onClick={() => {Auth.signOut().then(() => {this.props.history.push('/signin')}).catch((err) => {console.log(err)} )}}> Logout </button>}
+        
       return (
         <div>
           
@@ -79,13 +76,13 @@ class App extends Component {
             </div>
           </div>
         <Switch>
+        <Route exact path="/" component={LandingPage} />
         <Route exact path="/signup" component={SignUp} handleSignup={ this.handleSignup } />
         <Route exact path="/signin" component={SignIn} />
         <Route exact path="/home" component={Home} />
         <Route exact path="/postform" component={Authenticate(PostForm)} usersignedin={true} />
         <Route exact path="/editprofile" component={Authenticate(EditProfile) } />
         
-        {/* <Route exact path="/postform2" component={PostForm2} /> */}
         {this.props.usersArray.map(item => {
           return <Route path={`/${item.Username}`} render={(props) => <Profile {...props}  content={item} />} />
         })}
@@ -95,7 +92,6 @@ class App extends Component {
         })}
 
         
-        {/* <Route path="*" component={SignIn} /> */}
         </Switch>
         </div>
         )

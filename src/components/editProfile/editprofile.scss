@@ -5,7 +5,7 @@
 
     button {
         background: lightgreen;
-        font-family: Didact Gothic;
+        font-family: 'Montserrat', sans-serif;
         font-weight: 600;
         color: black;
         border: 2px solid black;
@@ -14,19 +14,19 @@
     }
 
     h1 {
-        font-family: Didact Gothic;
+        font-family: 'Montserrat', sans-serif;
         font-weight: 600;
     }
 
     .goBackButton {
         padding: 3px 15px;
-        border: 3px solid #212121;
+        border: 2px solid #212121;
         background-color: lightgreen;
         color: black;
-        font-family: Didact Gothic;
+        font-family: 'Montserrat', sans-serif;
         margin: 5px;
         font-weight: 600;
-        font-size: 1.3rem;
+        font-size: 1.2rem;
         margin-top: 20px;
         cursor: pointer;
     }
@@ -90,7 +90,7 @@
                     margin-left: 17px;
                     text-align: center;
                     background: lightgreen;
-                    font-family: Didact Gothic;
+                    font-family: 'Montserrat', sans-serif;
                     font-weight: 600;
                     cursor: pointer;
 
@@ -149,7 +149,7 @@
                         margin: 10px;
                         text-align: center;
                         background: lightgreen;
-                        font-family: Didact Gothic;
+                        font-family: 'Montserrat', sans-serif;
                         font-weight: 600;
                         cursor: pointer;
     
@@ -172,7 +172,6 @@
             .EditContent {
                margin: 14px;
                 height: 350px;
-                // border: 1px solid blue;
 
                 form {
                     display: flex;
