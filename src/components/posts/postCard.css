@@ -148,6 +148,11 @@
   cursor: pointer;
 }
 
+.backgroundPostContainer h1 {
+  max-width: 940px;
+  text-align: center;
+}
+
 .backgroundPostContainer .singlePostContainer {
   display: -webkit-box;
   display: -ms-flexbox;

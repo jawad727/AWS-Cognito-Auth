@@ -123,3 +123,37 @@
 
 }
 
+@media (max-width: 380px) {
+
+
+  .ArticleHubLogo h3 {
+    font-size: 1.1rem;
+  }
+
+  .ArticleHubLogo .blueLogo {
+    margin-top: 2px;
+    width: 22px;
+    height: 18px;
+  }
+
+  .innerNav div button {
+    font-size: 12px;
+  }
+
+}
+
+@media (max-width: 300px) {
+  .ArticleHubLogo h3 {
+    font-size: 1rem;
+  }
+
+  .ArticleHubLogo .blueLogo {
+    margin-top: 0px;
+    width: 22px;
+    height: 18px;
+  }
+
+  .innerNav div button {
+    font-size: 10px;
+  }
+}

@@ -52,6 +52,8 @@
         height: 145px;
         cursor: pointer;  
 
+
+
         p {
             font-family: 'Montserrat', sans-serif;
             margin: 0px;
@@ -111,6 +113,11 @@
         font-size: 1.3rem;
         margin-top: 20px;
         cursor: pointer;
+    }
+
+    h1 {
+        max-width: 940px;
+        text-align: center;
     }
 
     .singlePostContainer {
