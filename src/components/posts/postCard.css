@@ -180,6 +180,12 @@
   background-position: center;
 }
 
+@media (max-width: 625px) {
+  .backgroundPostContainer .singlePostContainer a .singlePostImage {
+    width: 100%;
+  }
+}
+
 .backgroundPostContainer .singlePostContainer a .singlePostImage .ClickView {
   display: none;
   margin: 0px;
@@ -368,6 +374,7 @@
         -ms-flex-direction: column;
             flex-direction: column;
     width: 95%;
+    height: auto;
   }
   .backgroundPostContainer .singlePostContainer a {
     -webkit-box-shadow: 3px 3px 5px grey;

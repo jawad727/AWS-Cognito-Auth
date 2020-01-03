@@ -134,6 +134,10 @@
             background-size: cover;
             background-position: center;
 
+            @media (max-width: 625px) {
+                width: 100%;
+            }
+
 
             .ClickView {
                 display: none;
@@ -329,6 +333,7 @@
     .singlePostContainer {
         flex-direction: column;
         width: 95%;
+        height: auto;
 
         a {
             box-shadow: 3px 3px 5px grey;
