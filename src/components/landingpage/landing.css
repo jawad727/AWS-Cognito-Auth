@@ -1,8 +1,88 @@
-.landingContainer .NewsPapersBackground {
-  background: url(./pictures/newspapers2.jpg) repeat, #cfe6d2;
-  height: 100vh;
-  width: 100%;
+.landingContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.landingContainer div {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 1229px;
+  padding-left: 150px;
+}
+
+.landingContainer div .LandingTitle {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.landingContainer div .LandingSlogan {
+  font-size: 1.6rem;
+  margin: 0px;
+  margin-bottom: 0px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.landingContainer .firstHalfImage {
   position: absolute;
-  top: 0;
+}
+
+.landingContainer .firstHalfButton {
+  width: 400px;
+  height: 50px;
+  font-size: 1rem;
+  margin-top: 500px;
+  margin-left: 500px;
+  background-color: white;
+  border: 1px solid black;
+}
+
+.landingContainer .secondHalfDiv {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: baseline;
+      -ms-flex-pack: baseline;
+          justify-content: baseline;
+  width: 100%;
+  display: none;
+}
+
+.landingContainer .secondHalfDiv img {
+  width: 600px;
+  height: 500px;
+}
+
+.landingContainer .secondHalfDiv .secondHalfTitle {
+  text-align: center;
+  width: 350px;
+  font-size: 1.6rem;
+  font-weight: 600;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.landingContainer .secondHalfDiv .secondHalfParagraph {
+  text-align: center;
+  width: 350px;
+  font-size: 1.4rem;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.landingContainer .secondHalfDiv .secondHalfContent {
+  margin-bottom: 80px;
+}
+
+.landingContainer .secondHalfDiv button {
+  width: 350px;
+  height: 50px;
+  font-size: 1rem;
 }
 /*# sourceMappingURL=landing.css.map */
