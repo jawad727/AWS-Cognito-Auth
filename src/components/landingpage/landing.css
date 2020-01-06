@@ -9,6 +9,7 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  background-color: white;
 }
 
 .landingContainer .topDiv {
@@ -58,8 +59,7 @@
   margin-top: 110px;
   width: 100%;
   height: 50px;
-  -webkit-transform: rotate(180deg);
-          transform: rotate(180deg);
+  background-color: #E2E2E2;
 }
 
 @media (max-width: 500px) {
@@ -81,6 +81,7 @@
 }
 
 .landingContainer .firstHalfButton {
+  cursor: pointer;
   width: 400px;
   height: 50px;
   font-size: 1rem;
@@ -91,6 +92,7 @@
   color: white;
   border-radius: 5px;
   font-family: 'Montserrat', sans-serif;
+  z-index: 10;
 }
 
 @media (max-width: 1260px) {
@@ -106,6 +108,12 @@
   }
 }
 
+.landingContainer .firstHalfButton:hover {
+  background-color: lightgreen;
+  border: 1px solid black;
+  color: black;
+}
+
 .landingContainer .secondHalfDiv {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -114,7 +122,7 @@
       -ms-flex-pack: center;
           justify-content: center;
   width: 100%;
-  background-color: white;
+  background-color: #E2E2E2;
 }
 
 .landingContainer .secondHalfDiv .SecondHalfInnerContainer {
@@ -242,9 +250,10 @@
   border: 1px solid black;
   border-radius: 5px;
   font-family: 'Montserrat', sans-serif;
-  background-color: lightgreen;
+  background-color: #212121;
   margin-top: 20px;
-  font-weight: 600;
+  color: white;
+  cursor: pointer;
 }
 
 @media (max-width: 1260px) {
@@ -257,6 +266,12 @@
   .landingContainer .secondHalfDiv .SecondHalfInnerContainer button {
     width: 90%;
   }
+}
+
+.landingContainer .secondHalfDiv .SecondHalfInnerContainer button:hover {
+  background-color: lightgreen;
+  border: 1px solid black;
+  color: black;
 }
 
 .landingContainer .LandingFooter {

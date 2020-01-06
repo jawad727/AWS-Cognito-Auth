@@ -31,7 +31,7 @@
   justify-content: center;
   height: 76px;
   background-color: #212121;
-  box-shadow: 1px 1px 3px grey;
+  /* box-shadow: 1px 1px 3px grey; */
   z-index: 11;
 }
 
