@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    // background-color: lightgrey;
 
     .topDiv {
         box-sizing: border-box;
@@ -17,8 +18,15 @@
 
         .LandingTitle {
             font-size: 2.5rem;
-            margin-bottom: 10px;
+            margin-bottom: 20px;
             font-family: 'Montserrat', sans-serif;
+
+            @media (max-width: 600px) {
+                font-size: 2rem;
+                margin: auto 10px;
+                margin-top: 32px;
+                margin-bottom: 20px;
+            }
         }
 
         .LandingSlogan {
@@ -26,6 +34,10 @@
             margin: 0px;
             margin-bottom: 0px;
             font-family: 'Montserrat', sans-serif;
+
+            @media (max-width: 600px) {
+                font-size: 1.2rem;
+            }
         }
     }
 
@@ -34,6 +46,10 @@
         width: 100%;
         height: 50px;
         transform: rotate(180deg);
+
+        @media (max-width: 500px) {
+            margin-top: 50px;
+        }
     }
 
     .firstHalfImage {
@@ -64,6 +80,10 @@
             margin-top: 0px;
             margin-left: 0px;
         }
+
+        @media (max-width: 500px) {
+            width: 90%;
+        }
     }
 
     .secondHalfDiv {
@@ -88,6 +108,10 @@
             height: 600px;
             margin-bottom: 50px;
 
+            @media (max-width: 700px) {
+                width: 100%;
+                height: auto;
+            }
             
         }
 
@@ -97,6 +121,10 @@
             font-size: 1.6rem;
             font-weight: 600;
             font-family: 'Montserrat', sans-serif;
+
+            @media (max-width: 1250px) {
+                font-size: 3rem;
+            }
         }
 
         .secondHalfParagraph {
@@ -104,6 +132,8 @@
             width: 350px;
             font-size: 1.4rem;
             font-family: 'Montserrat', sans-serif;
+
+
         }
 
         .secondHalfContent {
@@ -116,17 +146,40 @@
                 flex-direction: column;
                 align-items: center;
                 padding-right: 0px;
-            //    justify-content: center;
-            // align-items: center;
-            
             }
 
             p {
                 @media (max-width: 1260px) {
-                    font-size: 1.8rem;
+                    font-size: 1.6rem;
                     width: 90%;
+                    width: 80%;
+                }
+
+                @media (max-width: 650px) {
+                    font-size: 1.4rem;
+                }
+
+                @media (max-width: 500px) {
+                    font-size: 1.1rem;
                 }
             }
+
+            .secondHalfTitle {
+                @media (max-width: 1260px) {
+                    font-size: 2.3rem;
+                }
+
+                @media (max-width: 700px) {
+                    margin-top: 0px;
+                }
+
+                @media (max-width: 500px) {
+                    font-size: 1.8rem;
+                    margin-top: 0px;
+                }
+            }
+
+            
             
         }
 
@@ -144,6 +197,10 @@
 
             @media (max-width: 1260px) {
                 margin-left: auto 0px;
+            }
+
+            @media (max-width: 410px) {
+                width: 90%;
             }
         }
 
