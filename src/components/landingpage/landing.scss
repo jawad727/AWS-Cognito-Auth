@@ -7,6 +7,12 @@
         box-sizing: border-box;
         width: 1229px;
         padding-left: 150px;
+
+        @media (max-width: 1260px) {
+            text-align: center;
+            padding-left: 0px;
+            width: 100%;
+        }
         
 
         .LandingTitle {
@@ -33,7 +39,12 @@
     .firstHalfImage {
         position: absolute;
         z-index: 10;
-        // width: 1229px
+        
+        @media (max-width: 1260px) {
+            position: static;
+            width: 90%;
+        
+        }
     }
 
     .firstHalfButton {
@@ -49,8 +60,10 @@
         border-radius: 5px;
         font-family: 'Montserrat', sans-serif;
         
-        // top: 750px;
-        // right: 400px;
+        @media (max-width: 1260px) {
+            margin-top: 0px;
+            margin-left: 0px;
+        }
     }
 
     .secondHalfDiv {
@@ -58,7 +71,6 @@
         justify-content: center;
         width: 100%;
         background-color: white;
-        // display: none;
 
         .SecondHalfInnerContainer {
         display: flex;
@@ -66,10 +78,17 @@
         width: 100%;
         margin-top: 80px;
 
+        @media (max-width: 1260px) {
+            flex-direction: column-reverse;
+            align-items: center;
+        }
+
         .secondHalfImage {
             width: 700px;
             height: 600px;
             margin-bottom: 50px;
+
+            
         }
 
         .secondHalfTitle {
@@ -91,6 +110,24 @@
             display: block;
             margin-bottom: 80px;
             padding-right: 200px;
+
+            @media (max-width: 1260px) {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                padding-right: 0px;
+            //    justify-content: center;
+            // align-items: center;
+            
+            }
+
+            p {
+                @media (max-width: 1260px) {
+                    font-size: 1.8rem;
+                    width: 90%;
+                }
+            }
+            
         }
 
         button {
@@ -103,6 +140,11 @@
             background-color: lightgreen;
             margin-top: 20px;
             font-weight: 600;
+
+
+            @media (max-width: 1260px) {
+                margin-left: auto 0px;
+            }
         }
 
       }
@@ -114,7 +156,7 @@
         justify-content: center;
         width: 100%;
         background-color: #212121;
-        height: 100px;
+        height: 80px;
         
         box-sizing: border-box;
         color: lightgrey;
