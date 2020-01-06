@@ -21,13 +21,24 @@
   color: #09d3ac;
 }
 
+
+
 .Nav {
+  position: fixed;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   height: 76px;
   background-color: #212121;
-  box-shadow: 2px 2px 5px lightgrey;
+  box-shadow: 1px 1px 3px grey;
+  z-index: 11;
+}
+
+.UnderNav {
+  position: absolute;
+  margin-top: 76px;
+  width: 100%;
 }
 
 .Nav h3 {

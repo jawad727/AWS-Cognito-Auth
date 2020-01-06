@@ -75,6 +75,7 @@ class App extends Component {
                 </div> }
             </div>
           </div>
+        <div className="UnderNav">
         <Switch>
         <Route exact path="/" component={LandingPage} />
         <Route exact path="/signup" component={SignUp} handleSignup={ this.handleSignup } />
@@ -93,6 +94,7 @@ class App extends Component {
 
         
         </Switch>
+        </div>
         </div>
         )
   }
