@@ -3,7 +3,7 @@
     flex-direction: column;
     align-items: center;
 
-    div {
+    .topDiv {
         box-sizing: border-box;
         width: 1229px;
         padding-left: 150px;
@@ -23,10 +23,16 @@
         }
     }
 
-
+    .wayve {
+        margin-top: 110px;
+        width: 100%;
+        height: 50px;
+        transform: rotate(180deg);
+    }
 
     .firstHalfImage {
         position: absolute;
+        z-index: 10;
         // width: 1229px
     }
 
@@ -37,21 +43,33 @@
         font-size: 1rem;
         margin-top: 500px;
         margin-left: 500px;
-        background-color: white;
+        background-color: #212121;;
         border: 1px solid black;
+        color: white;
+        border-radius: 5px;
+        font-family: 'Montserrat', sans-serif;
+        
         // top: 750px;
         // right: 400px;
     }
 
     .secondHalfDiv {
         display: flex;
-        justify-content: baseline;
+        justify-content: center;
         width: 100%;
-        display: none;
+        background-color: white;
+        // display: none;
 
-        img {
-            width: 600px;
-            height: 500px;
+        .SecondHalfInnerContainer {
+        display: flex;
+        justify-content: space-evenly;
+        width: 100%;
+        margin-top: 80px;
+
+        .secondHalfImage {
+            width: 700px;
+            height: 600px;
+            margin-bottom: 50px;
         }
 
         .secondHalfTitle {
@@ -70,15 +88,36 @@
         }
 
         .secondHalfContent {
+            display: block;
             margin-bottom: 80px;
+            padding-right: 200px;
         }
 
         button {
             width: 350px;
             height: 50px;
             font-size: 1rem;
+            border: 1px solid black;
+            border-radius: 5px;
+            font-family: 'Montserrat', sans-serif;
+            background-color: lightgreen;
+            margin-top: 20px;
+            font-weight: 600;
         }
+
+      }
     }
-    
+
+    .LandingFooter {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        background-color: #212121;
+        height: 100px;
+        
+        box-sizing: border-box;
+        color: lightgrey;
+    }
     
 }

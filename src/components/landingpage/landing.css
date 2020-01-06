@@ -11,28 +11,37 @@
           align-items: center;
 }
 
-.landingContainer div {
+.landingContainer .topDiv {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   width: 1229px;
   padding-left: 150px;
 }
 
-.landingContainer div .LandingTitle {
+.landingContainer .topDiv .LandingTitle {
   font-size: 2.5rem;
   margin-bottom: 10px;
   font-family: 'Montserrat', sans-serif;
 }
 
-.landingContainer div .LandingSlogan {
+.landingContainer .topDiv .LandingSlogan {
   font-size: 1.6rem;
   margin: 0px;
   margin-bottom: 0px;
   font-family: 'Montserrat', sans-serif;
 }
 
+.landingContainer .wayve {
+  margin-top: 110px;
+  width: 100%;
+  height: 50px;
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
 .landingContainer .firstHalfImage {
   position: absolute;
+  z-index: 10;
 }
 
 .landingContainer .firstHalfButton {
@@ -41,27 +50,42 @@
   font-size: 1rem;
   margin-top: 500px;
   margin-left: 500px;
-  background-color: white;
+  background-color: #212121;
   border: 1px solid black;
+  color: white;
+  border-radius: 5px;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .landingContainer .secondHalfDiv {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: baseline;
-      -ms-flex-pack: baseline;
-          justify-content: baseline;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   width: 100%;
-  display: none;
+  background-color: white;
 }
 
-.landingContainer .secondHalfDiv img {
-  width: 600px;
-  height: 500px;
+.landingContainer .secondHalfDiv .SecondHalfInnerContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  width: 100%;
+  margin-top: 80px;
 }
 
-.landingContainer .secondHalfDiv .secondHalfTitle {
+.landingContainer .secondHalfDiv .SecondHalfInnerContainer .secondHalfImage {
+  width: 700px;
+  height: 600px;
+  margin-bottom: 50px;
+}
+
+.landingContainer .secondHalfDiv .SecondHalfInnerContainer .secondHalfTitle {
   text-align: center;
   width: 350px;
   font-size: 1.6rem;
@@ -69,20 +93,46 @@
   font-family: 'Montserrat', sans-serif;
 }
 
-.landingContainer .secondHalfDiv .secondHalfParagraph {
+.landingContainer .secondHalfDiv .SecondHalfInnerContainer .secondHalfParagraph {
   text-align: center;
   width: 350px;
   font-size: 1.4rem;
   font-family: 'Montserrat', sans-serif;
 }
 
-.landingContainer .secondHalfDiv .secondHalfContent {
+.landingContainer .secondHalfDiv .SecondHalfInnerContainer .secondHalfContent {
+  display: block;
   margin-bottom: 80px;
+  padding-right: 200px;
 }
 
-.landingContainer .secondHalfDiv button {
+.landingContainer .secondHalfDiv .SecondHalfInnerContainer button {
   width: 350px;
   height: 50px;
   font-size: 1rem;
+  border: 1px solid black;
+  border-radius: 5px;
+  font-family: 'Montserrat', sans-serif;
+  background-color: lightgreen;
+  margin-top: 20px;
+  font-weight: 600;
+}
+
+.landingContainer .LandingFooter {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+  background-color: #212121;
+  height: 100px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  color: lightgrey;
 }
 /*# sourceMappingURL=landing.css.map */
