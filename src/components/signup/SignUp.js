@@ -37,7 +37,7 @@ class SignUp extends Component {
             password: password,
             attributes: {
                 email: email,
-                phone_number: phone_number,
+                phone_number: "+1" + phone_number,
             }
         })
         .then((res) => {
@@ -111,6 +111,8 @@ class SignUp extends Component {
   
     render() {
 
+      console.log(this.state.phone_number)
+
       const { verified } = this.state;
       if (verified) {
           return (
@@ -123,6 +125,7 @@ class SignUp extends Component {
                       <label>Confirmation Code</label>
                       <input id='confirmationCode' type='text' onChange={ this.handleChange }/>
                       <button>Confirm Sign up</button>
+                  
                   </form>
                   <button className="confirmationButton" >
                     Remind Me Later

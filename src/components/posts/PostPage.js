@@ -133,7 +133,10 @@ class PostPage extends Component {
 
                     <div className="spinnerContainerComments">
                     <i class="fas fa-circle-notch fa-2x"></i>
-                    </div> :
+                    <p>Loading...</p>
+                    </div>
+                    
+                    :
 
                     <div className="commentsArea" >
                         { this.props.postComments.map(item => {
