@@ -144,7 +144,6 @@ class PostForm extends Component {
                     Username: this.state.username
                 })
                 setTimeout(() => this.props.history.push("/home"), 1500);
-                // .then(this.props.history.push("/home"))
                  } }} > upload </button>
               
             </div>

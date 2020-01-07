@@ -17,8 +17,8 @@ class LandingPage extends Component {
                   <p className="LandingSlogan" > Connect with friends. </p>
                 </div>
                 <img className="firstHalfImage" src={img}/>
-                <button onClick={() => this.props.history.push("/home")}  className="firstHalfButton" > Browse All Articles </button>
-
+                
+                <button onClick={() => this.props.history.push(`/signup`)} className="firstHalfButton" > Sign Up </button>
                 <img className="wayve" src={img3} />
              
               <div className="secondHalfDiv" >
@@ -32,7 +32,8 @@ class LandingPage extends Component {
                       posting and exchange ideas in comments </p>
                       <p className="secondHalfParagraph"> Curate your news feed. Tired of old articles? Delete
                       them from your profile to make room for new and exciting reads!</p>
-                      <button onClick={() => this.props.history.push(`/signup`)} > Sign Up </button>
+                      
+                      <button onClick={() => this.props.history.push("/home")} > Browse All Articles </button>
                     </div>
                   </div>
               </div>
