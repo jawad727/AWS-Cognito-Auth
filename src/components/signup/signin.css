@@ -59,6 +59,12 @@
   margin-bottom: 0px;
 }
 
+@media (max-width: 350px) {
+  .SignUp h3 {
+    font-size: 1.15rem;
+  }
+}
+
 .SignUp .fineprint {
   font-size: .8rem;
   margin-bottom: 18px;
@@ -78,6 +84,12 @@
   background: white;
   -webkit-box-shadow: 2px 2px 5px grey;
           box-shadow: 2px 2px 5px grey;
+}
+
+@media (max-width: 350px) {
+  .SignUp form {
+    width: 250px;
+  }
 }
 
 .SignUp form input {

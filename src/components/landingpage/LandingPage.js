@@ -16,9 +16,14 @@ class LandingPage extends Component {
                   <p className="LandingSlogan" > Read your favorite articles. </p>
                   <p className="LandingSlogan" > Connect with friends. </p>
                 </div>
-                <img className="firstHalfImage" src={img}/>
+
+                <div className="ScreenSizerTop">
+                  <img className="firstHalfImage" src={img}/>
+                </div>
+                {/* <div className="ScreenSizerTop"> */}
+                  <button onClick={() => this.props.history.push(`/signup`)} className="firstHalfButton" > Sign Up </button>
+                {/* </div> */}
                 
-                <button onClick={() => this.props.history.push(`/signup`)} className="firstHalfButton" > Sign Up </button>
                 <img className="wayve" src={img3} />
              
               <div className="secondHalfDiv" >

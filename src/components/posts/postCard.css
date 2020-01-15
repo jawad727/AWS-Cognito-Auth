@@ -161,6 +161,12 @@
   text-align: center;
 }
 
+@media (max-width: 500px) {
+  .backgroundPostContainer h1 {
+    font-size: 1.5rem;
+  }
+}
+
 .backgroundPostContainer .singlePostContainer {
   display: -webkit-box;
   display: -ms-flexbox;
