@@ -10,19 +10,17 @@ class LandingPage extends Component {
     render() {
         
         return (
-            <div className="landingContainer">
+            <div data-test="headerComponent" className="landingContainer">
                 <div className="topDiv">
-                  <p className="LandingTitle" >Your personal news feed delivered</p>
-                  <p className="LandingSlogan" > Read your favorite articles. </p>
-                  <p className="LandingSlogan" > Connect with friends. </p>
+                  <p data-test="landingSlogan" className="LandingTitle" >Your personal news feed delivered</p>
+                  <p data-test="landingSlogan" className="LandingSlogan" > Read your favorite articles. </p>
+                  <p data-test="landingSlogan" className="LandingSlogan" > Connect with friends. </p>
                 </div>
 
                 <div className="ScreenSizerTop">
                   <img className="firstHalfImage" src={img}/>
                 </div>
-                {/* <div className="ScreenSizerTop"> */}
                   <button onClick={() => this.props.history.push(`/signup`)} className="firstHalfButton" > Sign Up </button>
-                {/* </div> */}
                 
                 <img className="wayve" src={img3} />
              
