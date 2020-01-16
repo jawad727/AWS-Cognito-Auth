@@ -18,7 +18,7 @@ class LandingPage extends Component {
                 </div>
 
                 <div className="ScreenSizerTop">
-                  <img className="firstHalfImage" src={img}/>
+                  <img data-test="mainImage" className="firstHalfImage" src={img}/>
                 </div>
                   <button onClick={() => this.props.history.push(`/signup`)} className="firstHalfButton" > Sign Up </button>
                 
@@ -26,14 +26,14 @@ class LandingPage extends Component {
              
               <div className="secondHalfDiv" >
                   <div className="SecondHalfInnerContainer">
-                    <img className="secondHalfImage" src={img2}/>
+                    <img data-test="lowerImage" className="secondHalfImage" src={img2}/>
                     <div className="secondHalfContent">
-                      <p className="secondHalfTitle"> Your New Social News Hub </p>
-                      <p className="secondHalfParagraph"> ArticleHub puts the news in your hands. 
+                      <p data-test="DescriptiveStatement" className="secondHalfTitle"> Your New Social News Hub </p>
+                      <p data-test="DescriptiveStatement" className="secondHalfParagraph"> ArticleHub puts the news in your hands. 
                       Browse your favorite articles across politics, sports, tech, art, and more! </p>
-                      <p className="secondHalfParagraph"> Connect with other users to see articles they're
+                      <p data-test="DescriptiveStatement" className="secondHalfParagraph"> Connect with other users to see articles they're
                       posting and exchange ideas in comments </p>
-                      <p className="secondHalfParagraph"> Curate your news feed. Tired of old articles? Delete
+                      <p data-test="DescriptiveStatement" className="secondHalfParagraph"> Curate your news feed. Tired of old articles? Delete
                       them from your profile to make room for new and exciting reads!</p>
                       
                       <button onClick={() => this.props.history.push("/home")} > Browse All Articles </button>

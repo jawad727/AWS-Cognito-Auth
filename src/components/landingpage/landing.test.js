@@ -22,12 +22,31 @@ describe("Landing container", () => {
     })
 
     describe("Slogan", () => {
-
         it("Should render without errors", () => {
             const slogan = findByTestAtt(component, "landingSlogan")
             expect(slogan.length).toBe(3);
         })
+    })
 
+    describe("Main image", () => {
+        it("Should render without errors", () => {
+            const mainImage = findByTestAtt(component, "mainImage")
+            expect(mainImage.length).toBe(1);
+        })
+    })
+
+    describe("Lower image", () => {
+        it("Should render without errors", () => {
+            const mainImage = findByTestAtt(component, "lowerImage")
+            expect(mainImage.length).toBe(1);
+        })
+    })
+
+    describe("Descriptive statement", () => {
+        it("Should render without errors", () => {
+            const slogan = findByTestAtt(component, "DescriptiveStatement")
+            expect(slogan.length).toBe(4);
+        })
     })
 
 })
