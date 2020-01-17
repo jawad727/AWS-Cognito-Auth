@@ -11,7 +11,7 @@ const initialState = {
     userFetched: false
 }
 
-const rootReducer = (state = initialState, action) => {
+export const rootReducer = (state = initialState, action) => {
     switch(action.type){
         case FETCH_USERS:
             return {
