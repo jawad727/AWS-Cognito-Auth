@@ -77,10 +77,8 @@
         position: absolute;
         // margin: 0 auto;
         z-index: 10;
-        height: 100vh;
         
         @media (max-width: 1260px) {
-            height: auto;
             position: static;
             width: 90%;
         
