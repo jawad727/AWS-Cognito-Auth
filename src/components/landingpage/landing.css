@@ -96,10 +96,12 @@
 .landingContainer .firstHalfImage {
   position: absolute;
   z-index: 10;
+  height: 100vh;
 }
 
 @media (max-width: 1260px) {
   .landingContainer .firstHalfImage {
+    height: auto;
     position: static;
     width: 90%;
   }

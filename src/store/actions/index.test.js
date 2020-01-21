@@ -26,7 +26,7 @@ describe("fetchUsers action", () => {
 
           const store = testStore()
 
-          moxios.wait(() => {
+          moxios.wait(() => { //after installing moxios, look at our most recent request and respond with success and our expected state
               const request = moxios.requests.mostRecent();
               request.respondWith({
                   status: 200,
@@ -34,7 +34,7 @@ describe("fetchUsers action", () => {
               })
           })
 
-          return store.dispatch(fetchUsers())
+          return store.dispatch(fetchUsers())//use fetchUsers handler to see if it updates the the store correctly
           .then(() => {
               const newState = store.getState();
               expect(newState.usersArray).toBe(expectedState)
