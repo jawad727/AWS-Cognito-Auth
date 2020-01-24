@@ -1,6 +1,6 @@
 import moxios from "moxios" 
 import { testStore } from "../../components/reusables/resuableFunctions"
-import { fetchUsers,  fetchComments} from "./index.js"
+import { fetchUsers,  fetchComments, fetchSingleUser} from "./index.js"
 
 describe("fetchUsers action", () => {
 
@@ -42,6 +42,37 @@ describe("fetchUsers action", () => {
 
     })
 
+    test("fetchSingleUser store is updated correctly", () => {
+
+        const expectedState = [{
+            title: "Example title 1",
+            body: "Some text"  },
+        {
+            title: "Example title 2",
+            body: "Some text"  },
+          {
+            title: "Example title 3",
+            body: "Some text"  }]
+
+          const store = testStore()
+
+          moxios.wait(() => {
+              const request = moxios.requests.mostRecent();
+              request.respondWith({
+                  status: 200,
+                  response: expectedState
+              })
+          })
+
+          return store.dispatch(fetchSingleUser())
+          .then(() => {
+              const newState = store.getState();
+              expect(newState.singleUser).toBe(expectedState)
+          })
+
+    })
+
+
     test("postComments store is updated correctly", () => {
 
         const expectedState = [{
@@ -71,6 +102,7 @@ describe("fetchUsers action", () => {
           })
 
     })
+
 
 })
 
