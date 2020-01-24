@@ -1,6 +1,6 @@
 import moxios from "moxios" 
 import { testStore } from "../../components/reusables/resuableFunctions"
-import { fetchUsers } from "./index.js"
+import { fetchUsers,  fetchComments} from "./index.js"
 
 describe("fetchUsers action", () => {
 
@@ -12,7 +12,7 @@ describe("fetchUsers action", () => {
         moxios.uninstall()
     })
 
-    test("Store is updated correctly", () => {
+    test("usersArray store is updated correctly", () => {
 
         const expectedState = [{
             title: "Example title 1",
@@ -42,4 +42,35 @@ describe("fetchUsers action", () => {
 
     })
 
+    test("postComments store is updated correctly", () => {
+
+        const expectedState = [{
+            title: "Example title 1",
+            body: "Some text"  },
+        {
+            title: "Example title 2",
+            body: "Some text"  },
+          {
+            title: "Example title 3",
+            body: "Some text"  }]
+
+          const store = testStore()
+
+          moxios.wait(() => {
+              const request = moxios.requests.mostRecent();
+              request.respondWith({
+                  status: 200,
+                  response: expectedState
+              })
+          })
+
+          return store.dispatch(fetchComments())
+          .then(() => {
+              const newState = store.getState();
+              expect(newState.postComments).toBe(expectedState)
+          })
+
+    })
+
 })
+
