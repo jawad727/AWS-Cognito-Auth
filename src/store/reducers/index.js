@@ -3,7 +3,7 @@ import { UPDATE_USER, POST_LIKE, FETCH_LIKES, FETCH_SINGLE_USER, POST_COMMENT, F
 const initialState = {
     usersArray: [], //
     allPostsArray: [], //
-    allPostsByUser: [],
+    allPostsByUser: [], //
     postComments: [], //
     likesArray: [], //
     singleUser: [], //

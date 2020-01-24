@@ -1,6 +1,6 @@
 import moxios from "moxios" 
 import { testStore } from "../../components/reusables/resuableFunctions"
-import { fetchUsers,  fetchComments, fetchSingleUser, fetchLikes, fetchPosts } from "./index.js"
+import { fetchUsers,  fetchComments, fetchSingleUser, fetchLikes, fetchPosts, fetchPostsByUser } from "./index.js"
 
 describe("fetchUsers action", () => {
 
@@ -102,25 +102,45 @@ describe("fetchUsers action", () => {
 
   })
 
-  test("allPostsArray store is updated correctly", () => {
+    test("allPostsArray store is updated correctly", () => {
 
-    const store = testStore()
+        const store = testStore()
 
-    moxios.wait(() => {
-        const request = moxios.requests.mostRecent();
-        request.respondWith({
-            status: 200,
-            response: expectedState
+        moxios.wait(() => {
+            const request = moxios.requests.mostRecent();
+            request.respondWith({
+                status: 200,
+                response: expectedState
+            })
         })
-    })
 
-    return store.dispatch(fetchPosts())
-    .then(() => {
-        const newState = store.getState();
-        expect(newState.allPostsArray).toBe(expectedState)
-    })
+        return store.dispatch(fetchPosts())
+        .then(() => {
+            const newState = store.getState();
+            expect(newState.allPostsArray).toBe(expectedState)
+        })
 
-})
+  })
+
+    test("allPostsByUser store is updated correctly", () => {
+
+        const store = testStore()
+
+        moxios.wait(() => {
+            const request = moxios.requests.mostRecent();
+            request.respondWith({
+                status: 200,
+                response: expectedState
+            })
+        })
+
+        return store.dispatch(fetchPostsByUser())
+        .then(() => {
+            const newState = store.getState();
+            expect(newState.allPostsByUser).toBe(expectedState)
+        })
+
+  })
 
 
 })
