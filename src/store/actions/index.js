@@ -169,17 +169,3 @@ export const updateUser = (id, params) => dispatch => {
         console.log(err)
     })
 } 
-
-
-// export const userSignIn = () => dispatch => {
-//     return axios.put(`${baseURL}/user/${id}`, params)
-//     .then(user => {
-//         dispatch({
-//             type: UPDATE_USER,
-//             payload: res.data
-//         })
-//     })
-//     .catch(err => {
-//         console.log(err)
-//     })
-// }
