@@ -83,16 +83,12 @@ class App extends Component {
         <Route exact path="/home" component={Home} />
         <Route exact path="/postform" component={Authenticate(PostForm)} usersignedin={true} />
         <Route exact path="/editprofile" component={Authenticate(EditProfile) } />
-        
         {this.props.usersArray.map(item => {
           return <Route path={`/${item.Username}`} render={(props) => <Profile {...props}  content={item} />} />
         })}
-
         {this.props.allPostsArray && this.props.allPostsArray.map(item => {
           return <Route path={`/${item.uid}`} render={(props) => <PostPage {...props}  content={item} />} />
-        })}
-
-        
+        })}      
         </Switch>
         </div>
         </div>
