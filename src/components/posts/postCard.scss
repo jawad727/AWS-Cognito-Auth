@@ -63,7 +63,7 @@
         p {
             font-family: 'Montserrat', sans-serif;
             margin: 0px;
-            margin-top: 10px;
+            // margin-top: 10px;
         }
 
         .CardTitle {
@@ -76,6 +76,7 @@
         .CardDescription {
             // font-weight: 600;
             margin: 0px;
+            padding-bottom: 10px;
             cursor: pointer;
 
             strong {
@@ -91,7 +92,7 @@
         .CardLikesNumber {
             font-weight: 600;
             margin: 0px;
-            margin-bottom: 5px;
+            margin-bottom: 0px;
         }
 
 

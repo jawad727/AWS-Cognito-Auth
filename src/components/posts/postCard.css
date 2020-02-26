@@ -97,7 +97,6 @@
 .CardContainer .CardContent p {
   font-family: 'Montserrat', sans-serif;
   margin: 0px;
-  margin-top: 10px;
 }
 
 .CardContainer .CardContent .CardTitle {
@@ -109,6 +108,7 @@
 
 .CardContainer .CardContent .CardDescription {
   margin: 0px;
+  padding-bottom: 10px;
   cursor: pointer;
 }
 
@@ -123,7 +123,7 @@
 .CardContainer .CardContent .CardLikesNumber {
   font-weight: 600;
   margin: 0px;
-  margin-bottom: 5px;
+  margin-bottom: 0px;
 }
 
 .backgroundPostContainer {
