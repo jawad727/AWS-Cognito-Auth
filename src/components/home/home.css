@@ -146,10 +146,13 @@
   margin: 5px;
   font-weight: 600;
   cursor: pointer;
+  -webkit-box-shadow: 2px 2px 5px lightgrey;
+          box-shadow: 2px 2px 5px lightgrey;
 }
 
 .HomeContainer .AllPostOrganizer div:hover {
-  opacity: 0.8;
+  -webkit-box-shadow: 2px 2px 5px grey;
+          box-shadow: 2px 2px 5px grey;
 }
 
 .HomeContainer .AllPostOrganizer .HighlightedTab {
