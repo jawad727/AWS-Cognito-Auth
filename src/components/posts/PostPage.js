@@ -35,7 +35,9 @@ class PostPage extends Component {
   componentDidMount() {
     this.props.fetchComments(this.props.content.uid)
     Auth.currentSession().then((user) => {
-      this.setState({username: user.accessToken.payload.username}) 
+      this.setState({
+        username: user.accessToken.payload.username
+      }) 
       this.props.fetchLikes(user.accessToken.payload.username).then(() => {
         this.setState({isLiked: this.searcher(this.props.content.uid), loading: false })
       })
@@ -102,8 +104,7 @@ class PostPage extends Component {
 
   render() {
 
-    // console.log(this.props.content.uid)
-    console.log(this.props.commentFetched)
+    console.log(this.props.postComments)
     console.log("asd")
 
       return (
@@ -145,14 +146,14 @@ class PostPage extends Component {
                     <div className="contentLowerHalf" >
                         <div className="likeCommentDiv" >
                             { this.state.isLiked ? <i class="fas fa-eye fa-2x" style={{color: "grey"}}></i>
-                            : <i class="far fa-eye fa-2x" onClick={this.upvote}></i> }
+                            : <i class="far fa-eye fa-2x" onClick={(e) => this.state.username.length == 0 ? alert(`Log in to mark post as "Viewed"`)  : this.upvote(e) } ></i> }
                               <i class="far fa-comment fa-2x" ></i>
                             { this.props.content.Username == this.state.username ?
                               <i class="fas fa-trash-alt fa-2x trashicon" onClick={() => { this.alarmFunction() }}></i> 
                             : null}
                         </div>
                         <p className="amountOfLikes">{`${this.state.likesnumber} views`}</p>
-                        <p className="displaynameText" ><strong className="strongName" onClick={() => {this.props.history.push(`/${this.props.content.Username}`)}}>{ `${this.props.content.Username}:`}</strong> {`${this.props.content.PostDescription}`}</p>
+                        <img src="" /><p className="displaynameText" ><strong className="strongName" onClick={() => {this.props.history.push(`/${this.props.content.Username}`)}}>{ `${this.props.content.Username}:`}</strong> {`${this.props.content.PostDescription}`}</p>
                         <form onSubmit={(e) => {this.postCommentHandler(e)}}>
                             <input onClick={() => {this.state.username.length == 0 ? alert("Log in before making a comment.") : console.log("") }} onChange={(e) => {this.state.username.length == 0 ? e.target.value = "" : this.changeHandler(e) }} type="text" placeholder="add a comment" rows="2" name="text" value={this.state.text} />
                             

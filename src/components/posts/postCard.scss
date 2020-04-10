@@ -63,7 +63,6 @@
         p {
             font-family: 'Montserrat', sans-serif;
             margin: 0px;
-            // margin-top: 10px;
         }
 
         .CardTitle {
@@ -74,7 +73,6 @@
         }
 
         .CardDescription {
-            // font-weight: 600;
             margin: 0px;
             padding-bottom: 10px;
             cursor: pointer;
@@ -120,6 +118,11 @@
         font-size: 1.3rem;
         margin-top: 20px;
         cursor: pointer;
+        box-shadow: 3px 3px 5px lightgrey;
+    }
+
+    .goBackButton:hover {
+        box-shadow: 3px 3px 5px grey;
     }
 
     h1 {
@@ -279,11 +282,13 @@
                     border-top: 1px solid grey;
                     padding-top: 10px;
                     
+                    .fa-eye:hover {
+                        cursor: pointer;
+                    }
 
                     i {
                         margin-left: 10px;
                         color: black;
-                        // animation: rotation 1s infinite linear;
                     }
 
                     .trashicon {
