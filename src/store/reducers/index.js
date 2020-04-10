@@ -7,7 +7,8 @@ const initialState = {
     postComments: [], 
     likesArray: [], 
     singleUser: [], 
-    userFetched: false
+    userFetched: false,
+    commentFetched: false
 }
 
 export const rootReducer = (state = initialState, action) => {
@@ -56,7 +57,8 @@ export const rootReducer = (state = initialState, action) => {
         case FETCH_COMMENTS:
             return {
         ...state,
-        postComments: action.payload
+        postComments: action.payload,
+        commentFetched: true
             }
         case POST_COMMENT:
             return {

@@ -94,7 +94,6 @@ class EditProfile extends Component {
     render() {
 
         console.log(this.props.userFetched)
-        // console.log(this.props.singleUser)
 
         return (
           <>

@@ -38,8 +38,6 @@ class PostPage extends Component {
       this.setState({username: user.accessToken.payload.username}) 
       this.props.fetchLikes(user.accessToken.payload.username).then(() => {
         this.setState({isLiked: this.searcher(this.props.content.uid), loading: false })
-        console.log(this.props.likesArray)
-        console.log(this.props.content.uid)
       })
   }) 
     .catch((err) => {
@@ -104,13 +102,13 @@ class PostPage extends Component {
 
   render() {
 
-    console.log(this.props.content.uid)
     // console.log(this.props.content.uid)
-    console.log(this.state.text)
+    console.log(this.props.commentFetched)
+    console.log("asd")
 
       return (
         <>
-        {   this.state.loading ? 
+        {   this.state.loading || !this.props.commentFetched ? 
         
         <div className="spinnerContainer"> 
         <i class="fas fa-spinner fa-3x"></i> 
@@ -176,7 +174,8 @@ class PostPage extends Component {
 const mapStateToProps = state => ({
 
     postComments: state.postComments,
-    likesArray: state.likesArray
+    likesArray: state.likesArray,
+    commentFetched: state.commentFetched
 })
 
 export default connect(mapStateToProps, {fetchComments, postComment, fetchLikes, postLike, deletePost} )(PostPage);
